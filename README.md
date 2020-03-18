@@ -3,7 +3,7 @@
 ### OpenRC + Desktops minimal: como Exemplo: (i3) 
 Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b> associado a esta máquina
 > Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
-## Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux. <br>
+### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux. <br>
 Notas:<br>
 01: 'É mais fácil fazer clone do meu guia pessoal, em vez de "saltitar" na documentação original.' <br>
 02: Lembrar que o LiveCD deve ser de 32Bits (x86) caso a arquitectura original da máquina seja igualmente de 32Bits (x86)<br>
