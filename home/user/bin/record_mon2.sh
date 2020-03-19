@@ -1,1 +1,1 @@
-recordmydesktop --display=$DISPLAY --width=1440 height=900 -x=1600 -y=0 --fps=15 -o /home/$USER/records/desktopVideo
+recordmydesktop --display :0 --width 1440 --height 900 -x 1600 --fps 30 -o /home/i00nsu/records/
