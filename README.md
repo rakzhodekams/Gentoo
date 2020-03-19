@@ -61,7 +61,7 @@ mkswap /dev/mapper/gentoo-swap
 mkfs.ext4 /dev/mapper/gentoo-root
 mkfs.ext4 /dev/mapper/gentoo-home
 ```
-Activar e associar as partições de disco criadas na tabela LVM fisicamente ( no disco /dev/sdX(?) | /dev/mapper/NOME-NOME)
+Activar e associar as partições de disco criadas na tabela LVM 
 ```bash
 swapon /dev/mapper/gentoo-swap
 mkdir /mnt/gentoo
