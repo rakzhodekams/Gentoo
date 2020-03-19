@@ -1,8 +1,7 @@
 # Instalação do Gentoo
 ## LVM + Dm-Crypt + BIOS Legacy Mode
 ### OpenRC + Desktops minimal: como Exemplo: (i3) 
-Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: <b>ThinkpadT420</b> <br>
-Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
+Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: <b>ThinkpadT420</b> : Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
 > Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
 ### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux. <br>
 Notas:<br>
