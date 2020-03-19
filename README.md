@@ -203,8 +203,8 @@ https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide/Building_the_Gentoo_Ba
 emerge -1euNDav @world 
 ```
 <b>Nota</b>: Usar **equery u ?** para ler as flags associadas a cada libraria ou aplicação a instalar.<br>
-<b>Nota</b>: Usar **euse <b>-p</b> (PastaArvoreDoPortage(:/var/db/repo/gentoo/)) <b>-E</b> novas-flags para adicionar<br>
-<b>Nota</b>: Usar **euse <b>-p</b> (PastaArvoreDoPortage(:/var/db/repo/gentoo/)) <b>-D</b> novas-flags para remover <br><br>
+<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags para adicionar<br>
+<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags para remover <br><br>
 Aplicações necessárias a instalar:<br>
 - euse -p sys-boot/grub -E device-mapper mount truetype
     - Associar dependencias (opcional)
@@ -216,14 +216,11 @@ Aplicações necessárias a instalar:<br>
 emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp
 ```
 Opcionalmente configurar e instalar:
-- euse -p www-client/elinks -E bittorrent gpm
-- euse -p dev-vcs/git -D webdav
-- euse -p net-irc/irssi -E otr socks5
-- tmux : 
-- vim : 
-- vifm : 
-- eix 
 ```bash
+euse -p www-client/elinks -E gpm
+euse -p dev-vcs/git -D webdav
+euse -p net-irc/irssi -E otr socks5 
+euse -p app-editors/vim -E vim-pager cscope python lua ruby
 emerge -av tmux vim vifm eix elinks git irssi 
 ```
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo<br>
