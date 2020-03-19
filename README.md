@@ -86,7 +86,7 @@ Descompactar ficheiro comprimido com o nome 'stage3'
 ```bash
 tar xpJf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 ```
-Editar o principal ficheiro de configuração dos sistemas Gentoo / FreeBSD
+Editar o principal ficheiro de configuração dos sistemas Gentoo
 ```bash
 nano -w /mnt/gentoo/etc/portage/make.conf
 ```
@@ -124,7 +124,7 @@ Escolher um perfil de instalação
 ```bash
 eselect profile list
 ```
-Actualizar a aplicação Portage: <br>Ler mais na documentação On-Line <b>https://dev.gentoo.org/~zmedico/portage/doc/</b><br>Ou Off-Line /usr/share/portage/docs/
+Actualizar a aplicação Portage: <br>Ler mais na documentação em<br> <b>https://dev.gentoo.org/~zmedico/portage/doc/</b><br>Ou no directório /usr/share/portage/doc/
 ```bash
 emerge --ask --verbose --oneshot portage 
 ```
@@ -153,8 +153,8 @@ Atribuir nome da máquina
 nano -w /etc/conf.d/hostname # ThinkAbout
 ```
 Configurar o ficheiro /etc/portage/make.conf<br>
-<b>CPU</b> Referencia Original: https://wiki.gentoo.org/wiki/Safe_CFLAGS<br>
-Bom exemplo <i>offline</i>: /usr/share/portage/config/make.globals<br><br>
+<b>CPU</b> Referencia Original:<br> https://wiki.gentoo.org/wiki/Safe_CFLAGS<br>
+Bom exemplo encontra-se em: <i>/usr/share/portage/config/make.globals</i><br><br>
 Pensar as USE flags do ficheiro /etc/portage/make.conf a usar.<br>
 <b>Sample usado</b>:
 ```bash
@@ -206,8 +206,8 @@ https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide/Building_the_Gentoo_Ba
 emerge -1euNDav @world 
 ```
 <b>Nota</b>: Usar **equery u ?** para ler as flags associadas a cada libraria ou aplicação a instalar.<br>
-<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags para adicionar<br>
-<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags para remover <br><br>
+<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags** para adicionar<br>
+<b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags** para remover <br><br>
 Aplicações necessárias a instalar:<br>
 - euse -p sys-boot/grub -E device-mapper mount truetype
     - Associar dependencias (opcional)
@@ -228,10 +228,10 @@ emerge -av tmux vim vifm eix elinks git irssi
 ```
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo<br>
 Editar o ficheiro /etc/genkernel.conf e executar o comando:<br>
-<b>Nota: configurar '"MENUCONFIG="yes"'<br>
+<b>Nota: configurar '"MENUCONFIG="yes"'</b><br>
 ```bash
 mount /dev/sdX(2) /boot
-genkernel --all
+genkernel all
 ```
 Instalar o grub no disco
 ```bash 
