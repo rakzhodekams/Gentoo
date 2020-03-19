@@ -225,7 +225,7 @@ emerge -av tmux vim vifm eix elinks git irssi
 ```
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo<br>
 Editar o ficheiro /etc/genkernel.conf e executar o comando:<br>
-<b>Nota: configurar para '"MENUCONFIG="yes"'<br>
+<b>Nota: configurar '"MENUCONFIG="yes"'<br>
 ```bash
 mount /dev/sdX(2) /boot
 genkernel --all
