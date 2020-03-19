@@ -111,6 +111,10 @@ A partição está pronta: fazer chroot para iniciar a instalação
 ```bash
 chroot /mnt/gentoo /bin/bash -l
 ```
+Definir palavra de acesso para o utilizador "root"
+```bash
+passwd
+```
 Actualizar sistema e sincronizar Metadata da lista de software disponíveis
 ```bash
 env-update && source /etc/profile && export PS1="(chroot) $PS1" 
