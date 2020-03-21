@@ -1,9 +1,9 @@
 # Instalação do Gentoo
 ## LVM + Dm-Crypt + BIOS Legacy Mode
 ### OpenRC + Desktops minimal: como Exemplo: (i3) 
-Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: <b>ThinkpadT420</b> : Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
+Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
 Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
-### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux. <br>
+### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux.
 Notas:<br>
 01: 'É mais fácil fazer clone do meu guia pessoal, em vez de "saltitar" na documentação original.' <br>
 02: Lembrar que o LiveCD deve ser de 32Bits (x86) caso a arquitectura original da máquina seja igualmente de 32Bits (x86)<br>
@@ -252,7 +252,7 @@ GRUB_DISTRIBUTOR="Gentoo"
 GRUB_PRELOAD_MODULES=lvm
 GRUB_ENABLE_CRYPTODISK=y
 GRUB_DEVICE=/dev/ram0
-GRUB_CMDLINE_LINUX="crypt_root=UUID=d33f6668-bc13-484b-9675-31030d5198e4 real_root=/dev/mapper/Tao-root rootfstype=ext4 dolvm quiet splash net.ifnames=0"
+GRUB_CMDLINE_LINUX="crypt_root=UUID=d33f6428-bc13-484b-9675-310l0d5o98e4 real_root=/dev/mapper/gentoo-root rootfstype=ext4 dolvm quiet splash net.ifnames=0"
 ```
 Instalar o grub
 ```bash 
