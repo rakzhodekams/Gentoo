@@ -2,7 +2,7 @@
 ## LVM + Dm-Crypt + BIOS Legacy Mode
 ### OpenRC + Desktops minimal: como Exemplo: (i3) 
 Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: <b>ThinkpadT420</b> : Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
-> Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
+Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
 ### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux. <br>
 Notas:<br>
 01: 'É mais fácil fazer clone do meu guia pessoal, em vez de "saltitar" na documentação original.' <br>
@@ -217,11 +217,12 @@ echo 'GRUB_PLATFORMS="pc"' >> /etc/portage/make.conf
 - sys-kernel/linux-firmware
 - sys-kernel/genkernel
 - net-misc/dhcp
+- sys-apps/pciutils
 - sys-apps/pciutils (para listarmos o hardware da nossa máquina)
 ```bash
 euse -p sys-apps/pciutils -D dns
 euse -p sys-kernel/linux-firmware -E savedconfig
-emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub
+emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub pciutils
 ```
 Opcionalmente configurar e instalar:
 ```bash
@@ -231,27 +232,41 @@ euse -p net-irc/irssi -E otr socks5
 euse -p app-editors/vim -E vim-pager cscope python lua ruby
 emerge -av tmux vim vifm eix elinks git irssi 
 ```
-Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de IRC da Freenode e ao canal #Gentoo de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
-Iniciar configuração do kernel para ser possível arrancar o sistema operativo<br>
-Editar o ficheiro /etc/genkernel.conf e executar o comando:<br>
+Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
+Iniciar configuração do kernel para ser possível arrancar o sistema operativo:<br>
+Editar o ficheiro <i>/etc/fstab</i> para o reconhecimento da tabela de partições:<br>
+Editar o ficheiro <i>/etc/genkernel.conf</i> e executar o comando:<br>
 <b>Nota: configurar '"MENUCONFIG="yes"'</b><br>
+O comando 'lspci -k' ajuda-nos a configurar o Kernel
 ```bash
 mount /dev/sdX(2) /boot
 genkernel all
 ```
-Instalar o grub no disco
+Antes de instalar o grub no disco deve-se preparar o grub.<br>
+(configurar o grub para fazer boot de partições encriptadas que usam LVM)
+
+```bash
+nano /etc/default/grub
+
+GRUB_DISTRIBUTOR="Gentoo"
+GRUB_PRELOAD_MODULES=lvm
+GRUB_ENABLE_CRYPTODISK=y
+GRUB_DEVICE=/dev/ram0
+GRUB_CMDLINE_LINUX="crypt_root=UUID=d33f6668-bc13-484b-9675-31030d5198e4 real_root=/dev/mapper/Tao-root rootfstype=ext4 dolvm quiet splash net.ifnames=0"
+```
+Instalar o grub
 ```bash 
-nano /etc/default/grub (configurar o grub para fazer boot de partições encriptadas que usam LVM)
 grub-install /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 Reboot?<br>
 Opcionalmente poderiamos reiniciar o computador. <br>
-Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda nõa temos ambiente gráfico.<br>
-A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
-- cronie
-- syslog
-- elogv
+Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda nõa temos ambiente gráfico. A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
+```bash
+emerge cronie syslog-ng laptop-mode irqbalance hddtemp lm_sensors
+```
+
 ## Preparação do X + Fontes + formatos de Imagem + audio
+
 ## Xorg + i3
 
