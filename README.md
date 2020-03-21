@@ -8,7 +8,7 @@ Notas:<br>
 01: 'É mais fácil fazer clone do meu guia pessoal, em vez de "saltitar" na documentação original.' <br>
 02: Lembrar que o LiveCD deve ser de 32Bits (x86) caso a arquitectura original da máquina seja igualmente de 32Bits (x86)<br>
 03: Fazer download de um LiveCD e criar uma USB / CD / DVD com a imagem.<br>
-```bash 
+```bash
 dd if=imagem_x64.iso of=/dev/sd(X) bs=2M status=progress && sync 
 ```
 Configurar a Bios para fazer boot da USB com um LiveCD.<br>
@@ -209,23 +209,29 @@ emerge -1euNDav @world
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags** para adicionar<br>
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags** para remover <br><br>
 Aplicações necessárias a instalar:<br>
+echo 'GRUB_PLATFORMS="pc"' >> /etc/portage/make.conf
 - euse -p sys-boot/grub -E device-mapper mount truetype
     - Associar dependencias (opcional)
         - euse -p dev-libs/boost python numpy tools icu
 - sys-kernel/gentoo-sources
+- sys-kernel/linux-firmware
 - sys-kernel/genkernel
 - net-misc/dhcp
+- sys-apps/pciutils (para listarmos o hardware da nossa máquina)
 ```bash
-emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp
+euse -p sys-apps/pciutils -D dns
+euse -p sys-kernel/linux-firmware -E savedconfig
+emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub
 ```
 Opcionalmente configurar e instalar:
 ```bash
 euse -p www-client/elinks -E gpm
 euse -p dev-vcs/git -D webdav
-euse -p net-irc/irssi -E otr socks5 
+euse -p net-irc/irssi -E otr socks5
 euse -p app-editors/vim -E vim-pager cscope python lua ruby
 emerge -av tmux vim vifm eix elinks git irssi 
 ```
+Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de IRC da Freenode e ao canal #Gentoo de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo<br>
 Editar o ficheiro /etc/genkernel.conf e executar o comando:<br>
 <b>Nota: configurar '"MENUCONFIG="yes"'</b><br>
@@ -235,10 +241,17 @@ genkernel all
 ```
 Instalar o grub no disco
 ```bash 
+nano /etc/default/grub (configurar o grub para fazer boot de partições encriptadas que usam LVM)
 grub-install /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-Reboot?
+Reboot?<br>
+Opcionalmente poderiamos reiniciar o computador. <br>
+Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda nõa temos ambiente gráfico.<br>
+A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
+- cronie
+- syslog
+- elogv
 ## Preparação do X + Fontes + formatos de Imagem + audio
 ## Xorg + i3
 
