@@ -123,10 +123,11 @@ emerge --sync
 Escolher um perfil de instalação
 ```bash
 eselect profile list
+eselect profile set 27 # hardened nomultilib
 ```
 Actualizar a aplicação Portage: <br>Ler mais na documentação em<br> <b>https://dev.gentoo.org/~zmedico/portage/doc/</b><br>Ou no directório /usr/share/portage/doc/
 ```bash
-emerge --ask --verbose --oneshot portage 
+emerge --ask --verbose --oneshot portage
 ```
 Instalar ferramentas úteis para a instalação
 ```bash
@@ -134,14 +135,14 @@ emerge --ask --verbose portage-utils gentoolkit
 ```
 Definir e configurar região geográfica para definir as Horas e os dias
 ```bash
-echo "Europe/Lisbon" > /etc/timezone 
+echo "Europe/Lisbon" > /etc/timezone
 emerge -v --config sys-libs/timezone-data
 ```
 Definir Língua, Caractéres do sistema e actualizar definição 
 ```bash
 nano -w /etc/locale.gen
 locale-gen 
-eselect locale set "C" 
+eselect locale set "C"
 env-update && source /etc/profile && export PS1="(chroot) $PS1"
 ```
 Definir Layout / Língua de INPUT do teclado
@@ -158,10 +159,6 @@ Bom exemplo encontra-se em: <i>/usr/share/portage/config/make.globals</i><br><br
 Pensar as USE flags do ficheiro /etc/portage/make.conf a usar.<br>
 <b>Sample usado</b>:
 ```bash
-# These settings were set by the catalyst build script that automatically
-# built this stage.
-# Please consult /usr/share/portage/config/make.conf.example for a more
-# detailed example.
 COMMON_FLAGS="-O2 -pipe -march=sandybridge"
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
@@ -182,7 +179,7 @@ ALSA_CARDS="snd-hda-intel"
 # Inputs
 INPUT_DEVICES="libinput"
 # Keywords
-ACCEPT_KEYWORDS="amd64"
+ACCEPT_KEYWORDS="amd64" # only stable versions
 # Grub
 GRUB_PLATFORMS="pc"
 # LLVM Targets
@@ -209,45 +206,84 @@ emerge -1euNDav @world
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags** para adicionar<br>
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags** para remover <br><br>
 Aplicações necessárias a instalar:<br>
-echo 'GRUB_PLATFORMS="pc"' >> /etc/portage/make.conf
-- euse -p sys-boot/grub -E device-mapper mount truetype
-    - Associar dependencias (opcional)
-        - euse -p dev-libs/boost python numpy tools icu
-- sys-kernel/gentoo-sources
-- sys-kernel/linux-firmware
-- sys-kernel/genkernel
-- net-misc/dhcp
-- sys-apps/pciutils
-- sys-apps/pciutils (para listarmos o hardware da nossa máquina)
+
 ```bash
+euse -p sys-boot/grub -E device-mapper mount truetype fonts themes
+euse -p dev-libs/boost python numpy tools icu
+euse -p sys-kernel/linux-firmware -E savedconfig redistributable
+euse -p sys-kernel/genkernel -E firmware
+euse -p net-misc/dhcp -E client server ssl vim-syntax
+euse -p sys-apps/pciutils -E kmod udev zlib
 euse -p sys-apps/pciutils -D dns
 euse -p sys-kernel/linux-firmware -E savedconfig
-emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub pciutils
+emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils media-gfx/grub-splashes
 ```
 Opcionalmente configurar e instalar:
 ```bash
 euse -p www-client/elinks -E gpm
 euse -p dev-vcs/git -D webdav
 euse -p net-irc/irssi -E otr socks5
-euse -p app-editors/vim -E vim-pager cscope python lua ruby
-emerge -av tmux vim vifm eix elinks git irssi 
+euse -p app-editors/vim -E vim-pager cscope python lua luajit ruby
+euse -p app-misc/vifm -E extended-keys magic vim vim-syntax
+emerge -av tmux vim vifm eix elinks git irssi
+
 ```
 Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo:<br>
 Editar o ficheiro <i>/etc/fstab</i> para o reconhecimento da tabela de partições:<br>
 Editar o ficheiro <i>/etc/genkernel.conf</i> e executar o comando:<br>
 <b>Nota: configurar '"MENUCONFIG="yes"'</b><br>
-O comando 'lspci -k' ajuda-nos a configurar o Kernel
+O comando 'lspci -k' ajuda-nos a configurar o Kernel<br>
+Deixo um exemplo de configuração do <i>genkernel.conf</i><br>
+```bash
+OLDCONFIG="yes"
+MENUCONFIG="yes"
+NCONFIG="no"
+CLEAN="no"
+MRPROPER="no"
+MOUNTBOOT="yes"
+SAVE_CONFIG="yes"
+USECOLOR="yes"
+MAKEOPTS="-j5"
+LVM="yes"
+LUKS="yes"
+BUSYBOX="yes"
+UDEV="yes"
+E2FSPROGS="yes"
+BOOTLOADER="grub"
+SPLASH="yes"
+SPLASH_THEME="gentoo"
+PLYMOUTH="yes"
+PLYMOUTH_THEME="spinner"
+GK_SHARE="${GK_SHARE:-/usr/share/genkernel}"
+CACHE_DIR="/var/cache/genkernel"
+DISTDIR="/var/lib/genkernel/src"
+LOGFILE="/var/log/genkernel.log"
+DEFAULT_KERNEL_SOURCE="/usr/src/linux"
+LOGLEVEL=1
+COMPRESS_INITRD_TYPE="best"
+REAL_ROOT="/dev/mapper/gentoo-root"
+```
+Em seguida fazemos <i>mount</i> da partição boot e iniciamos o genkernel
 ```bash
 mount /dev/sdX(2) /boot
 genkernel all
 ```
 Antes de instalar o grub no disco deve-se preparar o grub.<br>
-(configurar o grub para fazer boot de partições encriptadas que usam LVM)
-
+Configurar o grub para fazer boot de partições encriptadas que usam LVM e o ficheiro fstab<br>
+Deixo um exemplo do ficheiro fstab
+```bash
+/dev/sda2					                /boot		ext4		noauto,noatime	1 2
+UUID=0d179bf0-cb03-48e4-91ff-3558ae25d281	/   		ext4		defaults		0 1
+UUID=7c5efc78-1634-440a-934d-8ae80aad4305	/usr		ext4		defaults		0 1
+UUID=f8eafdd6-7b70-468a-a734-3132313f6110	/var		ext4		defaults		0 1
+UUID=79bdff9f-b384-41de-a139-bb4e9d33aac9	/tmp		ext4		defaults		0 1
+UUID=7d77a985-3920-4536-9af4-d0b32fd306f4	/home		ext4		defaults		0 1
+UUID=f38b1368-c23c-4621-a58d-6436fc2701c3	none		swap
+```
+Editar o ficheiro das configurações do grub
 ```bash
 nano /etc/default/grub
-
 GRUB_DISTRIBUTOR="Gentoo"
 GRUB_PRELOAD_MODULES=lvm
 GRUB_ENABLE_CRYPTODISK=y
@@ -259,14 +295,19 @@ Instalar o grub
 grub-install /dev/sdX
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-Reboot?<br>
+Reiniciar a máquina?<br>
 Opcionalmente poderiamos reiniciar o computador. <br>
-Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda nõa temos ambiente gráfico. A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
+Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda não temos ambiente gráfico. A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
 ```bash
 emerge cronie syslog-ng laptop-mode irqbalance hddtemp lm_sensors
+rc-update add cronie default
+rc-update add syslog-ng default
+rc-update add laptop-mode default
+rc-update add irqbalance default
+rc-update add hddtemp default
+rc-update add lm-sensors default
 ```
 
 ## Preparação do X + Fontes + formatos de Imagem + audio
 
 ## Xorg + i3
-
