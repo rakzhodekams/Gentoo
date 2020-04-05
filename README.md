@@ -216,7 +216,7 @@ euse -p net-misc/dhcp -E client server ssl vim-syntax
 euse -p sys-apps/pciutils -E kmod udev zlib
 euse -p sys-apps/pciutils -D dns
 euse -p sys-kernel/linux-firmware -E savedconfig
-emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils media-gfx/grub-splashes
+emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils media-gfx/grub-splashes mirrorselect
 ```
 Opcionalmente configurar e instalar:
 ```bash
