@@ -23,23 +23,22 @@ Usar o fdisk / cfdisk / parted (UEFI) / GPT<br>
 cfdisk /dev/sd(x)
 ```
 Definir:<br>
-+2M Espaço para o Grub: /dev/sdX(1)<br> 
-+128M espaço para os ficheiros de arranque: /dev/sdX(2)<br>  
++128M espaço para os ficheiros de arranque: /dev/sX(1)<br>  
 <b>Nota</b>: Se a máquina suportar UEFI esta partição deverá estar formatada em FAT32 mas neste caso, a BIOS não suporta UEFI. 
 <br>O método antigo continua a funcionar (legacy) > EXT2/3/4/etc<br>
 ++ O resto fica para o LVM encriptado? Vamos considerar que sim. /dev/sdX(3). <br>Definir sequencia alfanumérica como palavra pass de encriptação do disco em questão.<br>
 ```bash
 cryptsetup -v -y -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random luksFormat /dev/sdX(3)
 ```
-Formatar partição de arranque (/dev/sdX(2))
+Formatar partição de arranque (/dev/sd(1))
 ```bash
-mkfs.ext2/3/4 /dev/sdX(2)
+mkfs.ext2/3/4 /dev/sdX(1)
 ```
 Fazer dump do disco encriptado e salvar o resultado num ficheiro com a extensão txt.<br>
 Abrir o acesso ao disco para fazer partição do disco em modo LVM
 ```bash
-cryptsetup luksDump /dev/sda3 > discoDump.txt
-cryptsetup luksOpen /dev/sda3 Gentoo
+cryptsetup luksDump /dev/sda2 > discoDump.txt
+cryptsetup luksOpen /dev/sda2 Gentoo
 ```
 Criar partições na estrutura LVM e activa-las<br>
 ```bash
@@ -49,7 +48,10 @@ pvdisplay
 vgcreate gentoo /dev/mapper/gentoo
 vgdisplay
 lvcreate -C y -L 4G gentoo -n swap
-lvcreate -L 10GB gentoo -n root
+lvcreate -L 10G gentoo -n root
+lvcreate -L 20G gentoo -n usr 
+lvcreate -L 20G gentoo -n var
+lvcreate -L 10G gentoo -n tmp
 lvcreate -l +100%FREE gentoo -n home
 lvdisplay
 vgscan
@@ -60,6 +62,10 @@ Formatar partições definidas na tabela LVM<br>
 mkswap /dev/mapper/gentoo-swap
 mkfs.ext4 /dev/mapper/gentoo-root
 mkfs.ext4 /dev/mapper/gentoo-home
+mkfs.ext4 /dev/mapper/gentoo-usr
+mkfs.ext4 /dev/mapper/gentoo-var
+mkfs.ext4 /dev/mapper/gentoo-tmp
+
 ```
 Activar e associar as partições de disco criadas na tabela LVM 
 ```bash
@@ -123,7 +129,7 @@ emerge --sync
 Escolher um perfil de instalação
 ```bash
 eselect profile list
-eselect profile set 27 # hardened nomultilib
+eselect profile set 26 # nomultilib
 ```
 Actualizar a aplicação Portage: <br>Ler mais na documentação em<br> <b>https://dev.gentoo.org/~zmedico/portage/doc/</b><br>Ou no directório /usr/share/portage/doc/
 ```bash
@@ -131,7 +137,7 @@ emerge --ask --verbose --oneshot portage
 ```
 Instalar ferramentas úteis para a instalação
 ```bash
-emerge --ask --verbose portage-utils gentoolkit
+emerge --ask --verbose portage-utils gentoolkit mirrorselect 
 ```
 Definir e configurar região geográfica para definir as Horas e os dias
 ```bash
@@ -167,7 +173,7 @@ FFLAGS="${COMMON_FLAGS}"
 CPU_FLAGS_X86="aes avx mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
 MAKEOPTS="-j5"
 # USE FLAGS 
-USE="-ipv6 -bindist vim-pager vim-syntax vim"
+USE="-ipv6 -bindist vim-pager vim-syntax"
 # Features
 FEATURES="split-elog buildpkg"
 # Licenses
@@ -216,12 +222,11 @@ euse -p net-misc/dhcp -E client server ssl vim-syntax
 euse -p sys-apps/pciutils -E kmod udev zlib
 euse -p sys-apps/pciutils -D dns
 euse -p sys-kernel/linux-firmware -E savedconfig
-emerge -av sys-boot/grub sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils media-gfx/grub-splashes mirrorselect
+emerge -av sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils
 ```
 Opcionalmente configurar e instalar:
 ```bash
 euse -p www-client/elinks -E gpm
-euse -p dev-vcs/git -D webdav
 euse -p net-irc/irssi -E otr socks5
 euse -p app-editors/vim -E vim-pager cscope python lua luajit ruby
 euse -p app-misc/vifm -E extended-keys magic vim vim-syntax
@@ -251,10 +256,6 @@ BUSYBOX="yes"
 UDEV="yes"
 E2FSPROGS="yes"
 BOOTLOADER="grub"
-SPLASH="yes"
-SPLASH_THEME="gentoo"
-PLYMOUTH="yes"
-PLYMOUTH_THEME="spinner"
 GK_SHARE="${GK_SHARE:-/usr/share/genkernel}"
 CACHE_DIR="/var/cache/genkernel"
 DISTDIR="/var/lib/genkernel/src"
@@ -266,20 +267,20 @@ REAL_ROOT="/dev/mapper/gentoo-root"
 ```
 Em seguida fazemos <i>mount</i> da partição boot e iniciamos o genkernel
 ```bash
-mount /dev/sdX(2) /boot
+mount /dev/sdX(1) /boot
 genkernel all
 ```
 Antes de instalar o grub no disco deve-se preparar o grub.<br>
 Configurar o grub para fazer boot de partições encriptadas que usam LVM e o ficheiro fstab<br>
 Deixo um exemplo do ficheiro fstab
 ```bash
-/dev/sda2					                /boot		ext4		noauto,noatime	1 2
-UUID=0d179bf0-cb03-48e4-91ff-3558ae25d281	/   		ext4		defaults		0 1
-UUID=7c5efc78-1634-440a-934d-8ae80aad4305	/usr		ext4		defaults		0 1
-UUID=f8eafdd6-7b70-468a-a734-3132313f6110	/var		ext4		defaults		0 1
-UUID=79bdff9f-b384-41de-a139-bb4e9d33aac9	/tmp		ext4		defaults		0 1
-UUID=7d77a985-3920-4536-9af4-d0b32fd306f4	/home		ext4		defaults		0 1
-UUID=f38b1368-c23c-4621-a58d-6436fc2701c3	none		swap
+/dev/sda1 				                /boot		ext4		noauto,noatime	1 2
+/dev/mapper/gentoo-root						/   		ext4		defaults				0 1
+/dev/mapper/gentoo-usr						/usr		ext4		defaults				0 1
+/dev/mapper/gentoo-var						/var		ext4		defaults				0 1
+/dev/mapper/gentoo-tmp						/tmp		ext4		defaults				0 1
+/dev/mapper/gentoo-home						/home		ext4		defaults				0 1
+/dev/mapper/gnetoo-swap						none		swap		defaults				0 0
 ```
 Editar o ficheiro das configurações do grub
 ```bash
@@ -288,7 +289,7 @@ GRUB_DISTRIBUTOR="Gentoo"
 GRUB_PRELOAD_MODULES=lvm
 GRUB_ENABLE_CRYPTODISK=y
 GRUB_DEVICE=/dev/ram0
-GRUB_CMDLINE_LINUX="crypt_root=UUID=d33f6428-bc13-484b-9675-310l0d5o98e4 real_root=/dev/mapper/gentoo-root rootfstype=ext4 dolvm quiet splash net.ifnames=0"
+GRUB_CMDLINE_LINUX="crypt_root=/dev/sda2 real_root=/dev/mapper/gentoo-root rootfstype=ext4 dolvm net.ifnames=0"
 ```
 Instalar o grub
 ```bash 
