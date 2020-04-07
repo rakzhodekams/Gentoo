@@ -1,12 +1,13 @@
 # Instalação do Gentoo
 ## LVM + Dm-Crypt + BIOS Legacy Mode
 ### OpenRC + Desktops minimal: como Exemplo: (i3) 
-Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide 
+Uma tentativa de traduzir e replicar o melhor possível e de forma suscinta o manual de <b>Sakaki</b>  a esta máquina: <br>
+Ler mais detalhes em: https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide <br>
 Esta máquina **ThinkpadT420**, não suporta UEFI inteiramente. Desativar UEFI na BIOS. 
 ### Este repositório serve como guia de ajuda para a instalação do Gentoo-Linux.
 Notas:<br>
 01: 'É mais fácil fazer clone do meu guia pessoal, em vez de "saltitar" na documentação original.' <br>
-02: Lembrar que o LiveCD deve ser de 32Bits (x86) caso a arquitectura original da máquina seja igualmente de 32Bits (x86)<br>
+02: Lembrar que o LiveCD deve ser de 32Bits (x86) caso a arquitectura original da mÃ¡áquina seja igualmente de 32Bits (x86)<br>
 03: Fazer download de um LiveCD e criar uma USB / CD / DVD com a imagem.<br>
 ```bash
 dd if=imagem_x64.iso of=/dev/sd(X) bs=2M status=progress && sync 
@@ -99,7 +100,7 @@ Associar ficheiro de configuração da sincronização dos repositórios públic
 mkdir -p -v /mnt/gentoo/etc/portage/repos.conf
 cp -v /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf 
 ```
-Copiar ficheiro de DNS para a partição da instalação.
+Copiar ficheiro de DNS para a partiÃ§Ã£o da instalaÃ§Ã£o
 ```bash
 cp -v -L /etc/resolv.conf /mnt/gentoo/etc/
 ```
@@ -209,6 +210,7 @@ emerge -1euNDav @world
 <b>Nota</b>: Usar **equery u ?** para ler as flags associadas a cada libraria ou aplicação a instalar.<br>
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags** para adicionar<br>
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação) <b>-D</b> novas-flags** para remover <br><br>
+
 Aplicações necessárias a instalar:<br>
 
 ```bash
@@ -232,7 +234,7 @@ euse -p app-misc/vifm -E extended-keys magic vim vim-syntax
 emerge -av tmux vim ranger eix lynx elinks git irssi
 
 ```
-Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
+Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rÃ¡ápido na instaÃÃo do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo:<br>
 Editar o ficheiro <i>/etc/fstab</i> para o reconhecimento da tabela de partições:<br>
 Editar o ficheiro <i>/etc/genkernel.conf</i> e executar o comando:<br>
@@ -297,7 +299,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 Reiniciar a máquina?<br>
 Opcionalmente poderiamos reiniciar o computador. <br>
-Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda não temos ambiente gráfico. A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
+Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda não temos ambiente gráfico.<br> 
+A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
 ```bash
 emerge cronie syslog-ng laptop-mode irqbalance hddtemp lm_sensors ncpufreqd hdparm cpupower
 rc-update add cronie default
@@ -314,7 +317,7 @@ rc-update add lvm boot
 ```
 
 ## Preparação do X + Fontes + formatos de Imagem + audio
-Instalar o servidor grÃ¡fico: X e o ambiente de trabalho i3
+Instalar o servidor gráfico: X e o ambiente de trabalho i3
 ```bash
 euse -p x11-misc/dmenu -E xinerama
 euse -p x11-libs/gtk+ -E xinerama
@@ -342,7 +345,7 @@ Adicionar parametro para iniciar o i3 ao executar o comando 'startx'
 cd ~
 echo "exec /usr/bin/i3" > .xinitrc
 ```
-O Portage usa a opÃ§Ã£o: CONFIG_PROTECT para proteger ficheiros de serem substituidos pelo portage. <br>
-Uma alternativa "preguiÃ§osa" a usar 'chattr +i ficheiro'. <br>
+O Portage usa a opção: CONFIG_PROTECT para proteger ficheiros de serem substituidos pelo portage. <br>
+Uma alternativa "preguiçosa" a usar 'chattr +i ficheiro'. <br>
 Opcionalmente usa-se a abordagem 'chattr +i /etc/conf.d/keymaps' .. etc... 
 
