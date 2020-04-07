@@ -100,7 +100,7 @@ Associar ficheiro de configuração da sincronização dos repositórios públic
 mkdir -p -v /mnt/gentoo/etc/portage/repos.conf
 cp -v /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf 
 ```
-Copiar ficheiro de DNS para a partiÃ§Ã£o da instalaÃ§Ã£o
+Copiar ficheiro de DNS para a partição da instalação
 ```bash
 cp -v -L /etc/resolv.conf /mnt/gentoo/etc/
 ```
@@ -147,7 +147,7 @@ Definir Língua, Caractéres do sistema e actualizar definição
 ```bash
 nano -w /etc/locale.gen
 locale-gen 
-eselect locale set "C"
+eselect locale set "en_US.UTF-8" # Latin Characters on SHELL PLEASE !!! 
 env-update && source /etc/profile && export PS1="(chroot) $PS1"
 ```
 Definir Layout / Língua de INPUT do teclado
@@ -208,7 +208,7 @@ Fazer <b>bootstrap</b> do sistema.<br>
 Ler mais detalhes na documentação original: <br>
 https://wiki.gentoo.org/wiki/Sakaki%27s_EFI_Install_Guide/Building_the_Gentoo_Base_System_Minus_Kernel
 ```bash
-emerge -1euNDav @world 
+emerge -1uNDav @world 
 ```
 <b>Nota</b>: Usar **equery u ?** para ler as flags associadas a cada libraria ou aplicação a instalar.<br>
 <b>Nota</b>: Usar **euse <b>-p</b> (Categoria/Aplicação)) <b>-E</b> novas-flags** para adicionar<br>
@@ -237,7 +237,7 @@ euse -p app-misc/vifm -E extended-keys magic vim vim-syntax
 emerge -av tmux vim ranger eix lynx elinks git irssi
 
 ```
-Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rÃ¡ápido na instaÃÃo do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
+Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
 Iniciar configuração do kernel para ser possível arrancar o sistema operativo:<br>
 Editar o ficheiro <i>/etc/fstab</i> para o reconhecimento da tabela de partições:<br>
 Editar o ficheiro <i>/etc/genkernel.conf</i> e executar o comando:<br>
