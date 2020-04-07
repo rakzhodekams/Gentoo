@@ -194,6 +194,9 @@ PORTAGE_ELOG_CLASSES="info warn error log qa"
 PORTAGE_ELOG_SYSTEM="echo save"
 EMERGE_DEFAULT_OPTS="--ask --verbose"
 PORTAGE_NICENESS=10
+# ADD Language 
+L10N="pt pt_PT"
+# Portage Directories
 PORTDIR="/var/db/repos/gentoo"
 DISTDIR="/var/cache/distfiles"
 PKGDIR="/var/cache/binpkgs"
@@ -275,13 +278,13 @@ Antes de instalar o grub no disco deve-se preparar o grub.<br>
 Configurar o grub para fazer boot de partições encriptadas que usam LVM e o ficheiro fstab<br>
 Deixo um exemplo do ficheiro fstab
 ```bash
-/dev/sda1 				                /boot		ext4		noauto,noatime	1 2
-/dev/mapper/gentoo-root						/   		ext4		defaults				0 1
-/dev/mapper/gentoo-usr						/usr		ext4		defaults				0 1
-/dev/mapper/gentoo-var						/var		ext4		defaults				0 1
-/dev/mapper/gentoo-tmp						/tmp		ext4		defaults				0 1
-/dev/mapper/gentoo-home						/home		ext4		defaults				0 1
-/dev/mapper/gnetoo-swap						none		swap		defaults				0 0
+/dev/sda1 				        /boot		ext4		noauto,noatime	1 2
+/dev/mapper/gentoo-root		/   		ext4		defaults				0 1
+/dev/mapper/gentoo-usr		/usr		ext4		defaults				0 1
+/dev/mapper/gentoo-var		/var		ext4		defaults				0 1
+/dev/mapper/gentoo-tmp		/tmp		ext4		defaults				0 1
+/dev/mapper/gentoo-home		/home		ext4		defaults				0 1
+/dev/mapper/gnetoo-swap		none		swap		defaults				0 0
 ```
 Editar o ficheiro das configurações do grub
 ```bash
@@ -334,7 +337,7 @@ Instalar ffmpeg e mplayer
 ```bash 
 euse -p media-video/ffmpeg -E zimg zeromq xvis x265 x264 webp wavpack vpx vorbis vaapi \
 twolame theora svg pic opus mp3 modplug lzma lubxml2 libcaca X frei0r libdrm fontconfig opengl
-euse -p media-video/ffmpeg -D network # NÃ£o queremos compatibitilidade de rede
+euse -p media-video/ffmpeg -D network # Não queremos compatibitilidade de rede
 euse -p media-video/mplayer -D network osdmenu xscreensaved dvd dvdnav 
 eusu -p media-video/mplayer -E xvid xinerama x264 vorbis twolate toolame theora tga \
 pulseaudio mp3 libcaca libmpeg2 aalib faac faad 
