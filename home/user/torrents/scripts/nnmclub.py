@@ -1,4 +1,4 @@
-# VERSION: 2.2
+# VERSION: 2.3
 # AUTHORS: imDMG [imdmgg@gmail.com]
 
 # NoNaMe-Club search engine plugin for qBittorrent
@@ -105,9 +105,10 @@ except OSError as e:
     logger.debug("Write files.")
 
 
-class nnmclub(object):
+class nnmclub:
     name = 'NoNaMe-Club'
     url = 'https://nnmclub.to/forum/'
+    url_dl = 'https://nnm-club.ws/'
     supported_categories = {'all': '-1',
                             'movies': '14',
                             'tv': '27',
@@ -258,9 +259,7 @@ class nnmclub(object):
         try:
             response = self.session.open(url, data, 5)
             # checking that tracker is'nt blocked
-            if not any([x in response.geturl()
-                        # redirect to nnm-club.ws on download
-                        for x in [self.url, 'nnm-club.ws']]):
+            if not response.geturl().startswith((self.url, self.url_dl)):
                 raise URLError(f"{self.url} is blocked. Try another proxy.")
         except (socket.error, socket.timeout) as err:
             if not retrieve:

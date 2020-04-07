@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://raw.githubusercontent.com/nindogo/qbtSearchScripts/master/anidex.py">redirected</a>.</body></html>

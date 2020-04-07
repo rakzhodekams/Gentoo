@@ -1,2 +1,5 @@
+Download all scripts using curl 
 
-Use "wget -i bittorrent.trackers.list" to download all plugins in list
+```bash
+xargs -n 1 curl -O < bittorrent.trackers.list
+```
