@@ -26,7 +26,8 @@ Definir:<br>
 +128M espaço para os ficheiros de arranque: /dev/sX(1)<br>  
 <b>Nota</b>: Se a máquina suportar UEFI esta partição deverá estar formatada em FAT32 mas neste caso, a BIOS não suporta UEFI. 
 <br>O método antigo continua a funcionar (legacy) > EXT2/3/4/etc<br>
-++ O resto fica para o LVM encriptado? Vamos considerar que sim. /dev/sdX(3). <br>Definir sequencia alfanumérica como palavra pass de encriptação do disco em questão.<br>
+++ O resto fica para o LVM encriptado? Vamos considerar que sim. /dev/sdX(2). <br>
+Definir sequencia alfanumérica como palavra pass de encriptação do disco em questão.<br>
 ```bash
 cryptsetup -v -y -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random luksFormat /dev/sdX(3)
 ```
@@ -38,7 +39,7 @@ Fazer dump do disco encriptado e salvar o resultado num ficheiro com a extensão
 Abrir o acesso ao disco para fazer partição do disco em modo LVM
 ```bash
 cryptsetup luksDump /dev/sda2 > discoDump.txt
-cryptsetup luksOpen /dev/sda2 Gentoo
+cryptsetup luksOpen /dev/sda2 lvm
 ```
 Criar partições na estrutura LVM e activa-las<br>
 ```bash
@@ -72,9 +73,10 @@ Activar e associar as partições de disco criadas na tabela LVM
 swapon /dev/mapper/gentoo-swap
 mkdir /mnt/gentoo
 mount /dev/mapper/gentoo-root /mnt/gentoo
-kdir /mnt/gentoo/boot
-mkdir /mnt/gentoo/home
-mount /dev/sda2 /mnt/gentoo/boot
+mkdir /mnt/gentoo/{usr,var,tmp,boot,home}
+mount /dev/mapper/gentoo-usr /mnt/gentoo/usr 
+mount /dev/mapper/gentoo-var /mnt/gentoo/var
+mount /dev/mapper/gentoo-tmp /mnt/gentoo/tmp 
 mount /dev/mapper/gentoo-home /mnt/gentoo/home
 ```
 Fazer download da raíz de ficheiros do Gentoo-Linux e verificar a assinatura de qualidade
@@ -91,10 +93,6 @@ awk '/SHA512 HASH/{getline;print}' stage3-amd64-*.tar.xz.DIGESTS.asc | sha512sum
 Descompactar ficheiro comprimido com o nome 'stage3'
 ```bash
 tar xpJf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-```
-Editar o principal ficheiro de configuração dos sistemas Gentoo
-```bash
-nano -w /mnt/gentoo/etc/portage/make.conf
 ```
 Associar ficheiro de configuração da sincronização dos repositórios públicos  
 ```bash
@@ -173,7 +171,7 @@ FFLAGS="${COMMON_FLAGS}"
 CPU_FLAGS_X86="aes avx mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
 MAKEOPTS="-j5"
 # USE FLAGS 
-USE="-ipv6 -bindist vim-pager vim-syntax"
+USE="-ipv6 -bindist vim-pager vim-syntax savedconfig"
 # Features
 FEATURES="split-elog buildpkg"
 # Licenses
@@ -214,15 +212,16 @@ emerge -1euNDav @world
 Aplicações necessárias a instalar:<br>
 
 ```bash
-euse -p sys-boot/grub -E device-mapper mount truetype fonts themes
-euse -p dev-libs/boost python numpy tools icu
-euse -p sys-kernel/linux-firmware -E savedconfig redistributable
+euse -p sys-boot/grub -E device-mapper mount truetype
+euse -p dev-libs/boost python tools icu
+euse -p sys-kernel/linux-firmware -E redistributable
 euse -p sys-kernel/genkernel -E firmware
 euse -p net-misc/dhcp -E client server ssl vim-syntax
 euse -p sys-apps/pciutils -E kmod udev zlib
 euse -p sys-apps/pciutils -D dns
 euse -p sys-kernel/linux-firmware -E savedconfig
-emerge -av sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils
+emerge -av sys-kernel/gentoo-sources sys-kernel/genkernel net-misc/dhcp \
+sys-kernel/linux-firmware sys-boot/grub sys-apps/pciutils
 ```
 Opcionalmente configurar e instalar:
 ```bash
@@ -230,7 +229,7 @@ euse -p www-client/elinks -E gpm
 euse -p net-irc/irssi -E otr socks5
 euse -p app-editors/vim -E vim-pager cscope python lua luajit ruby
 euse -p app-misc/vifm -E extended-keys magic vim vim-syntax
-emerge -av tmux vim vifm eix elinks git irssi
+emerge -av tmux vim ranger eix lynx elinks git irssi
 
 ```
 Antes de tudo, gostaria de lembrar que podemos usar o 'irssi' e ligarmo-nos ao servidor de <b>IRC</b> da <b>Freenode</b> e entrar no canal <b>#Gentoo</b> de modo a termos suporte directo e rápido na instalação do Gentoo via devenvolvedores do sistema e como tal, pessoas com experiência. Aconselho vivamente, pois foram sempre uma ajuda precisosa!<br> 
@@ -300,15 +299,50 @@ Reiniciar a máquina?<br>
 Opcionalmente poderiamos reiniciar o computador. <br>
 Vamos considerar continuar a fazer a instalação sem reiniciar, logo agora que ainda não temos ambiente gráfico. A comunidade do Gentoo Linux aconselha a instalação de alguns pacotes:
 ```bash
-emerge cronie syslog-ng laptop-mode irqbalance hddtemp lm_sensors
+emerge cronie syslog-ng laptop-mode irqbalance hddtemp lm_sensors ncpufreqd hdparm cpupower
 rc-update add cronie default
 rc-update add syslog-ng default
 rc-update add laptop-mode default
 rc-update add irqbalance default
 rc-update add hddtemp default
 rc-update add lm-sensors default
+rc-update add dbus default 
+rc-update add udev default 
+rc-update add ncpufreqd default 
+rc-update add cpupower default
+rc-update add lvm boot 
 ```
 
 ## Preparação do X + Fontes + formatos de Imagem + audio
+Instalar o servidor grÃ¡fico: X e o ambiente de trabalho i3
+```bash
+euse -p x11-misc/dmenu -E xinerama
+euse -p x11-libs/gtk+ -E xinerama
+euse -p media-gfx/feh -E xinerama exif 
+euse -p x11-misc/i3status -E pulseaudio 
+euse -p media-plugins/alsa-plugins -E pulseaudio
+emerge xinit xorg-server i3 i3lock i3blocks i3status dmenu feh st alsa-utils pulseaudio
+```
+Adicionar alsasound ao boot 
+```bash 
+rc-update add alsasound boot
+```
+Instalar ffmpeg e mplayer
+```bash 
+euse -p media-video/ffmpeg -E zimg zeromq xvis x265 x264 webp wavpack vpx vorbis vaapi \
+twolame theora svg pic opus mp3 modplug lzma lubxml2 libcaca X frei0r libdrm fontconfig opengl
+euse -p media-video/ffmpeg -D network # NÃ£o queremos compatibitilidade de rede
+euse -p media-video/mplayer -D network osdmenu xscreensaved dvd dvdnav 
+eusu -p media-video/mplayer -E xvid xinerama x264 vorbis twolate toolame theora tga \
+pulseaudio mp3 libcaca libmpeg2 aalib faac faad 
+emerge -av ffmpeg mplayer
+```
+Adicionar parametro para iniciar o i3 ao executar o comando 'startx'
+```
+cd ~
+echo "exec /usr/bin/i3" > .xinitrc
+```
+O Portage usa a opÃ§Ã£o: CONFIG_PROTECT para proteger ficheiros de serem substituidos pelo portage. <br>
+Uma alternativa "preguiÃ§osa" a usar 'chattr +i ficheiro'. <br>
+Opcionalmente usa-se a abordagem 'chattr +i /etc/conf.d/keymaps' .. etc... 
 
-## Xorg + i3
