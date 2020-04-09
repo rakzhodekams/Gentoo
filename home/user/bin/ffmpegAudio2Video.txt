@@ -1,0 +1,1 @@
+ffmpeg -r 60 -i videoBackgroundImage.jpg -i Original.wav FinalResult.mp4
