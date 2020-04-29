@@ -1,0 +1,7 @@
+# -*- Mode: Muttrc -*-
+source ~/.mutt/inc/base
+source ~/.mutt/inc/pgp
+source ~/.mutt/inc/colors
+source ~/.mutt/inc/sidebar
+
+source ~/.mutt/accounts/org.autistici

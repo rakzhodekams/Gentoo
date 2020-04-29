@@ -1,0 +1,3 @@
+text/html;      lynx -dump %s; nametemplate=%s.html; copiousoutput
+application/*;		~/bin/view_attachment.sh %s -
+image/*; 		~/bin/view_attachment.sh %s -
