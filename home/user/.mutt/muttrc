@@ -1,7 +1,78 @@
-# -*- Mode: Muttrc -*-
-source ~/.mutt/inc/base
-source ~/.mutt/inc/pgp
-source ~/.mutt/inc/colors
-source ~/.mutt/inc/sidebar
+set imap_user = "USER@autistici.org"
+#set imap_pass = ""
+set imap_check_subscribed = yes
+set folder = "imaps://USER@autistici.org@mail.autistici.org"
+set smtp_url = "smtp://USER@autistici.org@mail.autistici.org:587/"
+#set smtp_pass = ""
+set from = "USER@autistici.org"
+set realname = "USERNAME"
+set hostname = "autistici.org"
+# editor settings
+set editor = 'vim + -c "set textwidth=72" -c "set wrap"'
+# view emails
+auto_view text/html
+# synchonization
+set read_inc = 100
+set mail_check = 90
+set timeout = 15
+# more settings
+set pager_index_lines = 15
+set sort_aux = reverse-last-date-received
+set abort_nosubject = ask-yes
+set abort_unmodified = yes
+set delete = ask-yes
+set content_type = 'text/plain'
+set mark_old = no
+set sort = threads
+set move = no
+set include
+set auto_tag=yes
+# folders
+mailboxes = INBOX Sent Trash
+set mbox_type=Maildir
+set mbox="/var/mail/LOCALUSER/INBOX"
+set folder="/var/mail/LOCALUSER"
+set spoolfile="/var/mail/LOCALUSER/INBOX"
+set record="/var/mail/LOCALUSER/Sent"
+#set postponed="/var/mail/monkey/Drafts"
+set tmpdir=~/.mutt/tmp
+#set mailcap_path=~/.mutt/mailcap
+set certificate_file=/etc/ssl/certs
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+# sidebar
+color sidebar_new yellow default
+set sidebar_visible=yes
+set sidebar_width=30
+# Colors
+color attachment brightmagenta default
+color error brightred default
+color hdrdefault red default
+color indicator brightyellow red
+color markers brightcyan default
+color message brightcyan default
+color normal default default
+color quoted brightblue default
+color search default green
+color signature red default
+color status white black
+color tilde magenta default
+color tree magenta default
+# Crypt 
+#set pgp_sign_as=
+set crypt_autosmime="no"
+set crypt_autosign="yes"
+set crypt_replyencrypt="yes"
+set crypt_replysign="yes"
+set crypt_replysignencrypted="yes"
+set crypt_verify_sig="yes"
+# GPG
 
-source ~/.mutt/accounts/org.autistici
+# Ignore Settings
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature"
+ignore "DKIM-Signature"
+# Email Contacts Order
+hdr_order Date From To cc
+# Sortcuts aka Macros
+

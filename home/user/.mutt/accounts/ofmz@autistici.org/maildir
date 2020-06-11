@@ -1,9 +1,0 @@
-# -*- Mode: muttrc -*-
-
-# Configuration to be used with a Maildir
-set mbox_type=Maildir
-set folder = '~/Mail/ofmz@autistici.org'
-set mbox='~/Mail/ofmz@autistici.org'
-set spoolfile='~/Mail/ofmz@autistici.org/INBOX'
-set record='~/Mail/ofmz@autistici.org/INBOX'
-set postponed='~/Mail/ofmz@autistici.org/Drafts'
