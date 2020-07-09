@@ -1,0 +1,6 @@
+app-text/coolreader ~amd64
+app-crypt/kbfs ~amd64
+app-crypt/keybase ~amd64
+net-im/toxic ~amd64
+net-im/signal-desktop-bin ~amd64
+net-am/zoom ~amd64
