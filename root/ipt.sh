@@ -37,13 +37,13 @@
  iptables -A OUTPUT -p tcp --dport 25 -j ACCEPT
 
  # Allow out-going IMAPS connections 
- iptabes -A OUTPUT -p tcp --dport 993 -p conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+ iptables -A OUTPUT -p tcp --dport 993 -p conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
  iptables -A INPUT -p tcp --dport 993 -p conntrack --ctstate ESTABLISHED -j ACCEPT 
 
 # Security 
  
  # Block all ICMP Ping Request
- iptabes -A INPUT -p icmp --icmp-type echo-request -j DROP
+ iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
 
  # Against Strings* 
  iptables -A FORWARD -m string --string '.com' -j DROP
@@ -70,7 +70,7 @@
  iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP 
  
  # DROP NULL Packets 
- iptabes -A INPUT -p tcp --tcp-flags ALL NONE -j DROP 
+ iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP 
 
  # Block Uncommon MSS Values 
  iptables -t mangle -A PREROUTING -p tcp -m conntrack NEW -m tcpmss ! --mss 536:65535 -j DROP 
