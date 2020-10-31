@@ -1,0 +1,4 @@
+#!/bin/bash
+config_enp0s3="192.168.200.204 netmask 255.255.255.0"
+routes_enp0s3="default gw 192.168.200.200"
+

@@ -1,0 +1,4 @@
+# (For devfs)
+vc/1
+# (For udev)
+tty1

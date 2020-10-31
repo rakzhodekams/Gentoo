@@ -1,1 +1,0 @@
-sys-devel/gcc -vtv -ssp go -pch openmp fortran

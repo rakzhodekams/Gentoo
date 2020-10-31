@@ -1,0 +1,164 @@
+#
+#
+# User-specific file contexts, generated via libsemanage
+# use semanage command to manage system users to change the file_context
+#
+#
+
+
+#
+# Home Context for user user_u
+#
+
+/home/[^/]+/.+	user_u:object_r:user_home_t
+/home/[^/]+/((www)|(web)|(public_html))(/.+)?	user_u:object_r:httpd_user_content_t
+/home/[^/]+/((www)|(web)|(public_html))/cgi-bin(/.+)?	user_u:object_r:httpd_user_script_exec_t
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/\.htaccess	--	user_u:object_r:httpd_user_htaccess_t
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/logs(/.*)?	user_u:object_r:httpd_user_ra_content_t
+/home/[^/]+/\.pki(/.*)?	user_u:object_r:user_cert_t
+/home/[^/]+/\.ssh(/.*)?	user_u:object_r:ssh_home_t
+/home/[^/]+/Music(/.*)?	user_u:object_r:xdg_music_t
+/home/[^/]+/\.mutt(/.*)?	user_u:object_r:mutt_home_t
+/home/[^/]+/Videos(/.*)?	user_u:object_r:xdg_videos_t
+/home/[^/]+/\.cache(/.*)?	user_u:object_r:xdg_cache_t
+/home/[^/]+/\.gnupg(/.+)?	user_u:object_r:gpg_secret_t
+/home/[^/]+/\.local(/.*)?	user_u:object_r:xdg_data_t
+/home/[^/]+/Maildir(/.*)?	user_u:object_r:mail_home_rw_t
+/home/[^/]+/\.config(/.*)?	user_u:object_r:xdg_config_t
+/home/[^/]+/\.screen(/.*)?	user_u:object_r:screen_home_t
+/home/[^/]+/\.forward[^/]*	--	user_u:object_r:mail_home_t
+/home/[^/]+/Pictures(/.*)?	user_u:object_r:xdg_pictures_t
+/home/[^/]+/\.maildir(/.*)?	user_u:object_r:mail_home_rw_t
+/home/[^/]+/Documents(/.*)?	user_u:object_r:xdg_documents_t
+/home/[^/]+/Downloads(/.*)?	user_u:object_r:xdg_downloads_t
+/home/[^/]+/DovecotMail(/.*)?	user_u:object_r:mail_home_rw_t
+/home/[^/]+/\.gnupg/crls\.d(/.+)?	user_u:object_r:dirmngr_home_t
+/home/[^/]+/\.gnupg/S\.gpg-agent.*	-s	user_u:object_r:gpg_agent_tmp_t
+/home/[^/]+	-d	user_u:object_r:user_home_dir_t
+/home/[^/]+/\.mailrc	--	user_u:object_r:mail_home_t
+/home/[^/]+/\.muttrc	--	user_u:object_r:mutt_conf_t
+/home/[^/]+/\.k5login	--	user_u:object_r:krb5_home_t
+/home/[^/]+/\.msmtprc	--	user_u:object_r:mail_home_t
+/home/[^/]+/\.screenrc	--	user_u:object_r:screen_home_t
+/home/[^/]+/\.tmux\.conf	--	user_u:object_r:screen_home_t
+/home/[^/]+/\.mutt_cache	--	user_u:object_r:mutt_home_t
+/home/[^/]+/dead\.letter	--	user_u:object_r:mail_home_t
+/home/[^/]+/\.esmtp_queue	--	user_u:object_r:mail_home_t
+/home/[^/]+/\.gnupg/S\.scdaemon	-s	user_u:object_r:gpg_agent_tmp_t
+/home/[^/]+/\.gnupg/log-socket	-s	user_u:object_r:gpg_agent_tmp_t
+/home/[^/]+/\.mutt_certificates	--	user_u:object_r:mutt_home_t
+/home/lost\+found/.*	<<none>>
+/home	-d	system_u:object_r:home_root_t
+/home	-l	system_u:object_r:home_root_t
+/home/\.journal	<<none>>
+/home/lost\+found	-d	system_u:object_r:lost_found_t
+/run/user/[0-9]+	-d	user_u:object_r:user_runtime_t
+/run/user/[0-9]+/.+	<<none>>
+/run/user/[0-9]+/gnupg(/.*)?	user_u:object_r:gpg_runtime_t
+/run/user/[0-9]+/gnupg/S\.dirmngr	-s	user_u:object_r:dirmngr_tmp_t
+/run/user/[0-9]+/gnupg/S\.scdaemon	-s	user_u:object_r:gpg_agent_tmp_t
+/run/user/[0-9]+/gnupg/S\.gpg-agent.*	-s	user_u:object_r:gpg_agent_tmp_t
+/tmp/gconfd-[^/]+	-d	user_u:object_r:user_tmp_t
+/run/sudo/ts/[^/]+	user_u:object_r:pam_runtime_t
+
+
+#
+# Home Context for user root
+#
+
+/root/.+	root:object_r:user_home_t
+/root/((www)|(web)|(public_html))(/.+)?	root:object_r:httpd_user_content_t
+/root/((www)|(web)|(public_html))/cgi-bin(/.+)?	root:object_r:httpd_user_script_exec_t
+/root/((www)|(web)|(public_html))(/.*)?/\.htaccess	--	root:object_r:httpd_user_htaccess_t
+/root/((www)|(web)|(public_html))(/.*)?/logs(/.*)?	root:object_r:httpd_user_ra_content_t
+/root/\.pki(/.*)?	root:object_r:user_cert_t
+/root/\.ssh(/.*)?	root:object_r:ssh_home_t
+/root/Music(/.*)?	root:object_r:xdg_music_t
+/root/\.mutt(/.*)?	root:object_r:mutt_home_t
+/root/Videos(/.*)?	root:object_r:xdg_videos_t
+/root/\.cache(/.*)?	root:object_r:xdg_cache_t
+/root/\.gnupg(/.+)?	root:object_r:gpg_secret_t
+/root/\.local(/.*)?	root:object_r:xdg_data_t
+/root/Maildir(/.*)?	root:object_r:mail_home_rw_t
+/root/\.config(/.*)?	root:object_r:xdg_config_t
+/root/\.screen(/.*)?	root:object_r:screen_home_t
+/root/\.forward[^/]*	--	root:object_r:mail_home_t
+/root/Pictures(/.*)?	root:object_r:xdg_pictures_t
+/root/\.maildir(/.*)?	root:object_r:mail_home_rw_t
+/root/Documents(/.*)?	root:object_r:xdg_documents_t
+/root/Downloads(/.*)?	root:object_r:xdg_downloads_t
+/root/DovecotMail(/.*)?	root:object_r:mail_home_rw_t
+/root/\.gnupg/crls\.d(/.+)?	root:object_r:dirmngr_home_t
+/root/\.gnupg/S\.gpg-agent.*	-s	root:object_r:gpg_agent_tmp_t
+/root	-d	root:object_r:user_home_dir_t
+/root/\.mailrc	--	root:object_r:mail_home_t
+/root/\.muttrc	--	root:object_r:mutt_conf_t
+/root/\.k5login	--	root:object_r:krb5_home_t
+/root/\.msmtprc	--	root:object_r:mail_home_t
+/root/\.screenrc	--	root:object_r:screen_home_t
+/root/\.tmux\.conf	--	root:object_r:screen_home_t
+/root/\.mutt_cache	--	root:object_r:mutt_home_t
+/root/dead\.letter	--	root:object_r:mail_home_t
+/root/\.esmtp_queue	--	root:object_r:mail_home_t
+/root/\.gnupg/S\.scdaemon	-s	root:object_r:gpg_agent_tmp_t
+/root/\.gnupg/log-socket	-s	root:object_r:gpg_agent_tmp_t
+/root/\.mutt_certificates	--	root:object_r:mutt_home_t
+/run/user/0	-d	root:object_r:user_runtime_t
+/run/user/0/.+	<<none>>
+/run/user/0/gnupg(/.*)?	root:object_r:gpg_runtime_t
+/run/user/0/gnupg/S\.dirmngr	-s	root:object_r:dirmngr_tmp_t
+/run/user/0/gnupg/S\.scdaemon	-s	root:object_r:gpg_agent_tmp_t
+/run/user/0/gnupg/S\.gpg-agent.*	-s	root:object_r:gpg_agent_tmp_t
+/tmp/gconfd-root	-d	root:object_r:user_tmp_t
+/run/sudo/ts/root	root:object_r:pam_runtime_t
+
+
+#
+# Home Context for user gentoostudent
+#
+
+/home/gentoostudent/.+	user_u:object_r:user_home_t
+/home/gentoostudent/((www)|(web)|(public_html))(/.+)?	user_u:object_r:httpd_user_content_t
+/home/gentoostudent/((www)|(web)|(public_html))/cgi-bin(/.+)?	user_u:object_r:httpd_user_script_exec_t
+/home/gentoostudent/((www)|(web)|(public_html))(/.*)?/\.htaccess	--	user_u:object_r:httpd_user_htaccess_t
+/home/gentoostudent/((www)|(web)|(public_html))(/.*)?/logs(/.*)?	user_u:object_r:httpd_user_ra_content_t
+/home/gentoostudent/\.pki(/.*)?	user_u:object_r:user_cert_t
+/home/gentoostudent/\.ssh(/.*)?	user_u:object_r:ssh_home_t
+/home/gentoostudent/Music(/.*)?	user_u:object_r:xdg_music_t
+/home/gentoostudent/\.mutt(/.*)?	user_u:object_r:mutt_home_t
+/home/gentoostudent/Videos(/.*)?	user_u:object_r:xdg_videos_t
+/home/gentoostudent/\.cache(/.*)?	user_u:object_r:xdg_cache_t
+/home/gentoostudent/\.gnupg(/.+)?	user_u:object_r:gpg_secret_t
+/home/gentoostudent/\.local(/.*)?	user_u:object_r:xdg_data_t
+/home/gentoostudent/Maildir(/.*)?	user_u:object_r:mail_home_rw_t
+/home/gentoostudent/\.config(/.*)?	user_u:object_r:xdg_config_t
+/home/gentoostudent/\.screen(/.*)?	user_u:object_r:screen_home_t
+/home/gentoostudent/\.forward[^/]*	--	user_u:object_r:mail_home_t
+/home/gentoostudent/Pictures(/.*)?	user_u:object_r:xdg_pictures_t
+/home/gentoostudent/\.maildir(/.*)?	user_u:object_r:mail_home_rw_t
+/home/gentoostudent/Documents(/.*)?	user_u:object_r:xdg_documents_t
+/home/gentoostudent/Downloads(/.*)?	user_u:object_r:xdg_downloads_t
+/home/gentoostudent/DovecotMail(/.*)?	user_u:object_r:mail_home_rw_t
+/home/gentoostudent/\.gnupg/crls\.d(/.+)?	user_u:object_r:dirmngr_home_t
+/home/gentoostudent/\.gnupg/S\.gpg-agent.*	-s	user_u:object_r:gpg_agent_tmp_t
+/home/gentoostudent	-d	user_u:object_r:user_home_dir_t
+/home/gentoostudent/\.mailrc	--	user_u:object_r:mail_home_t
+/home/gentoostudent/\.muttrc	--	user_u:object_r:mutt_conf_t
+/home/gentoostudent/\.k5login	--	user_u:object_r:krb5_home_t
+/home/gentoostudent/\.msmtprc	--	user_u:object_r:mail_home_t
+/home/gentoostudent/\.screenrc	--	user_u:object_r:screen_home_t
+/home/gentoostudent/\.tmux\.conf	--	user_u:object_r:screen_home_t
+/home/gentoostudent/\.mutt_cache	--	user_u:object_r:mutt_home_t
+/home/gentoostudent/dead\.letter	--	user_u:object_r:mail_home_t
+/home/gentoostudent/\.esmtp_queue	--	user_u:object_r:mail_home_t
+/home/gentoostudent/\.gnupg/S\.scdaemon	-s	user_u:object_r:gpg_agent_tmp_t
+/home/gentoostudent/\.gnupg/log-socket	-s	user_u:object_r:gpg_agent_tmp_t
+/home/gentoostudent/\.mutt_certificates	--	user_u:object_r:mutt_home_t
+/run/user/1000	-d	user_u:object_r:user_runtime_t
+/run/user/1000/.+	<<none>>
+/run/user/1000/gnupg(/.*)?	user_u:object_r:gpg_runtime_t
+/run/user/1000/gnupg/S\.dirmngr	-s	user_u:object_r:dirmngr_tmp_t
+/run/user/1000/gnupg/S\.scdaemon	-s	user_u:object_r:gpg_agent_tmp_t
+/run/user/1000/gnupg/S\.gpg-agent.*	-s	user_u:object_r:gpg_agent_tmp_t
+/tmp/gconfd-gentoostudent	-d	user_u:object_r:user_tmp_t
+/run/sudo/ts/gentoostudent	user_u:object_r:pam_runtime_t

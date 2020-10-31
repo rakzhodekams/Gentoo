@@ -1,0 +1,62 @@
+#
+#
+# User-specific file contexts, generated via libsemanage
+# use semanage command to manage system users to change the file_context
+#
+#
+
+
+#
+# Home Context for user user_u
+#
+
+/home/[^/]+/.+	unconfined_u:object_r:user_home_t
+/home/[^/]+/((www)|(web)|(public_html))(/.+)?	unconfined_u:object_r:httpd_user_content_t
+/home/[^/]+/((www)|(web)|(public_html))/cgi-bin(/.+)?	unconfined_u:object_r:httpd_user_script_exec_t
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/\.htaccess	--	unconfined_u:object_r:httpd_user_htaccess_t
+/home/[^/]+/((www)|(web)|(public_html))(/.*)?/logs(/.*)?	unconfined_u:object_r:httpd_user_ra_content_t
+/home/[^/]+/\.pki(/.*)?	unconfined_u:object_r:user_cert_t
+/home/[^/]+/\.ssh(/.*)?	unconfined_u:object_r:ssh_home_t
+/home/[^/]+/Music(/.*)?	unconfined_u:object_r:xdg_music_t
+/home/[^/]+/\.mutt(/.*)?	unconfined_u:object_r:mutt_home_t
+/home/[^/]+/Videos(/.*)?	unconfined_u:object_r:xdg_videos_t
+/home/[^/]+/\.cache(/.*)?	unconfined_u:object_r:xdg_cache_t
+/home/[^/]+/\.gnupg(/.+)?	unconfined_u:object_r:gpg_secret_t
+/home/[^/]+/\.local(/.*)?	unconfined_u:object_r:xdg_data_t
+/home/[^/]+/Maildir(/.*)?	unconfined_u:object_r:mail_home_rw_t
+/home/[^/]+/\.config(/.*)?	unconfined_u:object_r:xdg_config_t
+/home/[^/]+/\.screen(/.*)?	unconfined_u:object_r:screen_home_t
+/home/[^/]+/\.forward[^/]*	--	unconfined_u:object_r:mail_home_t
+/home/[^/]+/Pictures(/.*)?	unconfined_u:object_r:xdg_pictures_t
+/home/[^/]+/\.maildir(/.*)?	unconfined_u:object_r:mail_home_rw_t
+/home/[^/]+/Documents(/.*)?	unconfined_u:object_r:xdg_documents_t
+/home/[^/]+/Downloads(/.*)?	unconfined_u:object_r:xdg_downloads_t
+/home/[^/]+/DovecotMail(/.*)?	unconfined_u:object_r:mail_home_rw_t
+/home/[^/]+/\.gnupg/crls\.d(/.+)?	unconfined_u:object_r:dirmngr_home_t
+/home/[^/]+/\.gnupg/S\.gpg-agent.*	-s	unconfined_u:object_r:gpg_agent_tmp_t
+/home/[^/]+	-d	unconfined_u:object_r:user_home_dir_t
+/home/[^/]+/\.mailrc	--	unconfined_u:object_r:mail_home_t
+/home/[^/]+/\.muttrc	--	unconfined_u:object_r:mutt_conf_t
+/home/[^/]+/\.k5login	--	unconfined_u:object_r:krb5_home_t
+/home/[^/]+/\.msmtprc	--	unconfined_u:object_r:mail_home_t
+/home/[^/]+/\.screenrc	--	unconfined_u:object_r:screen_home_t
+/home/[^/]+/\.tmux\.conf	--	unconfined_u:object_r:screen_home_t
+/home/[^/]+/\.mutt_cache	--	unconfined_u:object_r:mutt_home_t
+/home/[^/]+/dead\.letter	--	unconfined_u:object_r:mail_home_t
+/home/[^/]+/\.esmtp_queue	--	unconfined_u:object_r:mail_home_t
+/home/[^/]+/\.gnupg/S\.scdaemon	-s	unconfined_u:object_r:gpg_agent_tmp_t
+/home/[^/]+/\.gnupg/log-socket	-s	unconfined_u:object_r:gpg_agent_tmp_t
+/home/[^/]+/\.mutt_certificates	--	unconfined_u:object_r:mutt_home_t
+/home/lost\+found/.*	<<none>>
+/home	-d	system_u:object_r:home_root_t
+/home	-l	system_u:object_r:home_root_t
+/home/\.journal	<<none>>
+/home/lost\+found	-d	system_u:object_r:lost_found_t
+/run/user/[0-9]+	-d	unconfined_u:object_r:user_runtime_t
+/run/user/[0-9]+/.+	<<none>>
+/run/user/[0-9]+/gnupg(/.*)?	unconfined_u:object_r:gpg_runtime_t
+/run/user/[0-9]+/gnupg/S\.dirmngr	-s	unconfined_u:object_r:dirmngr_tmp_t
+/run/user/[0-9]+/gnupg/S\.scdaemon	-s	unconfined_u:object_r:gpg_agent_tmp_t
+/run/user/[0-9]+/gnupg/S\.gpg-agent.*	-s	unconfined_u:object_r:gpg_agent_tmp_t
+/tmp/gconfd-[^/]+	-d	unconfined_u:object_r:user_tmp_t
+/run/sudo/ts/[^/]+	unconfined_u:object_r:pam_runtime_t

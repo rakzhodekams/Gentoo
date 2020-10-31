@@ -1,1 +1,1 @@
-app-editors/vim X cscope gpm lua luajit perl python terminal vim-pager
+app-editors/vim cscope terminal vim-pager

@@ -1,0 +1,2130 @@
+/.*	system_u:object_r:default_t
+/sys(/.*)?	system_u:object_r:sysfs_t
+/mnt(/[^/]*)	-l	system_u:object_r:mnt_t
+/mnt(/[^/]*)?	-d	system_u:object_r:mnt_t
+/dev/.*	system_u:object_r:device_t
+/etc/.*	system_u:object_r:etc_t
+/opt/.*	system_u:object_r:usr_t
+/run/.*	<<none>>
+/srv/.*	system_u:object_r:var_t
+/tmp/.*	<<none>>
+/usr/.*	system_u:object_r:usr_t
+/var/.*	system_u:object_r:var_t
+/opt/.*\.so	system_u:object_r:lib_t
+/opt/.*\.cgi	--	system_u:object_r:httpd_sys_script_exec_t
+/usr/.*\.cgi	--	system_u:object_r:httpd_sys_script_exec_t
+/dev/[0-9].*	-c	system_u:object_r:usb_device_t
+/run/.*cron.*	--	system_u:object_r:crond_runtime_t
+/mnt/[^/]*/.*	<<none>>
+/usr/(.*/)?man	-d	system_u:object_r:man_t
+/dev/.*mouse.*	-c	system_u:object_r:mouse_device_t
+/dev/.*tty[^/]*	-c	system_u:object_r:tty_device_t
+/usr/(.*/)?man/.*	system_u:object_r:man_t
+/dev/(misc/)?psaux	-c	system_u:object_r:mouse_device_t
+/dev/(raw/)?rawctl	-c	system_u:object_r:fixed_disk_device_t
+/dev/[shmxv]d[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/usr/.*\.so(\.[^/]*)*	--	system_u:object_r:lib_t
+/dev/(misc/)?agpgart	-c	system_u:object_r:agp_device_t
+/opt/(.*/)?bin(/.*)?	system_u:object_r:bin_t
+/opt/(.*/)?lib(/.*)?	system_u:object_r:lib_t
+/opt/(.*/)?man(/.*)?	system_u:object_r:man_t
+/usr/(.*/)?Bin(/.*)?	system_u:object_r:bin_t
+/usr/(.*/)?bin(/.*)?	system_u:object_r:bin_t
+/usr/(.*/)?lib(/.*)?	system_u:object_r:lib_t
+/opt/(.*/)?jre/.+\.jar	--	system_u:object_r:lib_t
+/usr/(local/)?bin/ksu	--	system_u:object_r:su_exec_t
+/opt/(.*/)?sbin(/.*)?	system_u:object_r:bin_t
+/usr/(.*/)?sbin(/.*)?	system_u:object_r:bin_t
+/opt/(.*/)?java/.+\.jar	--	system_u:object_r:lib_t
+/usr/(.*/)?java/.+\.jar	--	system_u:object_r:lib_t
+/usr/(.*/)?java/.+\.jsa	--	system_u:object_r:lib_t
+/dev/(misc/)?rtc[0-9]*	-c	system_u:object_r:clock_device_t
+/opt/(.*/)?lib64(/.*)?	system_u:object_r:lib_t
+/usr/(.*/)?lib64(/.*)?	system_u:object_r:lib_t
+/srv/([^/]*/)?ftp(/.*)?	system_u:object_r:public_content_t
+/srv/([^/]*/)?www(/.*)?	system_u:object_r:httpd_sys_content_t
+/opt/(.*/)?libexec(/.*)?	system_u:object_r:bin_t
+/var/(db|adm)/sudo(/.*)?	system_u:object_r:pam_runtime_t
+/srv/([^/]*/)?rsync(/.*)?	system_u:object_r:public_content_t
+/dev/[pt]ty[a-ep-z][0-9a-f]	-c	system_u:object_r:bsdpty_device_t
+/usr/(.*/)?nvidia/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t
+/opt/(.*/)?var/lib(64)?(/.*)?	system_u:object_r:var_lib_t
+/usr/(.*/)?java/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/opt/(.*/)?jre.*/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/opt/(.*/)?/RealPlayer/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/(.*/)?/RealPlayer/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/(.*/)?/HelixPlayer/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/(.*/)?lib(/.*)?/nvidia/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t
+/usr/[^/-]+-[^/-]+-linux-[^/-]+/gcc-bin/.*(/.*)?	system_u:object_r:bin_t
+/usr/[^/-]+-[^/-]+-linux-[^/-]+/binutils-bin(/.*)?	system_u:object_r:bin_t
+/usr/[^/-]+-[^/-]+-linux-[^/-]+/[^/]+/gcc-bin/.*(/.*)?	system_u:object_r:bin_t
+/usr/[^/-]+-[^/-]+-linux-[^/-]+/[^/]+/binutils-bin(/.*)?	system_u:object_r:bin_t
+/boot/.*	system_u:object_r:boot_t
+/emul/.*	system_u:object_r:usr_t
+/proc/.*	<<none>>
+/media(/[^/]*)	-l	system_u:object_r:mnt_t
+/media(/[^/]*)?	-d	system_u:object_r:mnt_t
+/dev/n?pt[0-9]+	-c	system_u:object_r:tape_device_t
+/dev/p[fg][0-3]	-b	system_u:object_r:removable_device_t
+/dev/s(ou)?nd/.*	-c	system_u:object_r:sound_device_t
+/dev/n?z?qft[0-3]	-c	system_u:object_r:tape_device_t
+/dev/s(cd|r)[^/]*	-b	system_u:object_r:removable_device_t
+/dev/n?osst[0-3].*	-c	system_u:object_r:tape_device_t
+/dev/n?tpqic[12].*	-c	system_u:object_r:tape_device_t
+/dev/n?[hs]t[0-9].*	-c	system_u:object_r:tape_device_t
+/dev/n?(raw)?[qr]ft[0-3]	-c	system_u:object_r:tape_device_t
+/dev/cu.*	-c	system_u:object_r:tty_device_t
+/dev/fw.*	-c	system_u:object_r:usb_device_t
+/dev/js.*	-c	system_u:object_r:mouse_device_t
+/dev/lp.*	-c	system_u:object_r:printer_device_t
+/dev/rd.*	-b	system_u:object_r:fixed_disk_device_t
+/dev/zd.*	-b	system_u:object_r:fixed_disk_device_t
+/dev/pg[0-3]	-c	system_u:object_r:removable_device_t
+/dev/ub[a-c]	-c	system_u:object_r:usb_device_t
+/dev/fd[^/]+	-b	system_u:object_r:removable_device_t
+/dev/ht[0-1]	-b	system_u:object_r:tape_device_t
+/dev/nb[^/]+	-b	system_u:object_r:fixed_disk_device_t
+/dev/vd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/fb[0-9]*	-c	system_u:object_r:framebuf_device_t
+/dev/sg[0-9]+	-c	system_u:object_r:scsi_generic_device_t
+/media/[^/]*/.*	<<none>>
+/dev/tw[a-z][^/]+	-c	system_u:object_r:fixed_disk_device_t
+/dev/pd[a-d][^/]*	-b	system_u:object_r:removable_device_t
+/dev/ub[a-z][^/]+	-b	system_u:object_r:removable_device_t
+/dev/md/.*	--	system_u:object_r:mdadm_runtime_t
+/dev/adb.*	-c	system_u:object_r:tty_device_t
+/dev/cmx.*	-c	system_u:object_r:smartcard_device_t
+/dev/cpu.*	-c	system_u:object_r:cpu_device_t
+/dev/dsp.*	-c	system_u:object_r:sound_device_t
+/dev/hvc.*	-c	system_u:object_r:tty_device_t
+/dev/lik.*	-c	system_u:object_r:event_device_t
+/dev/msr.*	-c	system_u:object_r:cpu_device_t
+/dev/mtd.*	-c	system_u:object_r:fixed_disk_device_t
+/dev/noz.*	-c	system_u:object_r:modem_device_t
+/dev/par.*	-c	system_u:object_r:printer_device_t
+/dev/pps.*	-c	system_u:object_r:clock_device_t
+/dev/tap.*	-c	system_u:object_r:tun_tap_device_t
+/dev/usb.+	-c	system_u:object_r:usb_device_t
+/dev/vbi.*	-c	system_u:object_r:v4l_device_t
+/dev/vtx.*	-c	system_u:object_r:v4l_device_t
+/dev/cdu.*	-b	system_u:object_r:removable_device_t
+/dev/md/.*	-b	system_u:object_r:fixed_disk_device_t
+/dev/mtd.*	-b	system_u:object_r:fixed_disk_device_t
+/dev/ram.*	-b	system_u:object_r:fixed_disk_device_t
+/vmlinuz.*	-l	system_u:object_r:boot_t
+/cgroup/.*	<<none>>
+/dev/vcc?/.*	-c	system_u:object_r:tty_device_t
+/var/db/.*\.db	--	system_u:object_r:etc_t
+/dev/i2c[^/]*	-c	system_u:object_r:tty_device_t
+/dev/ip2[^/]*	-c	system_u:object_r:tty_device_t
+/dev/tee[0-9]	-c	system_u:object_r:tee_device_t
+/dev/tlk[0-3]	-c	system_u:object_r:v4l_device_t
+/dev/vcs[^/]*	-c	system_u:object_r:tty_device_t
+/dev/xvc[^/]*	-c	system_u:object_r:tty_device_t
+/dev/pcd[0-3]	-b	system_u:object_r:removable_device_t
+/dev/ubd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/xvd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/tpm[0-9]*	-c	system_u:object_r:tpm_device_t
+/dev/uio[0-9]+	-c	system_u:object_r:userio_device_t
+/dev/xvc[0-9]*	-c	system_u:object_r:tty_device_t
+/dev/dm-[0-9]+	-b	system_u:object_r:fixed_disk_device_t
+/dev/pts(/.*)?	<<none>>
+/etc/gpm(/.*)?	system_u:object_r:gpm_conf_t
+/etc/lvm(/.*)?	system_u:object_r:lvm_etc_t
+/etc/pki(/.*)?	system_u:object_r:cert_t
+/etc/ssl(/.*)?	system_u:object_r:cert_t
+/run/lvm(/.*)?	system_u:object_r:lvm_runtime_t
+/run/usb(/.*)?	system_u:object_r:hotplug_runtime_t
+/usr/bin(/.*)?	system_u:object_r:bin_t
+/usr/etc(/.*)?	system_u:object_r:etc_t
+/usr/src(/.*)?	system_u:object_r:src_t
+/var/ftp(/.*)?	system_u:object_r:public_content_t
+/var/lib(/.*)?	system_u:object_r:var_lib_t
+/var/www(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/www(/.*)?/logs	-d	system_u:object_r:httpd_sys_ra_content_t
+/dev/dax[0-9]\.[0-9]	-c	system_u:object_r:dax_device_t
+/var/www(/.*)?/logs/.*	system_u:object_r:httpd_sys_ra_content_t
+/usr/doc(/.*)?/lib(/.*)?	system_u:object_r:usr_t
+/usr/lib(/.*)?/nvidia/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t
+/var/www(/.*)?/nextcloud/apps(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www(/.*)?/nextcloud/data(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www(/.*)?/nextcloud/config(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib(/.*)?/libnvidia.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib(/.*)?/nvidia_drv.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/var/www(/.*)?/roundcubemail/logs(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www(/.*)?/roundcubemail/temp(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/dev/mcdx?	-b	system_u:object_r:removable_device_t
+/dev/adsp.*	-c	system_u:object_r:sound_device_t
+/dev/bsg/.+	-c	system_u:object_r:scsi_generic_device_t
+/dev/capi.*	-c	system_u:object_r:tty_device_t
+/dev/card.*	-c	system_u:object_r:xserver_misc_device_t
+/dev/dri/.+	-c	system_u:object_r:dri_device_t
+/dev/dvb/.*	-c	system_u:object_r:v4l_device_t
+/dev/hvsi.*	-c	system_u:object_r:tty_device_t
+/dev/ippp.*	-c	system_u:object_r:ppp_device_t
+/dev/isdn.*	-c	system_u:object_r:tty_device_t
+/dev/midi.*	-c	system_u:object_r:sound_device_t
+/dev/net/.*	-c	system_u:object_r:tun_tap_device_t
+/dev/pty/.*	-c	system_u:object_r:bsdpty_device_t
+/dev/tape.*	-c	system_u:object_r:tape_device_t
+/dev/vbox.*	-c	system_u:object_r:xserver_misc_device_t
+/dev/cm20.*	-b	system_u:object_r:removable_device_t
+/dev/loop.*	-b	system_u:object_r:fixed_disk_device_t
+/dev/ps3d.*	-b	system_u:object_r:fixed_disk_device_t
+/run/wsgi.*	-s	system_u:object_r:httpd_runtime_t
+/dev/shm/.*	<<none>>
+/run/mod_.*	system_u:object_r:httpd_runtime_t
+/selinux/.*	<<none>>
+/usr/lib/.*	system_u:object_r:lib_t
+/usr/tmp/.*	<<none>>
+/var/log/.*	system_u:object_r:var_log_t
+/var/tmp/.*	<<none>>
+/dev/dasd[^/]*	-c	system_u:object_r:fixed_disk_device_t
+/dev/srnd[0-7]	-c	system_u:object_r:sound_device_t
+/dev/tts/[^/]*	-c	system_u:object_r:tty_device_t
+/dev/dasd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/drbd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/ida/[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/ipmi[0-9]+	-c	system_u:object_r:ipmi_device_t
+/dev/lirc[0-9]+	-c	system_u:object_r:lirc_device_t
+/dev/nvme[0-9]+	-c	system_u:object_r:fixed_disk_device_t
+/dev/pts/[0-9]+	-c	system_u:object_r:user_devpts_t
+/dev/tts/[0-9]+	-c	system_u:object_r:tty_device_t
+/dev/pmem[0-9]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/zram[0-9]+	-b	system_u:object_r:fixed_disk_device_t
+/etc/glpi(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/etc/mail(/.*)?	system_u:object_r:etc_mail_t
+/etc/mutt(/.*)?	system_u:object_r:mutt_etc_t
+/run/fsck(/.*)?	system_u:object_r:fsadm_run_t
+/run/nscd(/.*)?	system_u:object_r:nscd_runtime_t
+/run/sshd(/.*)?	system_u:object_r:sshd_runtime_t
+/run/sudo(/.*)?	system_u:object_r:pam_runtime_t
+/run/tmux(/.*)?	system_u:object_r:screen_runtime_t
+/run/udev(/.*)?	system_u:object_r:udev_runtime_t
+/usr/sbin(/.*)?	system_u:object_r:bin_t
+/var/mail(/.*)?	system_u:object_r:mail_spool_t
+/etc/gpm-.*\.conf	--	system_u:object_r:gpm_conf_t
+/usr/bin/.*getty	--	system_u:object_r:getty_exec_t
+/run/cron(d)?\.pid	--	system_u:object_r:crond_runtime_t
+/run/cron(d)?\.reboot	--	system_u:object_r:crond_runtime_t
+/usr/bin/(f)?crontab	--	system_u:object_r:crontab_exec_t
+/dev/nvme[0-9]n[^/]+	-b	system_u:object_r:fixed_disk_device_t
+/usr/lib/(.*/)?bin(/.*)?	system_u:object_r:bin_t
+/etc/pki/.*/private(/.*)?	system_u:object_r:tls_privkey_t
+/usr/lib/(.*/)?sbin(/.*)?	system_u:object_r:bin_t
+/var/lib/[sm]locate(/.*)?	system_u:object_r:locate_var_lib_t
+/var/www/[^/]*/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/[^/]*/run-mozilla\.sh	--	system_u:object_r:bin_t
+/usr/lib/[^/]+/libexec/kf5/.*	--	system_u:object_r:bin_t
+/boot/efi(/.*)?/System\.map(-.*)?	--	system_u:object_r:system_map_t
+/usr/lib/(sse2/)?libfame-.*\.so.*	--	system_u:object_r:textrel_shlib_t
+/var/lib/(misc/)?logrotate\.status	--	system_u:object_r:logrotate_var_lib_t
+/usr/lib/(.*/)?ld-[^/]*\.so(\.[^/]*)?	--	system_u:object_r:ld_so_t
+/usr/lib/([^/]+/)?utempter/utempter	--	system_u:object_r:utempter_exec_t
+/usr/lib/[^/]*/mozilla-xremote-client	--	system_u:object_r:bin_t
+/usr/lib/[^/]*thunderbird[^/]*/thunderbird	--	system_u:object_r:bin_t
+/usr/lib/[^/]*thunderbird[^/]*/open-browser\.sh	--	system_u:object_r:bin_t
+/usr/lib/[^/]*thunderbird[^/]*/thunderbird-bin	--	system_u:object_r:bin_t
+/run/snort.*	--	system_u:object_r:snort_runtime_t
+/dev/aload.*	-c	system_u:object_r:sound_device_t
+/dev/amidi.*	-c	system_u:object_r:sound_device_t
+/dev/audio.*	-c	system_u:object_r:sound_device_t
+/dev/event.*	-c	system_u:object_r:event_device_t
+/dev/gtrsc.*	-c	system_u:object_r:clock_device_t
+/dev/mixer.*	-c	system_u:object_r:sound_device_t
+/dev/pppox.*	-c	system_u:object_r:ppp_device_t
+/dev/radio.*	-c	system_u:object_r:v4l_device_t
+/dev/rmidi.*	-c	system_u:object_r:sound_device_t
+/dev/smpte.*	-c	system_u:object_r:sound_device_t
+/dev/ttySG.*	-c	system_u:object_r:tty_device_t
+/dev/usblp.*	-c	system_u:object_r:printer_device_t
+/dev/vfio/.+	-c	system_u:object_r:vfio_device_t
+/dev/video.*	-c	system_u:object_r:v4l_device_t
+/dev/vmnet.*	-c	system_u:object_r:vmware_device_t
+/dev/sbpcd.*	-b	system_u:object_r:removable_device_t
+/etc/dhcpc.*	system_u:object_r:dhcp_etc_t
+/run/httpd.*	system_u:object_r:httpd_runtime_t
+/var/lock/.*	<<none>>
+/usr/bin/d?ash	--	system_u:object_r:shell_exec_t
+/run/user/[^/]+	-d	system_u:object_r:user_runtime_t
+/dev/ndctl[0-9]	-c	system_u:object_r:nvram_device_t
+/dev/flash[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/\.udev(/.*)?	--	system_u:object_r:udev_tbl_t
+/etc/mtab~[0-9]*	--	system_u:object_r:etc_runtime_t
+/dev/dcbri[0-9]+	-c	system_u:object_r:tty_device_t
+/dev/ipmi/[0-9]+	-c	system_u:object_r:ipmi_device_t
+/dev/irlpt[0-9]+	-c	system_u:object_r:printer_device_t
+/dev/slamr[0-9]+	-c	system_u:object_r:tty_device_t
+/dev/tpmrm[0-9]*	-c	system_u:object_r:tpm_device_t
+/etc/audit(/.*)?	system_u:object_r:auditd_etc_t
+/etc/blkid(/.*)?	system_u:object_r:etc_runtime_t
+/etc/dhcp3(/.*)?	system_u:object_r:dhcp_etc_t
+/etc/env\.d(/.*)?	system_u:object_r:etc_runtime_t
+/etc/fonts(/.*)?	system_u:object_r:fonts_t
+/etc/horde(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/etc/htdig(/.*)?	system_u:object_r:httpd_sys_content_t
+/etc/httpd(/.*)?	system_u:object_r:httpd_config_t
+/etc/snort(/.*)?	system_u:object_r:snort_etc_t
+/etc/squid(/.*)?	system_u:object_r:squid_conf_t
+/run/blkid(/.*)?	system_u:object_r:fsadm_run_t
+/run/mdadm(/.*)?	system_u:object_r:mdadm_runtime_t
+/run/mount(/.*)?	system_u:object_r:mount_runtime_t
+/run/snmpd(/.*)?	system_u:object_r:snmpd_runtime_t
+/run/snort(/.*)?	system_u:object_r:snort_runtime_t
+/var/spool(/.*)?	system_u:object_r:var_spool_t
+/usr/sbin/.*getty	--	system_u:object_r:getty_exec_t
+/run/user/[^/]+/.+	-d	<<none>>
+/dev/vport[0-9]p[0-9]+	-c	system_u:object_r:virtio_device_t
+/etc/dhcp3?/dhclient.*	system_u:object_r:dhcp_etc_t
+/var/lib/r?syslog(/.*)?	system_u:object_r:syslogd_var_lib_t
+/etc/cron\.(daily|weekly)/sysklogd	--	system_u:object_r:logrotate_exec_t
+/etc/cron\.(daily|weekly)/logrotate	--	system_u:object_r:logrotate_exec_t
+/etc/dev\.d/.+	--	system_u:object_r:udev_helper_exec_t
+/etc/shadow.*	--	system_u:object_r:shadow_t
+/dev/amixer.*	-c	system_u:object_r:sound_device_t
+/dev/autofs.*	-c	system_u:object_r:autofs_device_t
+/dev/dahdi/.*	-c	system_u:object_r:sound_device_t
+/dev/dmmidi.*	-c	system_u:object_r:sound_device_t
+/dev/em8300.*	-c	system_u:object_r:v4l_device_t
+/dev/hiddev.*	-c	system_u:object_r:usb_device_t
+/dev/hidraw.*	-c	system_u:object_r:usb_device_t
+/dev/input/.*	-c	system_u:object_r:event_device_t
+/dev/mmcblk.*	-c	system_u:object_r:removable_device_t
+/dev/mpu401.*	-c	system_u:object_r:sound_device_t
+/dev/nvidia.*	-c	system_u:object_r:xserver_misc_device_t
+/dev/usb/lp.*	-c	system_u:object_r:printer_device_t
+/dev/usbmon.+	-c	system_u:object_r:usbmon_device_t
+/dev/mmcblk.*	-b	system_u:object_r:removable_device_t
+/dev/mspblk.*	-b	system_u:object_r:removable_device_t
+/initrd\.img.*	-l	system_u:object_r:boot_t
+/etc/drupal.*	system_u:object_r:httpd_sys_rw_content_t
+/run/apache.*	system_u:object_r:httpd_runtime_t
+/run/squid3.*	system_u:object_r:squid_runtime_t
+/dev/patmgr[01]	-c	system_u:object_r:sound_device_t
+/dev/hpilo/[^/]*	-c	system_u:object_r:tty_device_t
+/dev/cciss/[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/i2o/hd[^/]*	-b	system_u:object_r:fixed_disk_device_t
+/dev/ircomm[0-9]+	-c	system_u:object_r:tty_device_t
+/dev/rfcomm[0-9]+	-c	system_u:object_r:tty_device_t
+/dev/mqueue(/.*)?	<<none>>
+/etc/cron\.d(/.*)?	system_u:object_r:system_cron_spool_t
+/etc/lvmtab(/.*)?	system_u:object_r:lvm_metadata_t
+/etc/mgetty(/.*)?	system_u:object_r:getty_conf_t
+/etc/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/run/dhcpcd(/.*)?	system_u:object_r:dhcpc_runtime_t
+/run/openrc(/.*)?	system_u:object_r:initrc_state_t
+/run/screen(/.*)?	system_u:object_r:screen_runtime_t
+/sys/fs/bpf(/.*)?	<<none>>
+/var/agentx(/.*)?	system_u:object_r:snmpd_var_lib_t
+/var/db/pkg(/.*)?	system_u:object_r:portage_db_t
+/etc/avahi/.*\.action	--	system_u:object_r:bin_t
+/dev/input/.*mouse.*	-c	system_u:object_r:mouse_device_t
+/etc/apache(2)?(/.*)?	system_u:object_r:httpd_config_t
+/usr/lib/qt.*/bin(/.*)?	system_u:object_r:bin_t
+/usr/local/(.*/)?bin(/.*)?	system_u:object_r:bin_t
+/usr/share/(.*/)?bin(/.*)?	system_u:object_r:bin_t
+/var/spool/(client)?mqueue(/.*)?	system_u:object_r:mqueue_spool_t
+/etc/gshadow.*	--	system_u:object_r:shadow_t
+/etc/nologin.*	--	system_u:object_r:etc_runtime_t
+/etc/yp\.conf.*	--	system_u:object_r:net_conf_t
+/media/\.hal-.*	--	system_u:object_r:mnt_t
+/run/xtables.*	--	system_u:object_r:iptables_runtime_t
+/usr/bin/ksh.*	--	system_u:object_r:shell_exec_t
+/usr/bin/zsh.*	--	system_u:object_r:shell_exec_t
+/usr/lib/yp/.+	--	system_u:object_r:bin_t
+/dev/admmidi.*	-c	system_u:object_r:sound_device_t
+/dev/etherd/.+	-c	system_u:object_r:lvm_control_t
+/dev/input/m.*	-c	system_u:object_r:mouse_device_t
+/dev/megadev.*	-c	system_u:object_r:removable_device_t
+/dev/mga_vid.*	-c	system_u:object_r:xserver_misc_device_t
+/dev/mvideo/.*	-c	system_u:object_r:xserver_misc_device_t
+/dev/raw1394.*	-c	system_u:object_r:v4l_device_t
+/dev/usb/tty.*	-c	system_u:object_r:usbtty_device_t
+/dev/etherd/.+	-b	system_u:object_r:fixed_disk_device_t
+/dev/mapper/.*	-b	system_u:object_r:fixed_disk_device_t
+/lost\+found/.*	<<none>>
+/run/dmevent.*	system_u:object_r:lvm_runtime_t
+/usr/bin/gpg(2)?	--	system_u:object_r:gpg_exec_t
+/dev/teepriv[0-9]	-c	system_u:object_r:tee_priv_device_t
+/dev/floppy/[^/]*	-b	system_u:object_r:removable_device_t
+/dev/raw/raw[0-9]+	-c	system_u:object_r:fixed_disk_device_t
+/etc/dirmngr(/.*)?	system_u:object_r:dirmngr_conf_t
+/etc/hotplug(/.*)?	system_u:object_r:hotplug_etc_t
+/etc/kde/env(/.*)?	system_u:object_r:bin_t
+/etc/krb5kdc(/.*)?	system_u:object_r:krb5kdc_conf_t
+/etc/portage(/.*)?	system_u:object_r:portage_conf_t
+/etc/selinux(/.*)?	system_u:object_r:selinux_config_t
+/run/console(/.*)?	system_u:object_r:pam_var_console_t
+/run/dirmngr(/.*)?	system_u:object_r:dirmngr_runtime_t
+/run/hotplug(/.*)?	system_u:object_r:hotplug_runtime_t
+/run/pam_ssh(/.*)?	system_u:object_r:var_auth_t
+/run/setrans(/.*)?	system_u:object_r:setrans_runtime_t
+/run/systemd(/.*)?	system_u:object_r:init_runtime_t
+/usr/include(/.*)?	system_u:object_r:usr_t
+/usr/lib/ssh(/.*)?	system_u:object_r:bin_t
+/usr/libexec(/.*)?	system_u:object_r:bin_t
+/usr/portage(/.*)?	system_u:object_r:portage_ebuild_t
+/var/db/nscd(/.*)?	system_u:object_r:nscd_runtime_t
+/var/ftp/bin(/.*)?	system_u:object_r:bin_t
+/var/ftp/etc(/.*)?	system_u:object_r:etc_t
+/var/lib/abl(/.*)?	system_u:object_r:var_auth_t
+/var/lib/dav(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/php(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/svn(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www/svn(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/bin/ip6?tables	--	system_u:object_r:iptables_exec_t
+/etc/mcelog/.*\.local	--	system_u:object_r:bin_t
+/var/ftp/lib(64)?(/.*)?	system_u:object_r:lib_t
+/usr/bin/ip6?tables-multi	--	system_u:object_r:iptables_exec_t
+/var/lib/ip6?tables(/.*)?	system_u:object_r:initrc_tmp_t
+/usr/bin/ip6?tables-restore	--	system_u:object_r:iptables_exec_t
+/etc/mcelog/.*-error-trigger	--	system_u:object_r:bin_t
+/usr/lib/ld-[^/]*\.so(\.[^/]*)*	--	system_u:object_r:ld_so_t
+/var/ftp/lib(64)?/ld[^/]*\.so(\.[^/]*)*	--	system_u:object_r:ld_so_t
+/opt/Acrobat[5-9]/Reader/intellinux/plugins/.*\.api	--	system_u:object_r:lib_t
+/opt/Acrobat[5-9]/Reader/intellinux/plug_ins/.*\.api	--	system_u:object_r:lib_t
+/opt/Acrobat[5-9]/Reader/intellinux/plug_ins3d/.*\.x3d	--	system_u:object_r:lib_t
+/opt/Acrobat[5-9]/Reader/intellinux/SPPlugins/.*\.ap[il]	--	system_u:object_r:lib_t
+/run/dhclient.*	--	system_u:object_r:dhcpc_runtime_t
+/usr/bin/fsck.*	--	system_u:object_r:fsadm_exec_t
+/usr/bin/jfs_.*	--	system_u:object_r:fsadm_exec_t
+/usr/bin/lilo.*	--	system_u:object_r:bootloader_exec_t
+/usr/bin/mkfs.*	--	system_u:object_r:fsadm_exec_t
+/usr/bin/ping.*	--	system_u:object_r:ping_exec_t
+/usr/bin/ybin.*	--	system_u:object_r:bootloader_exec_t
+/usr/lib/nut/.*	--	system_u:object_r:bin_t
+/var/log/btmp.*	--	system_u:object_r:faillog_t
+/var/log/wtmp.*	--	system_u:object_r:wtmp_t
+/dev/input/js.*	-c	system_u:object_r:mouse_device_t
+/dev/misc/dlm.*	-c	system_u:object_r:dlm_control_device_t
+/dev/pcfclock.*	-c	system_u:object_r:clock_device_t
+/dev/watchdog.*	-c	system_u:object_r:watchdog_device_t
+/dev/winradio.*	-c	system_u:object_r:v4l_device_t
+/dev/ataraid/.*	-b	system_u:object_r:fixed_disk_device_t
+/var/log/cron.*	system_u:object_r:cron_log_t
+/etc/hotplug/.*rc	--	system_u:object_r:bin_t
+/usr/bin/cron(d)?	--	system_u:object_r:crond_exec_t
+/usr/bin/mail(x)?	--	system_u:object_r:sendmail_exec_t
+/etc/rc\.d/rc\.[^/]+	--	system_u:object_r:initrc_exec_t
+/run/\.nologin[^/]*	--	system_u:object_r:systemd_sessions_runtime_t
+/usr/bin/init(ng)?	--	system_u:object_r:init_exec_t
+/dev/gpiochip[0-9]	-c	system_u:object_r:gpiochip_device_t
+/var/net-snmp(/.*)	system_u:object_r:snmpd_var_lib_t
+/etc/dhclient.*conf	--	system_u:object_r:dhcp_etc_t
+/etc/cherokee(/.*)?	system_u:object_r:httpd_config_t
+/etc/hiawatha(/.*)?	system_u:object_r:httpd_config_t
+/etc/lighttpd(/.*)?	system_u:object_r:httpd_config_t
+/etc/lvm/lock(/.*)?	system_u:object_r:lvm_lock_t
+/etc/lvmtab\.d(/.*)?	system_u:object_r:lvm_metadata_t
+/etc/tripwire(/.*)?	system_u:object_r:tripwire_etc_t
+/run/faillock(/.*)?	system_u:object_r:faillog_t
+/run/lighttpd(/.*)?	system_u:object_r:httpd_runtime_t
+/run/sepermit(/.*)?	system_u:object_r:pam_runtime_t
+/srv/gallery2(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/lib/cups(/.*)?	system_u:object_r:bin_t
+/var/lib/aide(/.*)?	system_u:object_r:aide_db_t
+/var/lib/glpi(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/php5(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/snmp(/.*)?	system_u:object_r:snmpd_var_lib_t
+/var/lib/sudo(/.*)?	system_u:object_r:pam_runtime_t
+/var/lib/trac(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/lock/lvm(/.*)?	system_u:object_r:lvm_lock_t
+/var/log/aide(/.*)?	system_u:object_r:aide_log_t
+/var/log/fsck(/.*)?	system_u:object_r:fsadm_log_t
+/var/log/glpi(/.*)?	system_u:object_r:httpd_log_t
+/var/www/perl(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/etc/hotplug/.*agent	--	system_u:object_r:bin_t
+/usr/sbin/ip6?tables	--	system_u:object_r:iptables_exec_t
+/dev/bus/usb/.*/[0-9]+	-c	system_u:object_r:usb_device_t
+/etc/ld-musl-[^/]*\.path	--	system_u:object_r:ld_so_cache_t
+/usr/sbin/ip6?tables-multi	--	system_u:object_r:iptables_exec_t
+/usr/sbin/ip6?tables-restore	--	system_u:object_r:iptables_exec_t
+/etc/selinux/([^/]*/)?seusers	--	system_u:object_r:selinux_config_t
+/etc/selinux/([^/]*/)?users(/.*)?	--	system_u:object_r:selinux_config_t
+/etc/selinux/([^/]*/)?setrans\.conf	--	system_u:object_r:selinux_config_t
+/etc/selinux/([^/]*/)?policy(/.*)?	system_u:object_r:policy_config_t
+/etc/selinux/([^/]*/)?modules(/.*)?	system_u:object_r:semanage_store_t
+/etc/selinux/([^/]*/)?contexts(/.*)?	system_u:object_r:default_context_t
+/etc/selinux/([^/]*/)?contexts/files(/.*)?	system_u:object_r:file_context_t
+/etc/selinux/([^/]*/)?modules/semanage\.read\.LOCK	--	system_u:object_r:semanage_read_lock_t
+/etc/selinux/([^/]*/)?modules/semanage\.trans\.LOCK	--	system_u:object_r:semanage_trans_lock_t
+/var/lib/dhcp3?	-d	system_u:object_r:dhcp_state_t
+/etc/denyhosts.*	--	system_u:object_r:net_conf_t
+/etc/lilo\.conf.*	--	system_u:object_r:bootloader_etc_t
+/usr/bin/rmmod.*	--	system_u:object_r:kmod_exec_t
+/usr/bin/squid.*	--	system_u:object_r:squid_exec_t
+/usr/lib/dpkg/.+	--	system_u:object_r:bin_t
+/usr/sbin/fsck.*	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/jfs_.*	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/lilo.*	--	system_u:object_r:bootloader_exec_t
+/usr/sbin/mkfs.*	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/ybin.*	--	system_u:object_r:bootloader_exec_t
+/var/db/shadow.*	--	system_u:object_r:shadow_t
+/dev/mfpports/.*	-c	system_u:object_r:printer_device_t
+/dev/usb/dc2xx.*	-c	system_u:object_r:scanner_device_t
+/var/log/squid.*	system_u:object_r:squid_log_t
+/usr/sbin/cron(d)?	--	system_u:object_r:crond_exec_t
+/usr/lib/udev/[^/]*	--	system_u:object_r:bin_t
+/usr/lib/wine/.+\.so	--	system_u:object_r:textrel_shlib_t
+/usr/sbin/init(ng)?	--	system_u:object_r:init_exec_t
+/var/cache/ssl.*\.sem	--	system_u:object_r:httpd_cache_t
+/dev/hugepages(/.*)?	<<none>>
+/etc/X11/xinit(/.*)?	system_u:object_r:bin_t
+/etc/lvm/cache(/.*)?	system_u:object_r:lvm_metadata_t
+/etc/mock/koji(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/etc/netplug\.d(/.*)?	system_u:object_r:bin_t
+/etc/profile\.d(/.*)?	system_u:object_r:bin_t
+/etc/rsyslog\.d(/.*)?	system_u:object_r:syslog_conf_t
+/run/net-snmpd(/.*)?	system_u:object_r:snmpd_runtime_t
+/run/pam_mount(/.*)?	system_u:object_r:pam_runtime_t
+/run/saslauthd(/.*)?	system_u:object_r:saslauthd_runtime_t
+/run/syslog-ng(/.*)?	system_u:object_r:syslogd_runtime_t
+/run/udev/data(/.*)?	system_u:object_r:udev_tbl_t
+/usr/lib/fence(/.*)?	system_u:object_r:bin_t
+/usr/lib/httpd(/.*)?	system_u:object_r:httpd_modules_t
+/usr/local/etc(/.*)?	system_u:object_r:etc_t
+/usr/local/src(/.*)?	system_u:object_r:src_t
+/var/cache/edb(/.*)?	system_u:object_r:portage_cache_t
+/var/cache/man(/.*)?	system_u:object_r:man_cache_t
+/var/cache/rt3(/.*)?	system_u:object_r:httpd_cache_t
+/var/lib/dhcpc(/.*)?	system_u:object_r:dhcpc_state_t
+/var/lib/htdig(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/lib/httpd(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/sasl2(/.*)?	system_u:object_r:saslauthd_runtime_t
+/var/lib/texmf(/.*)?	system_u:object_r:tetex_data_t
+/var/log/audit(/.*)?	system_u:object_r:auditd_log_t
+/var/log/cacti(/.*)?	system_u:object_r:httpd_log_t
+/var/log/httpd(/.*)?	system_u:object_r:httpd_log_t
+/var/log/mlogc(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/log/snort(/.*)?	system_u:object_r:snort_log_t
+/var/qmail/bin(/.*)?	system_u:object_r:bin_t
+/var/spool/fax(/.*)?	system_u:object_r:getty_runtime_t
+/var/www/icons(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/bin/grub2?-probe	--	system_u:object_r:bootloader_exec_t
+/usr/bin/grub2?-install	--	system_u:object_r:bootloader_exec_t
+/usr/bin/mount(\.[^/]+)?	--	system_u:object_r:mount_exec_t
+/usr/bin/grub2?-mkconfig	--	system_u:object_r:bootloader_exec_t
+/usr/bin/httpd(\.worker)?	--	system_u:object_r:httpd_exec_t
+/usr/bin/grub2?-bios-setup	--	system_u:object_r:bootloader_exec_t
+/var/lib/dhcp3?/dhclient.*	system_u:object_r:dhcpc_state_t
+/usr/share/doc(/.*)?/README.*	system_u:object_r:usr_t
+/usr/lib/gimp/.*/plug-ins(/.*)?	system_u:object_r:bin_t
+/var/www/html/[^/]*/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/usr/X11R6/lib(64)?/X11/xkb/xkbcomp	--	system_u:object_r:bin_t
+/usr/share/apr(-[0-9])?/build/libtool	--	system_u:object_r:bin_t
+/usr/share/apr(-[0-9])?/build/[^/]+\.sh	--	system_u:object_r:bin_t
+/var/www/html/[^/]*/sites/default/files(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www/html/[^/]*/sites/default/settings\.php	--	system_u:object_r:httpd_sys_rw_content_t
+/etc/cipe/ip-up.*	--	system_u:object_r:bin_t
+/etc/hosts\.deny.*	--	system_u:object_r:net_conf_t
+/etc/hotplug\.d/.*	--	system_u:object_r:hotplug_exec_t
+/etc/ppp/ip-up\..*	--	system_u:object_r:bin_t
+/run/mgetty\.pid.*	--	system_u:object_r:getty_runtime_t
+/usr/bin/depmod.*	--	system_u:object_r:kmod_exec_t
+/usr/bin/insmod.*	--	system_u:object_r:kmod_exec_t
+/usr/bin/swapon.*	--	system_u:object_r:fsadm_exec_t
+/usr/lib/cyrus/.*	--	system_u:object_r:bin_t
+/usr/lib/gnupg/.*	--	system_u:object_r:gpg_exec_t
+/usr/lib/ipsec/.*	--	system_u:object_r:bin_t
+/usr/lib/rc/sh/.*	--	system_u:object_r:bin_t
+/usr/sbin/rmmod.*	--	system_u:object_r:kmod_exec_t
+/usr/sbin/squid.*	--	system_u:object_r:squid_exec_t
+/dev/usb/mdc800.*	-c	system_u:object_r:scanner_device_t
+/dev/xen/blktap.*	-c	system_u:object_r:xen_device_t
+/dev/scramdisk/.*	-b	system_u:object_r:fixed_disk_device_t
+/sys/fs/cgroup/.*	<<none>>
+/sys/fs/pstore/.*	<<none>>
+/var/cache/mod_.*	system_u:object_r:httpd_cache_t
+/var/cache/php-.*	system_u:object_r:httpd_cache_t
+/var/lib/drupal.*	system_u:object_r:httpd_sys_rw_content_t
+/usr/bin/apache(2)?	--	system_u:object_r:httpd_exec_t
+/usr/bin/resize.*fs	--	system_u:object_r:fsadm_exec_t
+/sys/fs/cgroup/[^/]+	-l	system_u:object_r:cgroup_t
+/var/log/secure[^/]*	system_u:object_r:var_log_t
+/usr/bin/crack_[a-z]*	--	system_u:object_r:crack_exec_t
+/etc/cron\.daily(/.*)?	system_u:object_r:bin_t
+/etc/lvm/backup(/.*)?	system_u:object_r:lvm_metadata_t
+/etc/modprobe\.d(/.*)?	system_u:object_r:modules_conf_t
+/etc/pm/power\.d(/.*)?	system_u:object_r:bin_t
+/etc/pm/sleep\.d(/.*)?	system_u:object_r:bin_t
+/etc/tmpfiles\.d(/.*)?	system_u:object_r:tmpfiles_conf_t
+/etc/zabbix/web(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/run/tmpfiles\.d(/.*)?	system_u:object_r:tmpfiles_runtime_t
+/usr/lib/apache(/.*)?	system_u:object_r:httpd_modules_t
+/usr/lib/locale(/.*)?	system_u:object_r:locale_t
+/usr/local/sbin(/.*)?	system_u:object_r:bin_t
+/usr/share/glpi(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/cache/nscd(/.*)?	system_u:object_r:nscd_runtime_t
+/var/lib/dhcpcd(/.*)?	system_u:object_r:dhcpc_state_t
+/var/lib/dhcpv6(/.*)?	system_u:object_r:dhcpc_state_t
+/var/lib/init\.d(/.*)?	system_u:object_r:initrc_state_t
+/var/lib/layman(/.*)?	system_u:object_r:portage_ebuild_t
+/var/lib/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/log/horde2(/.*)?	system_u:object_r:httpd_log_t
+/var/log/z-push(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/spool/gosa(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/spool/imap(/.*)?	system_u:object_r:mail_spool_t
+/var/spool/mail(/.*)?	system_u:object_r:mail_spool_t
+/var/squidGuard(/.*)?	system_u:object_r:squid_cache_t
+/usr/bin/apache(2)?ctl	--	system_u:object_r:httpd_exec_t
+/usr/sbin/grub2?-probe	--	system_u:object_r:bootloader_exec_t
+/usr/bin/umount(\.[^/]+)?	--	system_u:object_r:mount_exec_t
+/usr/sbin/grub2?-install	--	system_u:object_r:bootloader_exec_t
+/usr/sbin/mount(\.[^/]+)?	--	system_u:object_r:mount_exec_t
+/usr/sbin/grub2?-mkconfig	--	system_u:object_r:bootloader_exec_t
+/usr/sbin/httpd(\.worker)?	--	system_u:object_r:httpd_exec_t
+/etc/apache-ssl(2)?(/.*)?	system_u:object_r:httpd_config_t
+/var/log/apache(2)?(/.*)?	system_u:object_r:httpd_log_t
+/usr/sbin/grub2?-bios-setup	--	system_u:object_r:bootloader_exec_t
+/usr/lib/fglrx/.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/win32/.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/apache(2)?/suexec(2)?	--	system_u:object_r:httpd_suexec_exec_t
+/etc/\.fstab\.hal\..+	--	system_u:object_r:etc_runtime_t
+/etc/hosts\.allow.*	--	system_u:object_r:net_conf_t
+/etc/resolv\.conf.*	--	system_u:object_r:net_conf_t
+/etc/yaboot\.conf.*	--	system_u:object_r:bootloader_etc_t
+/usr/bin/losetup.*	--	system_u:object_r:fsadm_exec_t
+/usr/lib/lvm-10/.*	--	system_u:object_r:lvm_exec_t
+/usr/lib/rc/bin/.*	--	system_u:object_r:bin_t
+/usr/sbin/depmod.*	--	system_u:object_r:kmod_exec_t
+/usr/sbin/insmod.*	--	system_u:object_r:kmod_exec_t
+/usr/sbin/swapon.*	--	system_u:object_r:fsadm_exec_t
+/var/log/rpmpkgs.*	--	system_u:object_r:cron_log_t
+/dev/\.tmp-block-.*	-c	system_u:object_r:fixed_disk_device_t
+/dev/input/event.*	-c	system_u:object_r:event_device_t
+/dev/usb/scanner.*	-c	system_u:object_r:scanner_device_t
+/tmp/lost\+found/.*	<<none>>
+/usr/lost\+found/.*	<<none>>
+/var/lost\+found/.*	<<none>>
+/var/spool/squid.*	system_u:object_r:squid_cache_t
+/usr/sbin/apache(2)?	--	system_u:object_r:httpd_exec_t
+/usr/sbin/resize.*fs	--	system_u:object_r:fsadm_exec_t
+/var/spool/cron/[^/]*	--	<<none>>
+/var/log/maillog[^/]*	system_u:object_r:var_log_t
+/var/log/spooler[^/]*	system_u:object_r:var_log_t
+/boot/System\.map(-.*)?	--	system_u:object_r:system_map_t
+/etc/portage/bin(/.*)?	--	system_u:object_r:bin_t
+/usr/sbin/crack_[a-z]*	--	system_u:object_r:crack_exec_t
+/etc/WebCalendar(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/etc/cron\.hourly(/.*)?	system_u:object_r:bin_t
+/etc/cron\.weekly(/.*)?	system_u:object_r:bin_t
+/etc/lvm/archive(/.*)?	system_u:object_r:lvm_metadata_t
+/etc/portage/gpg(/.*)?	system_u:object_r:portage_gpg_t
+/etc/xen/scripts(/.*)?	system_u:object_r:bin_t
+/run/log/journal(/.*)?	system_u:object_r:systemd_journal_t
+/run/user/apache(/.*)?	system_u:object_r:httpd_tmp_t
+/usr/lib/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/courier(/.*)?	system_u:object_r:bin_t
+/usr/lib/getconf(/.*)?	system_u:object_r:bin_t
+/usr/lib/modules(/.*)?	system_u:object_r:modules_object_t
+/usr/lib/upstart(/.*)?	system_u:object_r:bin_t
+/usr/share/fonts(/.*)?	system_u:object_r:fonts_t
+/usr/share/htdig(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/share/squid(/.*)?	system_u:object_r:squid_conf_t
+/usr/var/krb5kdc(/.*)?	system_u:object_r:krb5kdc_conf_t
+/var/cache/fonts(/.*)?	system_u:object_r:tetex_data_t
+/var/cache/httpd(/.*)?	system_u:object_r:httpd_cache_t
+/var/cache/mason(/.*)?	system_u:object_r:httpd_cache_t
+/var/cache/squid(/.*)?	system_u:object_r:squid_cache_t
+/var/lib/dirmngr(/.*)?	system_u:object_r:dirmngr_var_lib_t
+/var/lib/pam_ssh(/.*)?	system_u:object_r:var_auth_t
+/var/lib/portage(/.*)?	system_u:object_r:portage_cache_t
+/var/lib/selinux(/.*)?	system_u:object_r:semanage_store_t
+/var/lib/systemd(/.*)?	system_u:object_r:init_var_lib_t
+/var/log/dirmngr(/.*)?	system_u:object_r:dirmngr_log_t
+/var/log/journal(/.*)?	system_u:object_r:systemd_journal_t
+/var/log/piranha(/.*)?	system_u:object_r:httpd_log_t
+/var/log/portage(/.*)?	system_u:object_r:portage_log_t
+/var/log/sandbox(/.*)?	system_u:object_r:portage_log_t
+/var/mailman/bin(/.*)?	system_u:object_r:bin_t
+/var/spool/audit(/.*)?	system_u:object_r:audit_spool_t
+/var/spool/texmf(/.*)?	system_u:object_r:tetex_data_t
+/var/spool/voice(/.*)?	system_u:object_r:getty_runtime_t
+/var/tmp/binpkgs(/.*)?	system_u:object_r:portage_tmp_t
+/var/tmp/portage(/.*)?	system_u:object_r:portage_tmp_t
+/var/www/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/var/www/uploads(/.*)?	system_u:object_r:httpd_cache_t
+/usr/sbin/apache(2)?ctl	--	system_u:object_r:httpd_exec_t
+/usr/sbin/umount(\.[^/]+)?	--	system_u:object_r:mount_exec_t
+/etc/cron\.daily/[sm]locate	--	system_u:object_r:locate_exec_t
+/usr/share/misc/(pci|usb)\.ids	--	system_u:object_r:hwdata_t
+/usr/lib/cedega/.+\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/libADM5.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/share/texmf[^/]*/fonts(/.*)?	system_u:object_r:fonts_t
+/etc/cipe/ip-down.*	--	system_u:object_r:bin_t
+/etc/mail/aliases.*	--	system_u:object_r:etc_aliases_t
+/etc/modules\.conf.*	--	system_u:object_r:modules_conf_t
+/etc/ppp/ip-down\..*	--	system_u:object_r:bin_t
+/etc/ppp/ipv6-up\..*	--	system_u:object_r:bin_t
+/etc/rc\.d/init\.d/.*	--	system_u:object_r:initrc_exec_t
+/usr/bin/dhclient.*	--	system_u:object_r:dhcpc_exec_t
+/usr/bin/ipchains.*	--	system_u:object_r:iptables_exec_t
+/usr/bin/modprobe.*	--	system_u:object_r:kmod_exec_t
+/usr/bin/pinentry.*	--	system_u:object_r:gpg_pinentry_exec_t
+/usr/bin/setfiles.*	--	system_u:object_r:setfiles_exec_t
+/usr/bin/updatedb.*	--	system_u:object_r:locate_exec_t
+/usr/lib/libjs\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/lvm-200/.*	--	system_u:object_r:lvm_exec_t
+/usr/lib/rc/sbin/.*	--	system_u:object_r:bin_t
+/usr/sbin/losetup.*	--	system_u:object_r:fsadm_exec_t
+/var/log/aide\.log.*	--	system_u:object_r:aide_log_t
+/var/log/nscd\.log.*	--	system_u:object_r:nscd_log_t
+/boot/lost\+found/.*	<<none>>
+/usr/lib/dovecot/.+	system_u:object_r:bin_t
+/usr/share/drupal.*	system_u:object_r:httpd_sys_content_t
+/var/spool/fcron/.*	<<none>>
+/usr/lib/git-core(/.*)	--	system_u:object_r:bin_t
+/var/log/messages[^/]*	system_u:object_r:var_log_t
+/etc/pki/tls/misc(/.*)?	--	system_u:object_r:bin_t
+/etc/ssh/ssh_host.*_key	--	system_u:object_r:sshd_key_t
+/etc/acpi/actions(/.*)?	system_u:object_r:bin_t
+/etc/cron\.monthly(/.*)?	system_u:object_r:bin_t
+/etc/kde/shutdown(/.*)?	system_u:object_r:bin_t
+/etc/postfixadmin(/.*)?	system_u:object_r:httpd_config_t
+/etc/udev/rules\.d(/.*)?	system_u:object_r:udev_rules_t
+/etc/vmware-tools(/.*)?	system_u:object_r:bin_t
+/run/udev/rules\.d(/.*)?	system_u:object_r:udev_rules_t
+/usr/lib/cherokee(/.*)?	system_u:object_r:httpd_modules_t
+/usr/lib/lighttpd(/.*)?	system_u:object_r:httpd_modules_t
+/usr/lib/news/bin(/.*)?	system_u:object_r:bin_t
+/usr/lib/pm-utils(/.*)?	system_u:object_r:bin_t
+/usr/lib/rc/cache(/.*)?	system_u:object_r:initrc_state_t
+/usr/share/locale(/.*)?	system_u:object_r:locale_t
+/var/lib/cherokee(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/dhclient(/.*)?	system_u:object_r:dhcpc_state_t
+/var/lib/dokuwiki(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/lib/hiawatha(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/lighttpd(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/lib/net-snmp(/.*)?	system_u:object_r:snmpd_var_lib_t
+/var/lib/tripwire(/.*)?	system_u:object_r:tripwire_var_lib_t
+/var/lock/apache2(/.*)?	system_u:object_r:httpd_lock_t
+/var/log/cherokee(/.*)?	system_u:object_r:httpd_log_t
+/var/log/hiawatha(/.*)?	system_u:object_r:httpd_log_t
+/var/log/lighttpd(/.*)?	system_u:object_r:httpd_log_t
+/var/spool/viewvc(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/www/sessions(/.*)?	system_u:object_r:httpd_cache_t
+/var/www/svn/conf(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/bin/reiserfs(ck|tune)	--	system_u:object_r:fsadm_exec_t
+/usr/lib/libGL\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/bin/sendmail(\.sendmail)?	--	system_u:object_r:sendmail_exec_t
+/usr/src/kernels/.+/lib(/.*)?	system_u:object_r:usr_t
+/usr/lib/dovecot/(.*/)?lib.*\.so.*	--	system_u:object_r:lib_t
+/usr/lib/modules/[^/]+/modules\..+	--	system_u:object_r:modules_dep_t
+/etc/httpd/alias/[^/]*\.db(\.[^/]*)*	--	system_u:object_r:cert_t
+/etc/rc\.d/init\.d/(snmpd|snmptrapd)	--	system_u:object_r:snmpd_initrc_exec_t
+/usr/lib/cgi-bin/(nph-)?cgiwrap(d)?	--	system_u:object_r:httpd_suexec_exec_t
+/var/lib/selinux/[^/]+/semanage\.read\.LOCK	--	system_u:object_r:semanage_read_lock_t
+/var/lib/selinux/[^/]+/semanage\.trans\.LOCK	--	system_u:object_r:semanage_trans_lock_t
+/etc/modprobe\.conf.*	--	system_u:object_r:modules_conf_t
+/etc/udev/scripts/.+	--	system_u:object_r:udev_helper_exec_t
+/usr/bin/tracepath.*	--	system_u:object_r:traceroute_exec_t
+/usr/lib/gvfs/gvfs.*	--	system_u:object_r:bin_t
+/usr/sbin/dhclient.*	--	system_u:object_r:dhcpc_exec_t
+/usr/sbin/ipchains.*	--	system_u:object_r:iptables_exec_t
+/usr/sbin/modprobe.*	--	system_u:object_r:kmod_exec_t
+/usr/sbin/setfiles.*	--	system_u:object_r:setfiles_exec_t
+/var/log/rsync\.log.*	--	system_u:object_r:rsync_log_t
+/var/log/snmpd\.log.*	--	system_u:object_r:snmpd_log_t
+/var/log/suphp\.log.*	--	system_u:object_r:httpd_log_t
+/sys/kernel/debug/.*	<<none>>
+/usr/bin/cracklib-[a-z]*	--	system_u:object_r:crack_exec_t
+/usr/lib/debug/bin(/.*)?	--	system_u:object_r:bin_t
+/etc/update-motd\.d(/.*)?	system_u:object_r:bin_t
+/run/systemd/netif(/.*)?	system_u:object_r:systemd_networkd_runtime_t
+/run/systemd/seats(/.*)?	system_u:object_r:systemd_sessions_runtime_t
+/run/systemd/users(/.*)?	system_u:object_r:systemd_logind_runtime_t
+/usr/lib/perl5/man(/.*)?	system_u:object_r:man_t
+/usr/lib/rc/init\.d(/.*)?	system_u:object_r:initrc_state_t
+/usr/lib/readahead(/.*)?	system_u:object_r:bin_t
+/usr/local/Brother(/.*)?	system_u:object_r:bin_t
+/usr/local/Printer(/.*)?	system_u:object_r:bin_t
+/usr/share/icecast(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/share/mythweb(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/cache/apache2(/.*)?	system_u:object_r:httpd_cache_t
+/var/cache/coolkey(/.*)?	system_u:object_r:auth_cache_t
+/var/cache/dirmngr(/.*)?	system_u:object_r:dirmngr_var_lib_t
+/var/cache/mod_ssl(/.*)?	system_u:object_r:httpd_cache_t
+/var/lib/cacti/rra(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/lib/logrotate(/.*)?	system_u:object_r:logrotate_var_lib_t
+/var/lib/multipath(/.*)?	system_u:object_r:lvm_var_lib_t
+/var/lib/os-prober(/.*)?	system_u:object_r:bootloader_tmp_t
+/var/lib/pootle/po(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/var/lib/syslog-ng(/.*)?	system_u:object_r:syslogd_var_lib_t
+/var/lib/wifiroamd(/.*)?	system_u:object_r:dhcpc_state_t
+/var/lib/wordpress(/.*)?	system_u:object_r:httpd_var_lib_t
+/var/log/syslog-ng(/.*)?	system_u:object_r:syslogd_runtime_t
+/var/spool/anacron(/.*)?	system_u:object_r:system_cron_spool_t
+/var/spool/rsyslog(/.*)?	system_u:object_r:var_log_t
+/var/www/svn/hooks(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/etc/sysconfig/ip6?tables.*	--	system_u:object_r:iptables_conf_t
+/usr/sbin/reiserfs(ck|tune)	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/sendmail(\.sendmail)?	--	system_u:object_r:sendmail_exec_t
+/etc/modprobe\.devfs.*	--	system_u:object_r:modules_conf_t
+/etc/ppp/ipv6-down\..*	--	system_u:object_r:bin_t
+/usr/bin/traceroute.*	--	system_u:object_r:traceroute_exec_t
+/usr/lib/bluetooth/.*	--	system_u:object_r:bin_t
+/usr/share/debconf/.+	--	system_u:object_r:bin_t
+/var/log/emerge\.log.*	--	system_u:object_r:portage_log_t
+/var/log/kadmin\.log.*	--	system_u:object_r:kadmind_log_t
+/var/log/mgetty\.log.*	--	system_u:object_r:getty_log_t
+/dev/input/keyboard.*	-c	system_u:object_r:event_device_t
+/usr/bin/apache-ssl(2)?	--	system_u:object_r:httpd_exec_t
+/usr/share/sectool/.*\.py	--	system_u:object_r:bin_t
+/usr/share/cluster/.*\.sh	system_u:object_r:bin_t
+/usr/lib/debug/sbin(/.*)?	--	system_u:object_r:bin_t
+/usr/sbin/cracklib-[a-z]*	--	system_u:object_r:crack_exec_t
+/emul/linux/x86/lib(/.*)?	system_u:object_r:lib_t
+/etc/racoon/scripts(/.*)?	system_u:object_r:bin_t
+/opt/RealPlayer/lib(/.*)?	system_u:object_r:lib_t
+/run/systemd/nspawn(/.*)?	system_u:object_r:systemd_nspawn_runtime_t
+/usr/lib/ccache/bin(/.*)?	system_u:object_r:bin_t
+/usr/lib/rc/console(/.*)?	system_u:object_r:initrc_state_t
+/usr/share/cracklib(/.*)?	system_u:object_r:crack_db_t
+/usr/share/e16/misc(/.*)?	system_u:object_r:bin_t
+/usr/share/zoneinfo(/.*)?	system_u:object_r:locale_t
+/var/cache/cracklib(/.*)?	system_u:object_r:crack_db_t
+/var/cache/ldconfig(/.*)?	system_u:object_r:ldconfig_cache_t
+/var/cache/lighttpd(/.*)?	system_u:object_r:httpd_cache_t
+/var/lib/glpi/files(/.*)?	system_u:object_r:cron_var_lib_t
+/var/log/squidGuard(/.*)?	system_u:object_r:squid_log_t
+/var/www/moodledata(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/share/build-1/[^/]+\.sh	--	system_u:object_r:bin_t
+/var/log/apache-ssl(2)?(/.*)?	system_u:object_r:httpd_log_t
+/usr/lib/ati-fglrx/.+\.so(\..*)?	--	system_u:object_r:textrel_shlib_t
+/emul/linux/x86/usr(/.*)?/lib(/.*)?	system_u:object_r:lib_t
+/usr/lib/xulrunner-.*/plugin-container	--	system_u:object_r:bin_t
+/emul/linux/x86/lib(/.*)?/ld-[^/]*\.so(\.[^/]*)*	--	system_u:object_r:ld_so_t
+/etc/postfix/aliases.*	--	system_u:object_r:etc_aliases_t
+/usr/lib/ConsoleKit/.*	--	system_u:object_r:bin_t
+/usr/lib/apache-ssl/.+	--	system_u:object_r:httpd_exec_t
+/usr/lib/apt/methods.+	--	system_u:object_r:bin_t
+/usr/lib/chkrootkit/.*	--	system_u:object_r:bin_t
+/usr/sbin/traceroute.*	--	system_u:object_r:traceroute_exec_t
+/usr/share/mc/extfs/.*	--	system_u:object_r:bin_t
+/var/log/cgiwrap\.log.*	--	system_u:object_r:httpd_log_t
+/var/log/kadmind\.log.*	--	system_u:object_r:kadmind_log_t
+/var/log/krb5kdc\.log.*	--	system_u:object_r:krb5kdc_log_t
+/var/log/vgetty\.log\..*	--	system_u:object_r:getty_log_t
+/var/log/lost\+found/.*	<<none>>
+/var/tmp/lost\+found/.*	<<none>>
+/usr/sbin/apache-ssl(2)?	--	system_u:object_r:httpd_exec_t
+/usr/lib/postfix/lib.*so.*	--	system_u:object_r:lib_t
+/etc/dhcp/dhclient\.d(/.*)?	system_u:object_r:bin_t
+/etc/systemd/network(/.*)?	system_u:object_r:net_conf_t
+/run/systemd/inhibit(/.*)?	system_u:object_r:systemd_logind_inhibit_runtime_t
+/run/systemd/journal(/.*)?	system_u:object_r:syslogd_runtime_t
+/run/systemd/resolve(/.*)?	system_u:object_r:systemd_resolved_runtime_t
+/usr/lib/mailman/bin(/.*)?	system_u:object_r:bin_t
+/usr/lib/mon/alert\.d(/.*)?	system_u:object_r:bin_t
+/usr/lib/portage/bin(/.*)?	system_u:object_r:bin_t
+/usr/lib/selinux/hll(/.*)?	system_u:object_r:bin_t
+/usr/share/X11/fonts(/.*)?	system_u:object_r:fonts_t
+/usr/share/ntop/html(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/share/ssl/certs(/.*)?	system_u:object_r:cert_t
+/var/cache/mediawiki(/.*)?	system_u:object_r:httpd_cache_t
+/var/cache/mod_proxy(/.*)?	system_u:object_r:httpd_cache_t
+/var/lib/php/session(/.*)?	system_u:object_r:httpd_runtime_t
+/var/spool/mqueue\.in(/.*)?	system_u:object_r:mqueue_spool_t
+/var/tmp/portage-pkg(/.*)?	system_u:object_r:portage_tmp_t
+/etc/rc\.d/init\.d/ip6?tables	--	system_u:object_r:iptables_initrc_exec_t
+/etc/systemd/journal.*\.conf	--	system_u:object_r:syslog_conf_t
+/usr/lib/thunderbird.*/mozilla-xremote-client	--	system_u:object_r:bin_t
+/emul/linux/x86/usr/(X11R6/)?lib/X11/locale(/.*)?	system_u:object_r:locale_t
+/usr/lib/cyrus-imapd/.*	--	system_u:object_r:bin_t
+/dev/biometric/sensor.*	-c	system_u:object_r:event_device_t
+/tmp/systemd-private-[^/]+	-d	system_u:object_r:tmp_t
+/usr/share/wordpress/.*\.php	--	system_u:object_r:httpd_sys_script_exec_t
+/etc/ipsec\.d/examples(/.*)?	system_u:object_r:etc_t
+/opt/netscape/plugins(/.*)?	system_u:object_r:lib_t
+/run/systemd/machines(/.*)?	system_u:object_r:systemd_machined_runtime_t
+/run/systemd/sessions(/.*)?	system_u:object_r:systemd_sessions_runtime_t
+/usr/lib/at-spi2-core(/.*)?	system_u:object_r:bin_t
+/usr/lib/mailman/mail(/.*)?	system_u:object_r:bin_t
+/usr/lib/rcscripts/sh(/.*)?	system_u:object_r:bin_t
+/usr/lib/udev/devices(/.*)?	system_u:object_r:device_t
+/usr/lib/udev/rules\.d(/.*)?	system_u:object_r:udev_rules_t
+/usr/share/X11/locale(/.*)?	system_u:object_r:locale_t
+/var/axfrdns/log/main(/.*)?	system_u:object_r:var_log_t
+/var/cache/fontconfig(/.*)?	system_u:object_r:fonts_cache_t
+/var/cache/krb5rcache(/.*)?	system_u:object_r:krb5_host_rcache_t
+/var/cache/mod_gnutls(/.*)?	system_u:object_r:httpd_cache_t
+/var/cache/multipathd(/.*)?	system_u:object_r:lvm_metadata_t
+/var/kerberos/krb5kdc(/.*)?	system_u:object_r:krb5kdc_conf_t
+/var/spool/bacula/log(/.*)?	system_u:object_r:var_log_t
+/var/tinydns/log/main(/.*)?	system_u:object_r:var_log_t
+/var/www/miq/vmdb/log(/.*)?	system_u:object_r:httpd_sys_ra_content_t
+/tmp/systemd-private-[^/]+/tmp	-d	system_u:object_r:tmp_t
+/tmp/systemd-private-[^/]+/tmp/.*	<<none>>
+/usr/lib/nvidia/libGL(core)?\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/NX/lib/libjpeg\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/courier-imap/.*	--	system_u:object_r:bin_t
+/usr/lib/cracklib_dict.*	--	system_u:object_r:crack_db_t
+/usr/lib/gnupg/gpgkeys.*	--	system_u:object_r:gpg_helper_exec_t
+/usr/lib/kde4/libexec/.*	--	system_u:object_r:bin_t
+/usr/libexec/dcc/stop-.*	--	system_u:object_r:initrc_exec_t
+/etc/krb5kdc/principal.*	system_u:object_r:krb5kdc_principal_t
+/run/dirsrv/admin-serv.*	system_u:object_r:httpd_runtime_t
+/usr/local/lost\+found/.*	<<none>>
+/usr/lib/bridge-utils/.*\.sh	--	system_u:object_r:bin_t
+/usr/lib/debug/usr/bin(/.*)?	--	system_u:object_r:bin_t
+/etc/PackageKit/events(/.*)?	system_u:object_r:bin_t
+/opt/RealPlayer/codecs(/.*)?	system_u:object_r:lib_t
+/opt/RealPlayer/common(/.*)?	system_u:object_r:lib_t
+/opt/google/talkplugin(/.*)?	system_u:object_r:bin_t
+/run/systemd/transient(/.*)?	system_u:object_r:systemd_unit_t
+/usr/local/share/fonts(/.*)?	system_u:object_r:fonts_t
+/usr/local/var/krb5kdc(/.*)?	system_u:object_r:krb5kdc_conf_t
+/usr/share/hal/scripts(/.*)?	system_u:object_r:bin_t
+/usr/share/mythtv/data(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/share/ssl/private(/.*)?	system_u:object_r:cert_t
+/var/cache/php-mmcache(/.*)?	system_u:object_r:httpd_cache_t
+/var/dnscache/log/main(/.*)?	system_u:object_r:var_log_t
+/var/log/roundcubemail(/.*)?	system_u:object_r:httpd_log_t
+/var/spool/abrt-upload(/.*)?	system_u:object_r:public_content_rw_t
+/var/spool/postfix/etc(/.*)?	system_u:object_r:etc_t
+/var/spool/postfix/lib(/.*)?	system_u:object_r:lib_t
+/var/spool/postfix/usr(/.*)?	system_u:object_r:lib_t
+/usr/lib/xorg/libGL\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/var/mailman/pythonlib(/.*)?/.+\.so(\..*)?	--	system_u:object_r:lib_t
+/usr/NX/lib/libXcomp\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/X11R6/lib/libGL\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/libexec/dcc/start-.*	--	system_u:object_r:initrc_exec_t
+/usr/lib/debug/usr/sbin(/.*)?	--	system_u:object_r:bin_t
+/opt/RealPlayer/mozilla(/.*)?	system_u:object_r:lib_t
+/opt/RealPlayer/plugins(/.*)?	system_u:object_r:lib_t
+/opt/RealPlayer/postint(/.*)?	system_u:object_r:bin_t
+/usr/lib/dirsrv/cgi-bin(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/nagios/plugins(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/system(/.*)?	system_u:object_r:systemd_unit_t
+/usr/share/Modules/init(/.*)?	system_u:object_r:bin_t
+/usr/share/doc/ghc/html(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/share/smolt/client(/.*)?	system_u:object_r:bin_t
+/var/lib/nfs/rpc_pipefs(/.*)?	<<none>>
+/var/lib/systemd/linger(/.*)?	system_u:object_r:systemd_logind_var_lib_t
+/var/lib/systemd/rfkill(/.*)?	system_u:object_r:systemd_rfkill_var_lib_t
+/var/spool/squirrelmail(/.*)?	system_u:object_r:squirrelmail_spool_t
+/var/www/gallery/albums(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib/libatiadlxx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/systemd.*	--	system_u:object_r:bin_t
+/usr/lib/udev/devices/lp.*	-c	system_u:object_r:printer_device_t
+/usr/lib/emacsen-common/.*	system_u:object_r:bin_t
+/var/spool/cron/lastrun/[^/]*	--	<<none>>
+/usr/X11R6/lib/X11/fonts(/.*)?	system_u:object_r:fonts_t
+/usr/lib/apache2/modules(/.*)?	system_u:object_r:httpd_modules_t
+/usr/share/openca/htdocs(/.*)?	system_u:object_r:httpd_sys_content_t
+/var/lib/tripwire/report(/.*)?	system_u:object_r:tripwire_report_t
+/var/tmp/emerge-webrsync(/.*)?	system_u:object_r:portage_tmp_t
+/var/www/html/wp-content(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/opt/RealPlayer/realplay(\.bin)?	system_u:object_r:bin_t
+/usr/lib/libtfmessbsp\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/sse2/libx264\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/system/[^/]*halt.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*mdmon.*	--	system_u:object_r:mdadm_unit_t
+/usr/lib/systemd/system/[^/]*power.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*sleep.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*man-db.*	--	system_u:object_r:mandb_unit_t
+/usr/lib/systemd/system/[^/]*mdadm-.*	--	system_u:object_r:mdadm_unit_t
+/usr/lib/systemd/system/[^/]*reboot.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*suspend.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*ebtables.*	--	system_u:object_r:iptables_unit_t
+/usr/lib/systemd/system/[^/]*iptables.*	--	system_u:object_r:iptables_unit_t
+/usr/lib/systemd/system/[^/]*shutdown.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*arptables.*	--	system_u:object_r:iptables_unit_t
+/usr/lib/systemd/system/[^/]*hibernate.*	--	system_u:object_r:power_unit_t
+/usr/lib/systemd/system/[^/]*ip6tables.*	--	system_u:object_r:iptables_unit_t
+/usr/lib/systemd/system/[^/]*logrotate.*	--	system_u:object_r:logrotate_unit_t
+/usr/lib/systemd/system/[^/]*systemd-journal.*	--	system_u:object_r:syslogd_unit_t
+/usr/lib/nvidia-graphics(-[^/]*/)?libXvMCNVIDIA\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/nvidia-graphics(-[^/]*/)?libnvidia.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/nvidia-graphics(-[^/]*/)?libGL(core)?\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/sbin/semanage-python.*	--	system_u:object_r:semanage_exec_t
+/usr/share/smartmontools/.*	--	system_u:object_r:bin_t
+/var/spool/cron/crontabs/.*	--	<<none>>
+/var/tmp/systemd-private-[^/]+	-d	system_u:object_r:tmp_t
+/usr/share/turboprint/lib(/.*)?	--	system_u:object_r:bin_t
+/run/systemd/ask-password(/.*)?	system_u:object_r:systemd_passwd_runtime_t
+/usr/lib/netsaint/plugins(/.*)?	system_u:object_r:bin_t
+/usr/lib/rcscripts/addons(/.*)?	system_u:object_r:bin_t
+/var/lib/asterisk/agi-bin(/.*)?	system_u:object_r:bin_t
+/var/lib/systemd/coredump(/.*)?	system_u:object_r:systemd_coredump_var_lib_t
+/var/named/chroot/etc/pki(/.*)?	system_u:object_r:cert_t
+/var/spool/postfix/lib/ld.*\.so.*	--	system_u:object_r:ld_so_t
+/var/tmp/systemd-private-[^/]+/tmp	-d	system_u:object_r:tmp_t
+/var/tmp/systemd-private-[^/]+/tmp/.*	<<none>>
+/opt/openoffice4/program/.+\.so(\.[^/]*)*	--	system_u:object_r:lib_t
+/usr/share/selinux-policy[^/]*/html(/.*)?	system_u:object_r:httpd_sys_content_t
+/usr/lib/libsipphoneapi\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/udev/devices/net/.*	-c	system_u:object_r:tun_tap_device_t
+/usr/lib/udev/devices/loop.*	-b	system_u:object_r:fixed_disk_device_t
+/usr/lib/udev/devices/shm/.*	<<none>>
+/usr/var/krb5kdc/principal.*	system_u:object_r:krb5kdc_principal_t
+/var/log/audit/lost\+found/.*	<<none>>
+/etc/ConsoleKit/run-seat\.d(/.*)?	system_u:object_r:bin_t
+/usr/share/libalpm/scripts(/.*)?	system_u:object_r:bin_t
+/usr/share/vhostmd/scripts(/.*)?	system_u:object_r:bin_t
+/var/lib/systemd/backlight(/.*)?	system_u:object_r:systemd_backlight_var_lib_t
+/var/log/dirsrv/admin-serv(/.*)?	system_u:object_r:httpd_log_t
+/usr/lib/catalyst/libGL\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/portage/distfiles/git[0-9]-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/etc/hotplug\.d/default/udev.*	--	system_u:object_r:udev_helper_exec_t
+/usr/lib/NetworkManager/nm-.*	--	system_u:object_r:bin_t
+/usr/lib/networkmanager/nm-.*	--	system_u:object_r:bin_t
+/usr/lib/systemd/system/ssh.*	--	system_u:object_r:sshd_unit_t
+/usr/share/ajaxterm/qweb\.py.*	--	system_u:object_r:bin_t
+/usr/lib/nspluginwrapper/np.*	system_u:object_r:bin_t
+/var/log/popularity-contest.*	system_u:object_r:cron_log_t
+/usr/lib/python-exec/python.*/.*	--	system_u:object_r:bin_t
+/usr/lib/ConsoleKit/scripts(/.*)?	system_u:object_r:bin_t
+/var/cache/php-eaccelerator(/.*)?	system_u:object_r:httpd_cache_t
+/var/lib/squirrelmail/prefs(/.*)?	system_u:object_r:httpd_squirrelmail_t
+/usr/lib/systemd/system/atd.*\.service	--	system_u:object_r:crond_unit_t
+/usr/lib/python-exec/python.*/semanage	--	system_u:object_r:semanage_exec_t
+/usr/lib/python-exec/python[0-9]\.[0-9]*/emaint	--	system_u:object_r:portage_exec_t
+/usr/lib/python-exec/python[0-9]\.[0-9]*/emerge	--	system_u:object_r:portage_exec_t
+/usr/lib/python-exec/python[0-9]\.[0-9]*/layman	--	system_u:object_r:portage_fetch_exec_t
+/usr/lib/python-exec/python[0-9]\.[0-9]*/glsa-check	--	system_u:object_r:portage_exec_t
+/usr/lib/misc/glibc/getconf/.*	--	system_u:object_r:bin_t
+/usr/lib/pgsql/test/regress/.*\.sh	--	system_u:object_r:bin_t
+/etc/systemd/journald\.conf\.d(/.*)?	system_u:object_r:syslog_conf_t
+/usr/lib/systemd/user-preset(/.*)?	system_u:object_r:systemd_unit_t
+/usr/share/denyhosts/plugins(/.*)?	system_u:object_r:bin_t
+/usr/share/denyhosts/scripts(/.*)?	system_u:object_r:bin_t
+/usr/share/ghostscript/fonts(/.*)?	system_u:object_r:fonts_t
+/var/lib/stickshift/\.httpd\.d(/.*)?	system_u:object_r:httpd_config_t
+/usr/lib/systemd/system/lvm2-.*	--	system_u:object_r:lvm_unit_t
+/usr/lib/mediawiki/math/texvc.*	system_u:object_r:bin_t
+/etc/ConsoleKit/run-session\.d(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/system-sleep(/.*)?	system_u:object_r:bin_t
+/usr/portage/distfiles/go-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/usr/portage/distfiles/hg-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/usr/share/PackageKit/helpers(/.*)?	system_u:object_r:bin_t
+/usr/share/docbook2X/xslt/man(/.*)?	system_u:object_r:usr_t
+/usr/share/texmf-dist/scripts(/.*)?	system_u:object_r:bin_t
+/var/lib/rt3/data/RT-Shredder(/.*)?	system_u:object_r:httpd_var_lib_t
+/usr/share/GNUstep/Makefiles/[^/]*\.sh	--	system_u:object_r:bin_t
+/usr/lib/systemd/system/crond.*\.service	--	system_u:object_r:crond_unit_t
+/usr/lib/systemd/system/httpd.*\.service	--	system_u:object_r:httpd_unit_t
+/usr/lib/systemd/system/jetty.*\.service	--	system_u:object_r:httpd_unit_t
+/usr/lib/systemd/system/auditd.*	--	system_u:object_r:auditd_unit_t
+/etc/hotplug\.d/default/default.*	system_u:object_r:bin_t
+/usr/lib/ConsoleKit/run-seat\.d(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/system-preset(/.*)?	system_u:object_r:systemd_unit_t
+/usr/portage/distfiles/cvs-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/usr/portage/distfiles/svn-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/usr/lib/altivec/libavcodec\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/xorg/modules/glesx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/system/apache[^/]*\.service	--	system_u:object_r:httpd_unit_t
+/usr/X11R6/lib/libXvMCNVIDIA\.so.*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/gnome-settings-daemon/.*	--	system_u:object_r:bin_t
+/usr/share/ajaxterm/ajaxterm\.py.*	--	system_u:object_r:bin_t
+/var/kerberos/krb5kdc/principal.*	system_u:object_r:krb5kdc_principal_t
+/var/kerberos/krb5kdc/principal.*\.ok	--	system_u:object_r:krb5kdc_lock_t
+/opt/gutenprint/cups/lib/filter(/.*)?	system_u:object_r:bin_t
+/run/systemd/ask-password-block(/.*)?	system_u:object_r:systemd_passwd_runtime_t
+/usr/local/linuxprinter/filters(/.*)?	system_u:object_r:bin_t
+/usr/portage/distfiles/egit-src(/.*)?	system_u:object_r:portage_srcrepo_t
+/var/lib/spamassassin/compiled/.*\.so.*	--	system_u:object_r:lib_t
+/usr/lib/systemd/system/rsyslog.*\.service	--	system_u:object_r:syslogd_unit_t
+/var/lib/misc/syslog-ng\.persist-?	--	system_u:object_r:syslogd_var_lib_t
+/usr/lib/systemd/system/dm-event.*	--	system_u:object_r:lvm_unit_t
+/usr/lib/udev/devices/hugepages/.*	<<none>>
+/usr/local/var/krb5kdc/principal.*	system_u:object_r:krb5kdc_principal_t
+/usr/lib/systemd/system-shutdown(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/user-generators(/.*)?	system_u:object_r:bin_t
+/usr/lib/nero/plug-ins/libMP3\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/system/mcstrans.*\.service	--	system_u:object_r:setrans_unit_t
+/var/kerberos/krb5kdc/from_master.*	system_u:object_r:krb5kdc_lock_t
+/usr/share/wordpress/wp-includes/.*\.php	--	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/ConsoleKit/run-session\.d(/.*)?	system_u:object_r:bin_t
+/usr/lib/ADM_plugins/videoFilter/.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/etc/sysconfig/network-scripts/net.*	system_u:object_r:bin_t
+/usr/lib/systemd/system-generators(/.*)?	system_u:object_r:bin_t
+/usr/share/wordpress-mu/wp-content(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib/couchdb/erlang/lib/couch-[0-9.]+/priv/couchspawnkillable	--	system_u:object_r:bin_t
+/usr/lib/systemd/system/sshd-keygen.*	--	system_u:object_r:sshd_keygen_unit_t
+/usr/lib/systemd/system/sshdgenkeys.*	--	system_u:object_r:sshd_keygen_unit_t
+/etc/sysconfig/network-scripts/ifup.*	system_u:object_r:bin_t
+/etc/sysconfig/network-scripts/init.*	system_u:object_r:bin_t
+/usr/share/postfixadmin/templates_c(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib/systemd/system/restorecond.*\.service	--	system_u:object_r:restorecond_unit_t
+/usr/lib/systemd/libsystemd-shared-[0-9]+\.so.*	--	system_u:object_r:lib_t
+/usr/lib/systemd/system/lvm2-lvmetad.*	--	system_u:object_r:lvm_unit_t
+/etc/sysconfig/system-config-firewall.*	--	system_u:object_r:iptables_conf_t
+/etc/sysconfig/network-scripts/ifdown.*	system_u:object_r:bin_t
+/usr/share/mythtv/mythweather/scripts(/.*)?	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/systemd/system/systemd-binfmt.*	--	system_u:object_r:systemd_binfmt_unit_t
+/usr/lib/systemd/system/systemd-rfkill.*	--	system_u:object_r:systemd_rfkill_unit_t
+/opt/dirsrv/var/run/dirsrv/dsgw/cookies(/.*)?	system_u:object_r:httpd_runtime_t
+/usr/share/wordpress/wp-content/upgrade(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/share/wordpress/wp-content/uploads(/.*)?	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib/xorg/modules/extensions/nvidia(-[^/]*)?/libglx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/system/blk-availability.*	--	system_u:object_r:lvm_unit_t
+/usr/lib/systemd/system/systemd-networkd.*	system_u:object_r:systemd_networkd_unit_t
+/usr/lib/systemd/system/systemd-backlight.*	--	system_u:object_r:systemd_backlight_unit_t
+/usr/lib/xorg/modules/drivers/fglrx_drv\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/lib/xorg/modules/extensions/libglx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/usr/x11R6/lib/modules/extensions/libglx\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/opt/OpenPrinting-Gutenprint/cups/lib/filter(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/user-environment-generators(/.*)?	system_u:object_r:bin_t
+/usr/share/gedit/plugins/externaltools/tools(/.*)?	system_u:object_r:bin_t
+/usr/lib/systemd/system-environment-generators(/.*)?	system_u:object_r:bin_t
+/usr/share/gedit-2/plugins/externaltools/tools(/.*)?	system_u:object_r:bin_t
+/usr/lib/rcscripts/net\.modules\.d/helpers\.d/udhcpc-.*	--	system_u:object_r:bin_t
+/usr/lib/rcscripts/net\.modules\.d/helpers\.d/dhclient-.*	--	system_u:object_r:bin_t
+/opt/Komodo-Edit-5/lib/python/lib/python2\.6/lib-dynload/.*\.so(\.[^/]*)*	--	system_u:object_r:textrel_shlib_t
+/	-d	system_u:object_r:root_t
+/afs	-d	system_u:object_r:mnt_t
+/dev	-d	system_u:object_r:device_t
+/etc	-d	system_u:object_r:etc_t
+/net	-d	system_u:object_r:mnt_t
+/opt	-d	system_u:object_r:usr_t
+/run	-d	system_u:object_r:var_run_t
+/srv	-d	system_u:object_r:var_t
+/tmp	-d	system_u:object_r:tmp_t
+/usr	-d	system_u:object_r:usr_t
+/var	-d	system_u:object_r:var_t
+/run	-l	system_u:object_r:var_run_t
+/boot	-d	system_u:object_r:boot_t
+/emul	-d	system_u:object_r:usr_t
+/misc	-d	system_u:object_r:mnt_t
+/proc	-d	<<none>>
+/cgroup	-d	system_u:object_r:cgroup_t
+/initrd	-d	system_u:object_r:root_t
+/dev/pts	-d	system_u:object_r:devpts_t
+/dev/shm	-d	system_u:object_r:tmpfs_t
+/run/log	-d	system_u:object_r:var_log_t
+/selinux	-d	<<none>>
+/usr/tmp	-d	system_u:object_r:tmp_t
+/var/log	-d	system_u:object_r:var_log_t
+/var/tmp	-d	system_u:object_r:tmp_t
+/dev/gfx	-c	system_u:object_r:xserver_misc_device_t
+/dev/jbm	-c	system_u:object_r:mouse_device_t
+/dev/ksm	-c	system_u:object_r:ksm_device_t
+/dev/kvm	-c	system_u:object_r:kvm_device_t
+/dev/lvm	-c	system_u:object_r:fixed_disk_device_t
+/dev/mei	-c	system_u:object_r:mei_device_t
+/dev/mem	-c	system_u:object_r:memory_device_t
+/dev/pmu	-c	system_u:object_r:power_device_t
+/dev/ppp	-c	system_u:object_r:ppp_device_t
+/dev/smu	-c	system_u:object_r:power_device_t
+/dev/tty	-c	system_u:object_r:devtty_t
+/dev/zfs	-c	system_u:object_r:fixed_disk_device_t
+/dev/log	-s	system_u:object_r:devlog_t
+/run/log	-s	system_u:object_r:devlog_t
+/run/shm	-l	system_u:object_r:var_run_t
+/var/run	-l	system_u:object_r:var_run_t
+/var/tmp	-l	system_u:object_r:tmp_t
+/usr/lib	system_u:object_r:lib_t
+/etc/mtab	--	system_u:object_r:etc_runtime_t
+/run/motd	--	system_u:object_r:pam_motd_runtime_t
+/run/utmp	--	system_u:object_r:initrc_runtime_t
+/var/swap	--	system_u:object_r:swapfile_t
+/run/user	-d	system_u:object_r:user_runtime_root_t
+/var/lock	-d	system_u:object_r:var_lock_t
+/dev/3dfx	-c	system_u:object_r:xserver_misc_device_t
+/dev/beep	-c	system_u:object_r:sound_device_t
+/dev/dmfm	-c	system_u:object_r:sound_device_t
+/dev/full	-c	system_u:object_r:null_device_t
+/dev/fuse	-c	system_u:object_r:fuse_device_t
+/dev/hpet	-c	system_u:object_r:clock_device_t
+/dev/i915	-c	system_u:object_r:dri_device_t
+/dev/kmem	-c	system_u:object_r:memory_device_t
+/dev/kmsg	-c	system_u:object_r:kmsg_device_t
+/dev/mice	-c	system_u:object_r:mouse_device_t
+/dev/null	-c	system_u:object_r:null_device_t
+/dev/port	-c	system_u:object_r:memory_device_t
+/dev/ptmx	-c	system_u:object_r:ptmx_t
+/dev/zero	-c	system_u:object_r:zero_device_t
+/dev/bpcd	-b	system_u:object_r:removable_device_t
+/dev/gscd	-b	system_u:object_r:removable_device_t
+/dev/jsfd	-b	system_u:object_r:fixed_disk_device_t
+/dev/sjcd	-b	system_u:object_r:removable_device_t
+/var/lock	-l	system_u:object_r:var_lock_t
+/\.journal	<<none>>
+/etc/cmtab	--	system_u:object_r:etc_runtime_t
+/etc/hosts	--	system_u:object_r:net_conf_t
+/dev/atibm	-c	system_u:object_r:mouse_device_t
+/dev/crash	-c	system_u:object_r:crash_device_t
+/dev/hwrng	-c	system_u:object_r:random_device_t
+/dev/kqemu	-c	system_u:object_r:qemu_device_t
+/dev/lircm	-c	system_u:object_r:mouse_device_t
+/dev/modem	-c	system_u:object_r:modem_device_t
+/dev/nvram	-c	system_u:object_r:nvram_device_t
+/dev/vmmon	-c	system_u:object_r:vmware_device_t
+/dev/zpios	-c	system_u:object_r:fixed_disk_device_t
+/dev/aztcd	-b	system_u:object_r:removable_device_t
+/dev/hitcd	-b	system_u:object_r:removable_device_t
+/dev/optcd	-b	system_u:object_r:removable_device_t
+/etc/Muttrc	--	system_u:object_r:mutt_etc_t
+/etc/ethers	--	system_u:object_r:net_conf_t
+/etc/vhosts	--	system_u:object_r:httpd_config_t
+/usr/bin/ip	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/iw	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/su	--	system_u:object_r:su_exec_t
+/usr/bin/tc	--	system_u:object_r:ifconfig_exec_t
+/lost\+found	-d	system_u:object_r:lost_found_t
+/dev/efirtc	-c	system_u:object_r:clock_device_t
+/dev/evtchn	-c	system_u:object_r:xen_device_t
+/dev/logibm	-c	system_u:object_r:mouse_device_t
+/dev/mcelog	-c	system_u:object_r:kmsg_device_t
+/dev/oldmem	-c	system_u:object_r:memory_device_t
+/dev/opengl	-c	system_u:object_r:xserver_misc_device_t
+/dev/radeon	-c	system_u:object_r:dri_device_t
+/dev/random	-c	system_u:object_r:random_device_t
+/dev/rfkill	-c	system_u:object_r:wireless_device_t
+/dev/sonypi	-c	system_u:object_r:v4l_device_t
+/dev/uinput	-c	system_u:object_r:event_device_t
+/dev/initrd	-b	system_u:object_r:fixed_disk_device_t
+/dev/sonycd	-b	system_u:object_r:removable_device_t
+/dev/gpmctl	-s	system_u:object_r:gpmctl_t
+/dev/MAKEDEV	--	system_u:object_r:bin_t
+/dev/\.udevdb	--	system_u:object_r:udev_tbl_t
+/etc/adjtime	--	system_u:object_r:adjtime_t
+/etc/aliases	--	system_u:object_r:etc_aliases_t
+/etc/crontab	--	system_u:object_r:system_cron_spool_t
+/etc/csh\.env	--	system_u:object_r:etc_runtime_t
+/etc/msmtprc	--	system_u:object_r:etc_mail_t
+/etc/nologin	--	system_u:object_r:shutdown_etc_t
+/etc/rc\.d/rc	--	system_u:object_r:initrc_exec_t
+/run/gpm\.pid	--	system_u:object_r:gpm_runtime_t
+/run/nologin	--	system_u:object_r:systemd_sessions_runtime_t
+/usr/bin/gpm	--	system_u:object_r:gpm_exec_t
+/usr/bin/lft	--	system_u:object_r:traceroute_exec_t
+/usr/bin/lvm	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvs	--	system_u:object_r:lvm_exec_t
+/usr/bin/mtr	--	system_u:object_r:traceroute_exec_t
+/usr/bin/nft	--	system_u:object_r:iptables_exec_t
+/usr/bin/pvs	--	system_u:object_r:lvm_exec_t
+/usr/bin/raw	--	system_u:object_r:fsadm_exec_t
+/usr/bin/ssh	--	system_u:object_r:ssh_exec_t
+/usr/bin/vgs	--	system_u:object_r:lvm_exec_t
+/usr/bin/zdb	--	system_u:object_r:fsadm_exec_t
+/usr/bin/zfs	--	system_u:object_r:mount_exec_t
+/usr/sbin/ip	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/iw	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/rc	--	system_u:object_r:rc_exec_t
+/usr/sbin/tc	--	system_u:object_r:ifconfig_exec_t
+/dev/console	-c	system_u:object_r:console_device_t
+/dev/hfmodem	-c	system_u:object_r:sound_device_t
+/dev/jsflash	-c	system_u:object_r:fixed_disk_device_t
+/dev/sndstat	-c	system_u:object_r:sound_device_t
+/dev/urandom	-c	system_u:object_r:urandom_device_t
+/dev/vttuner	-c	system_u:object_r:v4l_device_t
+/dev/hwcdrom	-b	system_u:object_r:removable_device_t
+/dev/gpmdata	-p	system_u:object_r:gpmctl_t
+/dev/initctl	-p	system_u:object_r:initctl_t
+/run/initctl	-p	system_u:object_r:initctl_t
+/dev/udev\.tbl	--	system_u:object_r:udev_tbl_t
+/etc/\.updated	--	system_u:object_r:systemd_update_run_t
+/etc/hostname	--	system_u:object_r:net_conf_t
+/etc/mtab\.tmp	--	system_u:object_r:etc_runtime_t
+/etc/timezone	--	system_u:object_r:locale_t
+/run/nscd\.pid	--	system_u:object_r:nscd_runtime_t
+/run/sshd\.pid	--	system_u:object_r:sshd_runtime_t
+/usr/bin/aide	--	system_u:object_r:aide_exec_t
+/usr/bin/bash	--	system_u:object_r:shell_exec_t
+/usr/bin/chfn	--	system_u:object_r:chfn_exec_t
+/usr/bin/chsh	--	system_u:object_r:chfn_exec_t
+/usr/bin/dump	--	system_u:object_r:fsadm_exec_t
+/usr/bin/fish	--	system_u:object_r:shell_exec_t
+/usr/bin/grub	--	system_u:object_r:bootloader_exec_t
+/usr/bin/kmod	--	system_u:object_r:kmod_exec_t
+/usr/bin/mksh	--	system_u:object_r:shell_exec_t
+/usr/bin/mutt	--	system_u:object_r:mutt_exec_t
+/usr/bin/nmap	--	system_u:object_r:traceroute_exec_t
+/usr/bin/nscd	--	system_u:object_r:nscd_exec_t
+/usr/bin/pump	--	system_u:object_r:dhcpc_exec_t
+/usr/bin/sash	--	system_u:object_r:shell_exec_t
+/usr/bin/sesh	--	system_u:object_r:shell_exec_t
+/usr/bin/sshd	--	system_u:object_r:sshd_exec_t
+/usr/bin/tcsh	--	system_u:object_r:shell_exec_t
+/usr/bin/tmux	--	system_u:object_r:screen_exec_t
+/usr/bin/udev	--	system_u:object_r:udev_exec_t
+/usr/bin/vgck	--	system_u:object_r:lvm_exec_t
+/usr/bin/vigr	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/vipw	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/yash	--	system_u:object_r:shell_exec_t
+/usr/sbin/gpm	--	system_u:object_r:gpm_exec_t
+/usr/sbin/lvm	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvs	--	system_u:object_r:lvm_exec_t
+/usr/sbin/nft	--	system_u:object_r:iptables_exec_t
+/usr/sbin/pvs	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgs	--	system_u:object_r:lvm_exec_t
+/usr/sbin/zdb	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/zfs	--	system_u:object_r:mount_exec_t
+/var/\.updated	--	system_u:object_r:systemd_update_run_t
+/var/qmail/rc	--	system_u:object_r:bin_t
+/dev/apm_bios	-c	system_u:object_r:acpi_bios_t
+/dev/cpu/mtrr	-c	system_u:object_r:mtrr_device_t
+/dev/graphics	-c	system_u:object_r:xserver_misc_device_t
+/dev/inportbm	-c	system_u:object_r:mouse_device_t
+/dev/mergemem	-c	system_u:object_r:memory_device_t
+/dev/pc110pad	-c	system_u:object_r:mouse_device_t
+/dev/pts/ptmx	-c	system_u:object_r:ptmx_t
+/dev/snapshot	-c	system_u:object_r:acpi_bios_t
+/dev/vrtpanel	-c	system_u:object_r:mouse_device_t
+/dev/z90crypt	-c	system_u:object_r:crypt_device_t
+/tmp/\.journal	<<none>>
+/usr/\.journal	<<none>>
+/var/\.journal	<<none>>
+/etc/\.pwd\.lock	--	system_u:object_r:shadow_t
+/etc/killpower	--	system_u:object_r:etc_runtime_t
+/etc/krb5\.conf	--	system_u:object_r:krb5_conf_t
+/etc/localtime	--	system_u:object_r:locale_t
+/etc/mail/make	--	system_u:object_r:bin_t
+/etc/make\.conf	--	system_u:object_r:portage_conf_t
+/etc/nohotplug	--	system_u:object_r:etc_runtime_t
+/root/\.k5login	--	system_u:object_r:krb5_home_t
+/run/fcron\.pid	--	system_u:object_r:crond_runtime_t
+/run/klogd\.pid	--	system_u:object_r:klogd_runtime_t
+/run/snmpd\.pid	--	system_u:object_r:snmpd_runtime_t
+/usr/bin/bash2	--	system_u:object_r:shell_exec_t
+/usr/bin/blkid	--	system_u:object_r:fsadm_exec_t
+/usr/bin/chage	--	system_u:object_r:passwd_exec_t
+/usr/bin/clvmd	--	system_u:object_r:clvmd_exec_t
+/usr/bin/dmesg	--	system_u:object_r:dmesg_exec_t
+/usr/bin/esmtp	--	system_u:object_r:sendmail_exec_t
+/usr/bin/fcron	--	system_u:object_r:crond_exec_t
+/usr/bin/fdisk	--	system_u:object_r:fsadm_exec_t
+/usr/bin/fping	--	system_u:object_r:ping_exec_t
+/usr/bin/gdisk	--	system_u:object_r:fsadm_exec_t
+/usr/bin/gpgsm	--	system_u:object_r:gpg_exec_t
+/usr/bin/ipset	--	system_u:object_r:iptables_exec_t
+/usr/bin/kdesu	--	system_u:object_r:su_exec_t
+/usr/bin/klogd	--	system_u:object_r:klogd_exec_t
+/usr/bin/login	--	system_u:object_r:login_exec_t
+/usr/bin/mandb	--	system_u:object_r:mandb_exec_t
+/usr/bin/mdadm	--	system_u:object_r:mdadm_exec_t
+/usr/bin/mdmon	--	system_u:object_r:mdadm_exec_t
+/usr/bin/mdmpd	--	system_u:object_r:mdadm_exec_t
+/usr/bin/msmtp	--	system_u:object_r:sendmail_exec_t
+/usr/bin/partx	--	system_u:object_r:fsadm_exec_t
+/usr/bin/rmail	--	system_u:object_r:sendmail_exec_t
+/usr/bin/rsync	--	system_u:object_r:rsync_exec_t
+/usr/bin/smrsh	--	system_u:object_r:shell_exec_t
+/usr/bin/snmpd	--	system_u:object_r:snmpd_exec_t
+/usr/bin/snort	--	system_u:object_r:snort_exec_t
+/usr/bin/ssmtp	--	system_u:object_r:sendmail_exec_t
+/usr/bin/udevd	--	system_u:object_r:udev_exec_t
+/usr/bin/zhack	--	system_u:object_r:fsadm_exec_t
+/usr/bin/zpios	--	system_u:object_r:fsadm_exec_t
+/usr/bin/zpool	--	system_u:object_r:mount_exec_t
+/usr/bin/ztest	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/aide	--	system_u:object_r:aide_exec_t
+/usr/sbin/dump	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/grub	--	system_u:object_r:bootloader_exec_t
+/usr/sbin/nscd	--	system_u:object_r:nscd_exec_t
+/usr/sbin/pump	--	system_u:object_r:dhcpc_exec_t
+/usr/sbin/sesh	--	system_u:object_r:shell_exec_t
+/usr/sbin/sshd	--	system_u:object_r:sshd_exec_t
+/usr/sbin/udev	--	system_u:object_r:udev_exec_t
+/usr/sbin/vgck	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vigr	--	system_u:object_r:admin_passwd_exec_t
+/usr/sbin/vipw	--	system_u:object_r:admin_passwd_exec_t
+/var/log/dmesg	--	system_u:object_r:var_log_t
+/var/tmp/nfs_0	--	system_u:object_r:krb5_host_rcache_t
+/dev/hugepages	-d	system_u:object_r:hugetlbfs_t
+/sys/fs/cgroup	-d	system_u:object_r:cgroup_t
+/sys/fs/pstore	-d	system_u:object_r:pstore_t
+/var/qmail/bin	-d	system_u:object_r:bin_t
+/dev/hw_random	-c	system_u:object_r:random_device_t
+/dev/microcode	-c	system_u:object_r:cpu_device_t
+/dev/mmetfgrab	-c	system_u:object_r:scanner_device_t
+/dev/net/vhost	-c	system_u:object_r:vhost_device_t
+/dev/sequencer	-c	system_u:object_r:sound_device_t
+/dev/vhost-net	-c	system_u:object_r:vhost_device_t
+/etc/localtime	-l	system_u:object_r:etc_t
+/boot/\.journal	<<none>>
+/dev/\.mdadm\.map	--	system_u:object_r:mdadm_runtime_t
+/etc/X11/prefdm	--	system_u:object_r:initrc_exec_t
+/etc/aliases\.db	--	system_u:object_r:etc_aliases_t
+/etc/dhcpd\.conf	--	system_u:object_r:dhcp_etc_t
+/etc/group\.lock	--	system_u:object_r:shadow_t
+/etc/ioctl\.save	--	system_u:object_r:etc_runtime_t
+/etc/lvm/\.cache	--	system_u:object_r:lvm_metadata_t
+/etc/ssh/primes	--	system_u:object_r:sshd_key_t
+/run/auditd\.pid	--	system_u:object_r:auditd_runtime_t
+/run/svscan\.pid	--	system_u:object_r:initrc_runtime_t
+/usr/bin/arping	--	system_u:object_r:netutils_exec_t
+/usr/bin/auditd	--	system_u:object_r:auditd_exec_t
+/usr/bin/cfdisk	--	system_u:object_r:fsadm_exec_t
+/usr/bin/dhcdbd	--	system_u:object_r:dhcpc_exec_t
+/usr/bin/dhcp6c	--	system_u:object_r:dhcpc_exec_t
+/usr/bin/dhcpcd	--	system_u:object_r:dhcpc_exec_t
+/usr/bin/dmraid	--	system_u:object_r:lvm_exec_t
+/usr/bin/e2fsck	--	system_u:object_r:fsadm_exec_t
+/usr/bin/e4fsck	--	system_u:object_r:fsadm_exec_t
+/usr/bin/emerge	--	system_u:object_r:portage_exec_t
+/usr/bin/findfs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/hdparm	--	system_u:object_r:fsadm_exec_t
+/usr/bin/hping2	--	system_u:object_r:ping_exec_t
+/usr/bin/layman	--	system_u:object_r:portage_fetch_exec_t
+/usr/bin/lsraid	--	system_u:object_r:fsadm_exec_t
+/usr/bin/lvmsar	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvscan	--	system_u:object_r:lvm_exec_t
+/usr/bin/mke2fs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/mke4fs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/mkraid	--	system_u:object_r:fsadm_exec_t
+/usr/bin/mkswap	--	system_u:object_r:fsadm_exec_t
+/usr/bin/parted	--	system_u:object_r:fsadm_exec_t
+/usr/bin/passwd	--	system_u:object_r:passwd_exec_t
+/usr/bin/pvdata	--	system_u:object_r:lvm_exec_t
+/usr/bin/pvmove	--	system_u:object_r:lvm_exec_t
+/usr/bin/pvscan	--	system_u:object_r:lvm_exec_t
+/usr/bin/pwconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/rklogd	--	system_u:object_r:klogd_exec_t
+/usr/bin/screen	--	system_u:object_r:screen_exec_t
+/usr/bin/sfdisk	--	system_u:object_r:fsadm_exec_t
+/usr/bin/siggen	--	system_u:object_r:siggen_exec_t
+/usr/bin/suexec	--	system_u:object_r:httpd_suexec_exec_t
+/usr/bin/vgscan	--	system_u:object_r:lvm_exec_t
+/usr/bin/wigwam	--	system_u:object_r:httpd_exec_t
+/usr/sbin/blkid	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/clvmd	--	system_u:object_r:clvmd_exec_t
+/usr/sbin/fcron	--	system_u:object_r:crond_exec_t
+/usr/sbin/fdisk	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/fping	--	system_u:object_r:ping_exec_t
+/usr/sbin/gdisk	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/ipset	--	system_u:object_r:iptables_exec_t
+/usr/sbin/klogd	--	system_u:object_r:klogd_exec_t
+/usr/sbin/mdadm	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/mdmon	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/mdmpd	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/partx	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/rmail	--	system_u:object_r:sendmail_exec_t
+/usr/sbin/smrsh	--	system_u:object_r:shell_exec_t
+/usr/sbin/snmpd	--	system_u:object_r:snmpd_exec_t
+/usr/sbin/snort	--	system_u:object_r:snort_exec_t
+/usr/sbin/ssmtp	--	system_u:object_r:sendmail_exec_t
+/usr/sbin/udevd	--	system_u:object_r:udev_exec_t
+/usr/sbin/zhack	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/zpios	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/zpool	--	system_u:object_r:mount_exec_t
+/usr/sbin/ztest	--	system_u:object_r:fsadm_exec_t
+/var/log/syslog	--	system_u:object_r:var_log_t
+/var/tmp/host_0	--	system_u:object_r:krb5_host_rcache_t
+/var/tmp/imap_0	--	system_u:object_r:krb5_host_rcache_t
+/tmp/lost\+found	-d	system_u:object_r:lost_found_t
+/usr/lost\+found	-d	system_u:object_r:lost_found_t
+/var/lost\+found	-d	system_u:object_r:lost_found_t
+/var/spool/cron	-d	system_u:object_r:cron_spool_t
+/dev/cachefiles	-c	system_u:object_r:cachefiles_device_t
+/dev/controlD64	-c	system_u:object_r:xserver_misc_device_t
+/dev/input/mice	-c	system_u:object_r:mouse_device_t
+/dev/sequencer2	-c	system_u:object_r:sound_device_t
+/dev/usb/rio500	-c	system_u:object_r:removable_device_t
+/dev/vhost-scsi	-c	system_u:object_r:vhost_device_t
+/dev/xen/evtchn	-c	system_u:object_r:xen_device_t
+/dev/xen/gntdev	-c	system_u:object_r:xen_device_t
+/dev/xen/xenbus	-c	system_u:object_r:xen_device_t
+/run/fcron\.fifo	-s	system_u:object_r:crond_runtime_t
+/etc/httpd/logs	system_u:object_r:httpd_log_t
+/etc/krb5\.keytab	--	system_u:object_r:krb5_keytab_t
+/etc/ld\.so\.cache	--	system_u:object_r:ld_so_cache_t
+/etc/passwd\.lock	--	system_u:object_r:shadow_t
+/etc/profile\.env	--	system_u:object_r:etc_runtime_t
+/etc/rsyncd\.conf	--	system_u:object_r:rsync_etc_t
+/etc/syslog\.conf	--	system_u:object_r:syslog_conf_t
+/run/anacron\.pid	--	system_u:object_r:crond_runtime_t
+/run/dirmngr\.pid	--	system_u:object_r:dirmngr_runtime_t
+/run/metalog\.pid	--	system_u:object_r:syslogd_runtime_t
+/run/random-seed	--	system_u:object_r:initrc_runtime_t
+/run/rsyncd\.lock	--	system_u:object_r:rsync_runtime_t
+/run/syslogd\.pid	--	system_u:object_r:syslogd_runtime_t
+/usr/bin/addpart	--	system_u:object_r:fsadm_exec_t
+/usr/bin/anacron	--	system_u:object_r:anacron_exec_t
+/usr/bin/audispd	--	system_u:object_r:audisp_exec_t
+/usr/bin/delpart	--	system_u:object_r:fsadm_exec_t
+/usr/bin/dirmngr	--	system_u:object_r:dirmngr_exec_t
+/usr/bin/dmsetup	--	system_u:object_r:lvm_exec_t
+/usr/bin/dosfsck	--	system_u:object_r:fsadm_exec_t
+/usr/bin/e2fsadm	--	system_u:object_r:lvm_exec_t
+/usr/bin/e2label	--	system_u:object_r:fsadm_exec_t
+/usr/bin/ethtool	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/fatsort	--	system_u:object_r:fsadm_exec_t
+/usr/bin/gpasswd	--	system_u:object_r:groupadd_exec_t
+/usr/bin/grpconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/hotplug	--	system_u:object_r:hotplug_exec_t
+/usr/bin/hwclock	--	system_u:object_r:hwclock_exec_t
+/usr/bin/iprdump	--	system_u:object_r:mdadm_exec_t
+/usr/bin/iprinit	--	system_u:object_r:mdadm_exec_t
+/usr/bin/ipvsadm	--	system_u:object_r:iptables_exec_t
+/usr/bin/kadmind	--	system_u:object_r:kadmind_exec_t
+/usr/bin/krb5kdc	--	system_u:object_r:krb5kdc_exec_t
+/usr/bin/lvmetad	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvmsadc	--	system_u:object_r:lvm_exec_t
+/usr/bin/metalog	--	system_u:object_r:syslogd_exec_t
+/usr/bin/mkdosfs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/newrole	--	system_u:object_r:newrole_exec_t
+/usr/bin/nologin	--	system_u:object_r:shell_exec_t
+/usr/bin/sandbox	--	system_u:object_r:portage_exec_t
+/usr/bin/scponly	--	system_u:object_r:shell_exec_t
+/usr/bin/ssi-cgi	--	system_u:object_r:httpd_exec_t
+/usr/bin/sulogin	--	system_u:object_r:sulogin_exec_t
+/usr/bin/sushell	--	system_u:object_r:sulogin_exec_t
+/usr/bin/swapoff	--	system_u:object_r:fsadm_exec_t
+/usr/bin/syslogd	--	system_u:object_r:syslogd_exec_t
+/usr/bin/systemd	--	system_u:object_r:init_exec_t
+/usr/bin/tcpdump	--	system_u:object_r:netutils_exec_t
+/usr/bin/tune2fs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/twadmin	--	system_u:object_r:twadmin_exec_t
+/usr/bin/twprint	--	system_u:object_r:twprint_exec_t
+/usr/bin/udevadm	--	system_u:object_r:udevadm_exec_t
+/usr/bin/upstart	--	system_u:object_r:init_exec_t
+/usr/bin/useradd	--	system_u:object_r:useradd_exec_t
+/usr/bin/userdel	--	system_u:object_r:useradd_exec_t
+/usr/bin/usermod	--	system_u:object_r:useradd_exec_t
+/usr/bin/vgmerge	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgsplit	--	system_u:object_r:lvm_exec_t
+/usr/bin/zinject	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/arping	--	system_u:object_r:netutils_exec_t
+/usr/sbin/auditd	--	system_u:object_r:auditd_exec_t
+/usr/sbin/cfdisk	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/dhcdbd	--	system_u:object_r:dhcpc_exec_t
+/usr/sbin/dhcp6c	--	system_u:object_r:dhcpc_exec_t
+/usr/sbin/dhcpcd	--	system_u:object_r:dhcpc_exec_t
+/usr/sbin/dmraid	--	system_u:object_r:lvm_exec_t
+/usr/sbin/e2fsck	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/e4fsck	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/findfs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/hdparm	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/hping2	--	system_u:object_r:ping_exec_t
+/usr/sbin/lsraid	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/lvmsar	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvscan	--	system_u:object_r:lvm_exec_t
+/usr/sbin/mke2fs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/mke4fs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/mkraid	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/mkswap	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/openrc	--	system_u:object_r:rc_exec_t
+/usr/sbin/parted	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/pvdata	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pvmove	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pvscan	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pwconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/sbin/rklogd	--	system_u:object_r:klogd_exec_t
+/usr/sbin/sfdisk	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/siggen	--	system_u:object_r:siggen_exec_t
+/usr/sbin/suexec	--	system_u:object_r:httpd_suexec_exec_t
+/usr/sbin/vgscan	--	system_u:object_r:lvm_exec_t
+/usr/sbin/wigwam	--	system_u:object_r:httpd_exec_t
+/var/log/faillog	--	system_u:object_r:faillog_t
+/var/log/lastlog	--	system_u:object_r:lastlog_t
+/var/tmp/HTTP_23	--	system_u:object_r:krb5_host_rcache_t
+/var/tmp/HTTP_48	--	system_u:object_r:krb5_host_rcache_t
+/var/tmp/ldap_55	--	system_u:object_r:krb5_host_rcache_t
+/boot/lost\+found	-d	system_u:object_r:lost_found_t
+/var/lock/subsys	-d	system_u:object_r:var_lock_t
+/var/spool/fcron	-d	system_u:object_r:cron_spool_t
+/dev/vga_arbiter	-c	system_u:object_r:xserver_misc_device_t
+/dev/xen/privcmd	-c	system_u:object_r:xen_device_t
+/run/auditd_sock	-s	system_u:object_r:auditd_runtime_t
+/run/dhcpcd\.sock	-s	system_u:object_r:dhcpc_runtime_t
+/run/gcache_port	-s	system_u:object_r:httpd_runtime_t
+/etc/Muttrc\.local	--	system_u:object_r:mutt_etc_t
+/etc/fstab\.REVOKE	--	system_u:object_r:etc_runtime_t
+/etc/make\.globals	--	system_u:object_r:portage_conf_t
+/etc/rsyslog\.conf	--	system_u:object_r:syslog_conf_t
+/run/cherokee\.pid	--	system_u:object_r:httpd_runtime_t
+/run/motd\.dynamic	--	system_u:object_r:pam_motd_runtime_t
+/run/rsyslogd\.pid	--	system_u:object_r:syslogd_runtime_t
+/run/shutdown\.pid	--	system_u:object_r:shutdown_runtime_t
+/usr/bin/auditctl	--	system_u:object_r:auditctl_exec_t
+/usr/bin/blockdev	--	system_u:object_r:fsadm_exec_t
+/usr/bin/cherokee	--	system_u:object_r:httpd_exec_t
+/usr/bin/dumpe2fs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/ebtables	--	system_u:object_r:iptables_exec_t
+/usr/bin/groupadd	--	system_u:object_r:groupadd_exec_t
+/usr/bin/groupdel	--	system_u:object_r:groupadd_exec_t
+/usr/bin/groupmod	--	system_u:object_r:groupadd_exec_t
+/usr/bin/hiawatha	--	system_u:object_r:httpd_exec_t
+/usr/bin/hostname	--	system_u:object_r:hostname_exec_t
+/usr/bin/ifconfig	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/iptstate	--	system_u:object_r:netutils_exec_t
+/usr/bin/iwconfig	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/ldconfig	--	system_u:object_r:ldconfig_exec_t
+/usr/bin/lighttpd	--	system_u:object_r:httpd_exec_t
+/usr/bin/lvchange	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvcreate	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvextend	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvreduce	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvremove	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvrename	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvresize	--	system_u:object_r:lvm_exec_t
+/usr/bin/mii-tool	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/minilogd	--	system_u:object_r:syslogd_exec_t
+/usr/bin/netplugd	--	system_u:object_r:hotplug_exec_t
+/usr/bin/pvchange	--	system_u:object_r:lvm_exec_t
+/usr/bin/pvcreate	--	system_u:object_r:lvm_exec_t
+/usr/bin/pvremove	--	system_u:object_r:lvm_exec_t
+/usr/bin/pwunconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/rsyslogd	--	system_u:object_r:syslogd_exec_t
+/usr/bin/run_init	--	system_u:object_r:run_init_exec_t
+/usr/bin/scponlyc	--	system_u:object_r:shell_exec_t
+/usr/bin/semanage	--	system_u:object_r:semanage_exec_t
+/usr/bin/semodule	--	system_u:object_r:semanage_exec_t
+/usr/bin/send_arp	--	system_u:object_r:ping_exec_t
+/usr/bin/sepg_ctl	--	system_u:object_r:initrc_exec_t
+/usr/bin/shutdown	--	system_u:object_r:shutdown_exec_t
+/usr/bin/smartctl	--	system_u:object_r:fsadm_exec_t
+/usr/bin/snmptrap	--	system_u:object_r:snmpd_exec_t
+/usr/bin/syslinux	--	system_u:object_r:fsadm_exec_t
+/usr/bin/tmpfiles	--	system_u:object_r:tmpfiles_exec_t
+/usr/bin/tripwire	--	system_u:object_r:tripwire_exec_t
+/usr/bin/udevinfo	--	system_u:object_r:udev_exec_t
+/usr/bin/udevsend	--	system_u:object_r:udev_exec_t
+/usr/bin/utempter	--	system_u:object_r:utempter_exec_t
+/usr/bin/validate	--	system_u:object_r:chkpwd_exec_t
+/usr/bin/vgchange	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgcreate	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgexport	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgextend	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgimport	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgreduce	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgremove	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgrename	--	system_u:object_r:lvm_exec_t
+/usr/lib/rpm/rpmd	--	system_u:object_r:bin_t
+/usr/lib/rpm/rpmk	--	system_u:object_r:bin_t
+/usr/lib/rpm/rpmq	--	system_u:object_r:bin_t
+/usr/lib/rpm/rpmv	--	system_u:object_r:bin_t
+/usr/lib/sendmail	--	system_u:object_r:sendmail_exec_t
+/usr/libexec/sesh	--	system_u:object_r:shell_exec_t
+/usr/sbin/addpart	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/anacron	--	system_u:object_r:anacron_exec_t
+/usr/sbin/audispd	--	system_u:object_r:audisp_exec_t
+/usr/sbin/delpart	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/dmsetup	--	system_u:object_r:lvm_exec_t
+/usr/sbin/dosfsck	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/e2fsadm	--	system_u:object_r:lvm_exec_t
+/usr/sbin/e2label	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/ethtool	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/fatsort	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/gpasswd	--	system_u:object_r:groupadd_exec_t
+/usr/sbin/grpconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/sbin/hotplug	--	system_u:object_r:hotplug_exec_t
+/usr/sbin/hwclock	--	system_u:object_r:hwclock_exec_t
+/usr/sbin/iprdump	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/iprinit	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/ipvsadm	--	system_u:object_r:iptables_exec_t
+/usr/sbin/kadmind	--	system_u:object_r:kadmind_exec_t
+/usr/sbin/krb5kdc	--	system_u:object_r:krb5kdc_exec_t
+/usr/sbin/lvmetad	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvmsadc	--	system_u:object_r:lvm_exec_t
+/usr/sbin/metalog	--	system_u:object_r:syslogd_exec_t
+/usr/sbin/mkdosfs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/nologin	--	system_u:object_r:shell_exec_t
+/usr/sbin/sulogin	--	system_u:object_r:sulogin_exec_t
+/usr/sbin/sushell	--	system_u:object_r:sulogin_exec_t
+/usr/sbin/swapoff	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/syslogd	--	system_u:object_r:syslogd_exec_t
+/usr/sbin/tcpdump	--	system_u:object_r:netutils_exec_t
+/usr/sbin/tune2fs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/twadmin	--	system_u:object_r:twadmin_exec_t
+/usr/sbin/twprint	--	system_u:object_r:twprint_exec_t
+/usr/sbin/udevadm	--	system_u:object_r:udevadm_exec_t
+/usr/sbin/upstart	--	system_u:object_r:init_exec_t
+/usr/sbin/useradd	--	system_u:object_r:useradd_exec_t
+/usr/sbin/userdel	--	system_u:object_r:useradd_exec_t
+/usr/sbin/usermod	--	system_u:object_r:useradd_exec_t
+/usr/sbin/vgmerge	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgsplit	--	system_u:object_r:lvm_exec_t
+/usr/sbin/zinject	--	system_u:object_r:fsadm_exec_t
+/var/log/boot\.log	--	system_u:object_r:var_log_t
+/var/log/tallylog	--	system_u:object_r:faillog_t
+/var/tmp/ldap_487	--	system_u:object_r:krb5_host_rcache_t
+/etc/udev/devices	-d	system_u:object_r:device_t
+/sys/kernel/debug	-d	system_u:object_r:debugfs_t
+/dev/input/uinput	-c	system_u:object_r:event_device_t
+/dev/loop-control	-c	system_u:object_r:loop_control_device_t
+/dev/xen/gntalloc	-c	system_u:object_r:xen_device_t
+/run/\.nscd_socket	-s	system_u:object_r:nscd_runtime_t
+/run/audit_events	-s	system_u:object_r:auditd_runtime_t
+/etc/make\.profile	-l	system_u:object_r:portage_conf_t
+/run/runlevel\.dir	system_u:object_r:initrc_runtime_t
+/etc/ld\.so\.preload	--	system_u:object_r:ld_so_cache_t
+/etc/mtab\.fuselock	--	system_u:object_r:etc_runtime_t
+/etc/udev/hwdb\.bin	--	system_u:object_r:systemd_hwdb_t
+/etc/xen/qemu-ifup	--	system_u:object_r:bin_t
+/run/agetty\.reload	--	system_u:object_r:getty_runtime_t
+/run/ebtables\.lock	--	system_u:object_r:iptables_runtime_t
+/run/setmixer_flag	--	system_u:object_r:initrc_runtime_t
+/run/sshd\.init\.pid	--	system_u:object_r:sshd_runtime_t
+/run/syslog-ng\.ctl	--	system_u:object_r:syslogd_runtime_t
+/run/syslog-ng\.pid	--	system_u:object_r:syslogd_runtime_t
+/usr/bin/badblocks	--	system_u:object_r:fsadm_exec_t
+/usr/bin/conntrack	--	system_u:object_r:iptables_exec_t
+/usr/bin/git-shell	--	system_u:object_r:shell_exec_t
+/usr/bin/gpg-agent	--	system_u:object_r:gpg_agent_exec_t
+/usr/bin/grpunconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/bin/htsslpass	--	system_u:object_r:httpd_helper_exec_t
+/usr/bin/iprupdate	--	system_u:object_r:mdadm_exec_t
+/usr/bin/logrotate	--	system_u:object_r:logrotate_exec_t
+/usr/bin/lvdisplay	--	system_u:object_r:lvm_exec_t
+/usr/bin/lvmchange	--	system_u:object_r:lvm_exec_t
+/usr/bin/mcstransd	--	system_u:object_r:setrans_exec_t
+/usr/bin/partprobe	--	system_u:object_r:fsadm_exec_t
+/usr/bin/pvdisplay	--	system_u:object_r:lvm_exec_t
+/usr/bin/raidstart	--	system_u:object_r:fsadm_exec_t
+/usr/bin/saslauthd	--	system_u:object_r:saslauthd_exec_t
+/usr/bin/scsi_info	--	system_u:object_r:fsadm_exec_t
+/usr/bin/setsebool	--	system_u:object_r:semanage_exec_t
+/usr/bin/snmptrapd	--	system_u:object_r:snmpd_exec_t
+/usr/bin/ssh-agent	--	system_u:object_r:ssh_agent_exec_t
+/usr/bin/syslog-ng	--	system_u:object_r:syslogd_exec_t
+/usr/bin/udevstart	--	system_u:object_r:udev_exec_t
+/usr/bin/vgdisplay	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgmknodes	--	system_u:object_r:lvm_exec_t
+/usr/bin/vgwrapper	--	system_u:object_r:lvm_exec_t
+/usr/lib/sudo/sesh	--	system_u:object_r:shell_exec_t
+/usr/libexec/fcron	--	system_u:object_r:crond_exec_t
+/usr/sbin/auditctl	--	system_u:object_r:auditctl_exec_t
+/usr/sbin/blockdev	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/cherokee	--	system_u:object_r:httpd_exec_t
+/usr/sbin/dmeventd	--	system_u:object_r:lvm_exec_t
+/usr/sbin/dumpe2fs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/ebtables	--	system_u:object_r:iptables_exec_t
+/usr/sbin/groupadd	--	system_u:object_r:groupadd_exec_t
+/usr/sbin/groupdel	--	system_u:object_r:groupadd_exec_t
+/usr/sbin/groupmod	--	system_u:object_r:groupadd_exec_t
+/usr/sbin/hiawatha	--	system_u:object_r:httpd_exec_t
+/usr/sbin/ifconfig	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/iptstate	--	system_u:object_r:netutils_exec_t
+/usr/sbin/iwconfig	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/ldconfig	--	system_u:object_r:ldconfig_exec_t
+/usr/sbin/lighttpd	--	system_u:object_r:httpd_exec_t
+/usr/sbin/lvchange	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvcreate	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvextend	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvreduce	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvremove	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvrename	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvresize	--	system_u:object_r:lvm_exec_t
+/usr/sbin/mii-tool	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/minilogd	--	system_u:object_r:syslogd_exec_t
+/usr/sbin/netplugd	--	system_u:object_r:hotplug_exec_t
+/usr/sbin/pvchange	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pvcreate	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pvremove	--	system_u:object_r:lvm_exec_t
+/usr/sbin/pwunconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/sbin/rsyslogd	--	system_u:object_r:syslogd_exec_t
+/usr/sbin/run_init	--	system_u:object_r:run_init_exec_t
+/usr/sbin/scponlyc	--	system_u:object_r:shell_exec_t
+/usr/sbin/semanage	--	system_u:object_r:semanage_exec_t
+/usr/sbin/semodule	--	system_u:object_r:semanage_exec_t
+/usr/sbin/send_arp	--	system_u:object_r:ping_exec_t
+/usr/sbin/shutdown	--	system_u:object_r:shutdown_exec_t
+/usr/sbin/smartctl	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/snmptrap	--	system_u:object_r:snmpd_exec_t
+/usr/sbin/tripwire	--	system_u:object_r:tripwire_exec_t
+/usr/sbin/udevsend	--	system_u:object_r:udev_exec_t
+/usr/sbin/utempter	--	system_u:object_r:utempter_exec_t
+/usr/sbin/validate	--	system_u:object_r:chkpwd_exec_t
+/usr/sbin/vgchange	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgcreate	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgexport	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgextend	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgimport	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgreduce	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgremove	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgrename	--	system_u:object_r:lvm_exec_t
+/dev/btrfs-control	-c	system_u:object_r:lvm_control_t
+/dev/device-mapper	-c	system_u:object_r:fixed_disk_device_t
+/etc/httpd/modules	system_u:object_r:httpd_modules_t
+/etc/apcupsd/commok	--	system_u:object_r:bin_t
+/etc/sysconfig/init	--	system_u:object_r:bin_t
+/etc/x11/startDM\.sh	--	system_u:object_r:initrc_exec_t
+/run/kerneloops\.pid	--	system_u:object_r:initrc_runtime_t
+/usr/bin/cryptsetup	--	system_u:object_r:lvm_exec_t
+/usr/bin/efibootmgr	--	system_u:object_r:fsadm_exec_t
+/usr/bin/fusermount	--	system_u:object_r:mount_exec_t
+/usr/bin/gcc-config	--	system_u:object_r:gcc_config_exec_t
+/usr/bin/glsa-check	--	system_u:object_r:portage_exec_t
+/usr/bin/lvm\.static	--	system_u:object_r:lvm_exec_t
+/usr/bin/mkreiserfs	--	system_u:object_r:fsadm_exec_t
+/usr/bin/mountpoint	--	system_u:object_r:bin_t
+/usr/bin/mtr-packet	--	system_u:object_r:traceroute_exec_t
+/usr/bin/multipathd	--	system_u:object_r:lvm_exec_t
+/usr/bin/raid-check	--	system_u:object_r:mdadm_exec_t
+/usr/bin/restorecon	--	system_u:object_r:setfiles_exec_t
+/usr/bin/rotatelogs	--	system_u:object_r:httpd_rotatelogs_exec_t
+/usr/bin/ssh-keygen	--	system_u:object_r:ssh_keygen_exec_t
+/usr/lib/udev/udevd	--	system_u:object_r:udev_exec_t
+/usr/sbin/badblocks	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/conntrack	--	system_u:object_r:iptables_exec_t
+/usr/sbin/grpunconv	--	system_u:object_r:admin_passwd_exec_t
+/usr/sbin/iprupdate	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/logrotate	--	system_u:object_r:logrotate_exec_t
+/usr/sbin/lvdisplay	--	system_u:object_r:lvm_exec_t
+/usr/sbin/lvmchange	--	system_u:object_r:lvm_exec_t
+/usr/sbin/mcstransd	--	system_u:object_r:setrans_exec_t
+/usr/sbin/mkfs\.f2fs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/partprobe	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/pvdisplay	--	system_u:object_r:lvm_exec_t
+/usr/sbin/raidstart	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/saslauthd	--	system_u:object_r:saslauthd_exec_t
+/usr/sbin/scsi_info	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/setsebool	--	system_u:object_r:semanage_exec_t
+/usr/sbin/snmptrapd	--	system_u:object_r:snmpd_exec_t
+/usr/sbin/syslog-ng	--	system_u:object_r:syslogd_exec_t
+/usr/sbin/udevstart	--	system_u:object_r:udev_exec_t
+/usr/sbin/vgdisplay	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgmknodes	--	system_u:object_r:lvm_exec_t
+/usr/sbin/vgwrapper	--	system_u:object_r:lvm_exec_t
+/var/tmp/ldapmap1_0	--	system_u:object_r:krb5_host_rcache_t
+/var/log/lost\+found	-d	system_u:object_r:lost_found_t
+/var/tmp/lost\+found	-d	system_u:object_r:lost_found_t
+/var/tmp/vi\.recover	-d	system_u:object_r:tmp_t
+/dev/mapper/control	-c	system_u:object_r:lvm_control_t
+/run/audispd_events	-s	system_u:object_r:audisp_runtime_t
+/usr/local/\.journal	<<none>>
+/etc/dhclient-script	--	system_u:object_r:dhcp_etc_t
+/etc/dhcp/dhcpd\.conf	--	system_u:object_r:dhcp_etc_t
+/etc/network/ifstate	--	system_u:object_r:etc_runtime_t
+/etc/rc\.d/init\.d/gpm	--	system_u:object_r:gpm_initrc_exec_t
+/etc/sysconfig/crond	--	system_u:object_r:bin_t
+/etc/zfs/zpool\.cache	--	system_u:object_r:etc_runtime_t
+/run/restorecond\.pid	--	system_u:object_r:restorecond_run_t
+/usr/bin/cgi-wrapper	--	system_u:object_r:httpd_exec_t
+/usr/bin/checkpolicy	--	system_u:object_r:checkpolicy_exec_t
+/usr/bin/clubufflush	--	system_u:object_r:fsadm_exec_t
+/usr/bin/consoletype	--	system_u:object_r:consoletype_exec_t
+/usr/bin/e2mmpstatus	--	system_u:object_r:fsadm_exec_t
+/usr/bin/fcronsighup	--	system_u:object_r:crontab_exec_t
+/usr/bin/fusermount3	--	system_u:object_r:mount_exec_t
+/usr/bin/httpd\.event	--	system_u:object_r:httpd_exec_t
+/usr/bin/install-mbr	--	system_u:object_r:fsadm_exec_t
+/usr/bin/load_policy	--	system_u:object_r:load_policy_exec_t
+/usr/bin/lvmdiskscan	--	system_u:object_r:lvm_exec_t
+/usr/bin/mkfs\.cramfs	--	system_u:object_r:bin_t
+/usr/bin/raidautorun	--	system_u:object_r:fsadm_exec_t
+/usr/bin/restorecond	--	system_u:object_r:restorecond_exec_t
+/usr/bin/snort-plain	--	system_u:object_r:snort_exec_t
+/usr/bin/systemd-run	--	system_u:object_r:systemd_run_exec_t
+/usr/bin/unix_chkpwd	--	system_u:object_r:chkpwd_exec_t
+/usr/bin/unix_update	--	system_u:object_r:updpwd_exec_t
+/usr/bin/unix_verify	--	system_u:object_r:chkpwd_exec_t
+/usr/bin/vgcfgbackup	--	system_u:object_r:lvm_exec_t
+/usr/bin/zstreamdump	--	system_u:object_r:fsadm_exec_t
+/usr/lib/sftp-server	--	system_u:object_r:bin_t
+/usr/sbin/cryptsetup	--	system_u:object_r:lvm_exec_t
+/usr/sbin/efibootmgr	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/lvm\.static	--	system_u:object_r:lvm_exec_t
+/usr/sbin/mkreiserfs	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/multipathd	--	system_u:object_r:lvm_exec_t
+/usr/sbin/raid-check	--	system_u:object_r:mdadm_exec_t
+/usr/sbin/restorecon	--	system_u:object_r:setfiles_exec_t
+/usr/sbin/rotatelogs	--	system_u:object_r:httpd_rotatelogs_exec_t
+/dev/cpu_dma_latency	-c	system_u:object_r:pmqos_device_t
+/dev/network_latency	-c	system_u:object_r:pmqos_device_t
+/run/multipathd\.sock	-s	system_u:object_r:lvm_runtime_t
+/etc/X11/xdm/Xsetup_0	--	system_u:object_r:bin_t
+/etc/apcupsd/changeme	--	system_u:object_r:bin_t
+/etc/cups/client\.conf	--	system_u:object_r:etc_t
+/etc/rc\.d/init\.d/nscd	--	system_u:object_r:nscd_initrc_exec_t
+/etc/rc\.d/init\.d/sasl	--	system_u:object_r:saslauthd_initrc_exec_t
+/etc/sysconfig/hwconf	--	system_u:object_r:etc_runtime_t
+/run/motd\.dynamic\.new	--	system_u:object_r:pam_motd_runtime_t
+/run/wd_keepalive\.pid	--	system_u:object_r:initrc_runtime_t
+/usr/bin/ipvsadm-save	--	system_u:object_r:iptables_exec_t
+/usr/bin/make_reiser4	--	system_u:object_r:fsadm_exec_t
+/usr/bin/systemd-hwdb	--	system_u:object_r:systemd_hw_exec_t
+/usr/bin/vgcfgrestore	--	system_u:object_r:lvm_exec_t
+/usr/lib/udev/scsi_id	--	system_u:object_r:bin_t
+/usr/sbin/cgi-wrapper	--	system_u:object_r:httpd_exec_t
+/usr/sbin/clubufflush	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/consoletype	--	system_u:object_r:consoletype_exec_t
+/usr/sbin/e2mmpstatus	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/fcronsighup	--	system_u:object_r:crontab_exec_t
+/usr/sbin/httpd\.event	--	system_u:object_r:httpd_exec_t
+/usr/sbin/install-mbr	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/load_policy	--	system_u:object_r:load_policy_exec_t
+/usr/sbin/lvmdiskscan	--	system_u:object_r:lvm_exec_t
+/usr/sbin/mkfs\.cramfs	--	system_u:object_r:bin_t
+/usr/sbin/raidautorun	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/restorecond	--	system_u:object_r:restorecond_exec_t
+/usr/sbin/snort-plain	--	system_u:object_r:snort_exec_t
+/usr/sbin/unix_chkpwd	--	system_u:object_r:chkpwd_exec_t
+/usr/sbin/unix_update	--	system_u:object_r:updpwd_exec_t
+/usr/sbin/unix_verify	--	system_u:object_r:chkpwd_exec_t
+/usr/sbin/vgcfgbackup	--	system_u:object_r:lvm_exec_t
+/usr/sbin/zstreamdump	--	system_u:object_r:fsadm_exec_t
+/usr/local/lost\+found	-d	system_u:object_r:lost_found_t
+/dev/memory_bandwidth	-c	system_u:object_r:pmqos_device_t
+/etc/apcupsd/onbattery	--	system_u:object_r:bin_t
+/etc/httpd/conf/keytab	--	system_u:object_r:httpd_keytab_t
+/etc/rc\.d/init\.d/httpd	--	system_u:object_r:httpd_initrc_exec_t
+/etc/rc\.d/init\.d/kprop	--	system_u:object_r:kerberos_initrc_exec_t
+/etc/rc\.d/init\.d/squid	--	system_u:object_r:squid_initrc_exec_t
+/usr/bin/audisp-remote	--	system_u:object_r:audisp_remote_exec_t
+/usr/bin/ipx_configure	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/ipx_interface	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/lvmiopversion	--	system_u:object_r:lvm_exec_t
+/usr/bin/mongrel_rails	--	system_u:object_r:httpd_exec_t
+/usr/bin/open_init_pty	--	system_u:object_r:initrc_exec_t
+/usr/bin/systemd-cgtop	--	system_u:object_r:systemd_cgtop_exec_t
+/usr/bin/vgscan\.static	--	system_u:object_r:lvm_exec_t
+/usr/bin/xtables-multi	--	system_u:object_r:iptables_exec_t
+/usr/lib/udev/udev-acl	--	system_u:object_r:udev_exec_t
+/usr/libexec/sudo/sesh	--	system_u:object_r:shell_exec_t
+/usr/sbin/ipvsadm-save	--	system_u:object_r:iptables_exec_t
+/usr/sbin/make_reiser4	--	system_u:object_r:fsadm_exec_t
+/usr/sbin/vgcfgrestore	--	system_u:object_r:lvm_exec_t
+/dev/elographics/e2201	-c	system_u:object_r:mouse_device_t
+/dev/touchscreen/mk712	-c	system_u:object_r:mouse_device_t
+/etc/apcupsd/apccontrol	--	system_u:object_r:bin_t
+/etc/apcupsd/offbattery	--	system_u:object_r:bin_t
+/etc/rc\.d/init\.d/auditd	--	system_u:object_r:auditd_initrc_exec_t
+/etc/rc\.d/init\.d/snortd	--	system_u:object_r:snort_initrc_exec_t
+/root/\.default_contexts	--	system_u:object_r:default_context_t
+/run/mlocate\.daily\.lock	--	system_u:object_r:locate_runtime_t
+/usr/bin/dmsetup\.static	--	system_u:object_r:lvm_exec_t
+/usr/bin/modules-update	--	system_u:object_r:kmod_exec_t
+/usr/bin/partition_uuid	--	system_u:object_r:fsadm_exec_t
+/usr/bin/scsi_unique_id	--	system_u:object_r:fsadm_exec_t
+/usr/bin/systemd-notify	--	system_u:object_r:systemd_notify_exec_t
+/usr/bin/systemd-nspawn	--	system_u:object_r:systemd_nspawn_exec_t
+/usr/bin/update-modules	--	system_u:object_r:kmod_exec_t
+/usr/bin/wait_for_sysfs	--	system_u:object_r:udev_exec_t
+/usr/lib/evince/evinced	--	system_u:object_r:bin_t
+/usr/lib/selinux/hll/pp	--	system_u:object_r:bin_t
+/usr/sbin/audisp-remote	--	system_u:object_r:audisp_remote_exec_t
+/usr/sbin/ipx_configure	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/ipx_interface	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/lvmiopversion	--	system_u:object_r:lvm_exec_t
+/usr/sbin/open_init_pty	--	system_u:object_r:initrc_exec_t
+/usr/sbin/vgscan\.static	--	system_u:object_r:lvm_exec_t
+/usr/sbin/xtables-multi	--	system_u:object_r:iptables_exec_t
+/var/qmail/bin/sendmail	--	system_u:object_r:sendmail_exec_t
+/var/spool/fcron/systab	--	system_u:object_r:system_cron_spool_t
+/var/spool/cron/lastrun	-d	system_u:object_r:crond_tmp_t
+/dev/network_throughput	-c	system_u:object_r:pmqos_device_t
+/run/dhcpcd\.unpriv\.sock	-s	system_u:object_r:dhcpc_runtime_t
+/etc/X11/xdm/GiveConsole	--	system_u:object_r:bin_t
+/etc/X11/xdm/TakeConsole	--	system_u:object_r:bin_t
+/etc/apcupsd/commfailure	--	system_u:object_r:bin_t
+/etc/avahi/etc/localtime	--	system_u:object_r:locale_t
+/etc/rc\.d/init\.d/anacron	--	system_u:object_r:crond_initrc_exec_t
+/etc/rc\.d/init\.d/dirmngr	--	system_u:object_r:dirmngr_initrc_exec_t
+/etc/rc\.d/init\.d/kadmind	--	system_u:object_r:kerberos_initrc_exec_t
+/etc/rc\.d/init\.d/krb524d	--	system_u:object_r:kerberos_initrc_exec_t
+/etc/rc\.d/init\.d/krb5kdc	--	system_u:object_r:kerberos_initrc_exec_t
+/etc/rc\.d/init\.d/rsyslog	--	system_u:object_r:syslogd_initrc_exec_t
+/etc/sysconfig/firstboot	--	system_u:object_r:etc_runtime_t
+/usr/bin/emerge-webrsync	--	system_u:object_r:portage_fetch_exec_t
+/usr/bin/ipvsadm-restore	--	system_u:object_r:iptables_exec_t
+/usr/bin/systemd-analyze	--	system_u:object_r:systemd_analyze_exec_t
+/usr/bin/vgchange\.static	--	system_u:object_r:lvm_exec_t
+/usr/lib/ssh/ssh-keysign	--	system_u:object_r:ssh_keysign_exec_t
+/usr/lib/systemd/systemd	--	system_u:object_r:init_exec_t
+/usr/lib/wicd/monitor\.py	--	system_u:object_r:bin_t
+/usr/libexec/fcronsighup	--	system_u:object_r:crontab_exec_t
+/usr/sbin/dmsetup\.static	--	system_u:object_r:lvm_exec_t
+/usr/sbin/modules-update	--	system_u:object_r:kmod_exec_t
+/usr/sbin/update-modules	--	system_u:object_r:kmod_exec_t
+/usr/sbin/wait_for_sysfs	--	system_u:object_r:udev_exec_t
+/var/spool/cron/crontabs	-d	system_u:object_r:cron_spool_t
+/dev/touchscreen/ucb1x00	-c	system_u:object_r:mouse_device_t
+/etc/krb5kdc/kadm5\.keytab	--	system_u:object_r:krb5_keytab_t
+/etc/rc\.d/init\.d/cherokee	--	system_u:object_r:httpd_initrc_exec_t
+/etc/rc\.d/init\.d/ebtables	--	system_u:object_r:iptables_initrc_exec_t
+/etc/rc\.d/init\.d/hiawatha	--	system_u:object_r:httpd_initrc_exec_t
+/etc/rc\.d/init\.d/lighttpd	--	system_u:object_r:httpd_initrc_exec_t
+/etc/rc\.d/init\.d/mcstrans	--	system_u:object_r:setrans_initrc_exec_t
+/etc/rc\.d/init\.d/nftables	--	system_u:object_r:iptables_initrc_exec_t
+/etc/sysconfig/netconsole	--	system_u:object_r:bin_t
+/etc/vmware/init\.d/vmware	--	system_u:object_r:initrc_exec_t
+/run/tmpfiles\.d/kmod\.conf	--	system_u:object_r:kmod_tmpfiles_conf_t
+/usr/bin/ebtables-restore	--	system_u:object_r:iptables_exec_t
+/usr/bin/ipx_internal_net	--	system_u:object_r:ifconfig_exec_t
+/usr/bin/multipath\.static	--	system_u:object_r:lvm_exec_t
+/usr/bin/sendmail\.postfix	--	system_u:object_r:sendmail_exec_t
+/usr/bin/systemd-coredump	--	system_u:object_r:systemd_coredump_exec_t
+/usr/bin/systemd-tmpfiles	--	system_u:object_r:systemd_tmpfiles_exec_t
+/usr/kerberos/sbin/kpropd	--	system_u:object_r:kpropd_exec_t
+/usr/lib/misc/sftp-server	--	system_u:object_r:bin_t
+/usr/lib/rc/bin/checkpath	--	system_u:object_r:tmpfiles_exec_t
+/usr/lib/upstart/shutdown	--	system_u:object_r:shutdown_exec_t
+/usr/sbin/ipvsadm-restore	--	system_u:object_r:iptables_exec_t
+/usr/sbin/vgchange\.static	--	system_u:object_r:lvm_exec_t
+/var/log/emerge-fetch\.log	--	system_u:object_r:portage_log_t
+/usr/lib/udev/devices/shm	-d	system_u:object_r:tmpfs_t
+/var/log/audit/lost\+found	-d	system_u:object_r:lost_found_t
+/usr/lib/udev/devices/ppp	-c	system_u:object_r:ppp_device_t
+/etc/apcupsd/masterconnect	--	system_u:object_r:bin_t
+/etc/apcupsd/mastertimeout	--	system_u:object_r:bin_t
+/etc/ptal/ptal-printd-like	--	system_u:object_r:etc_runtime_t
+/etc/rc\.d/init\.d/functions	--	system_u:object_r:bin_t
+/etc/rc\.d/init\.d/mdmonitor	--	system_u:object_r:mdadm_initrc_exec_t
+/usr/bin/pam_console_apply	--	system_u:object_r:pam_console_exec_t
+/usr/bin/xtables-nft-multi	--	system_u:object_r:iptables_exec_t
+/usr/kerberos/sbin/kadmind	--	system_u:object_r:kadmind_exec_t
+/usr/kerberos/sbin/krb5kdc	--	system_u:object_r:krb5kdc_exec_t
+/usr/lib/crda/setregdomain	--	system_u:object_r:bin_t
+/usr/lib/rc/sh/tmpfiles\.sh	--	system_u:object_r:tmpfiles_exec_t
+/usr/sbin/ebtables-restore	--	system_u:object_r:iptables_exec_t
+/usr/sbin/ipx_internal_net	--	system_u:object_r:ifconfig_exec_t
+/usr/sbin/multipath\.static	--	system_u:object_r:lvm_exec_t
+/usr/sbin/sendmail\.postfix	--	system_u:object_r:sendmail_exec_t
+/usr/share/build-1/libtool	--	system_u:object_r:bin_t
+/var/lib/syslog-ng\.persist	--	system_u:object_r:syslogd_var_lib_t
+/var/spool/fcron/rm\.systab	--	system_u:object_r:system_cron_spool_t
+/usr/lib/udev/devices/fuse	-c	system_u:object_r:fuse_device_t
+/usr/lib/udev/devices/null	-c	system_u:object_r:null_device_t
+/usr/lib/udev/devices/zero	-c	system_u:object_r:zero_device_t
+/etc/hotplug/firmware\.agent	--	system_u:object_r:hotplug_exec_t
+/etc/mgetty\+sendfax/new_fax	--	system_u:object_r:bin_t
+/usr/lib/git-core/git-shell	--	system_u:object_r:shell_exec_t
+/usr/lib/portage/bin/ebuild	--	system_u:object_r:bin_t
+/usr/lib/portage/bin/emerge	--	system_u:object_r:portage_exec_t
+/usr/lib/squid/cachemgr\.cgi	--	system_u:object_r:httpd_squid_script_exec_t
+/usr/lib/tumbler-1/tumblerd	--	system_u:object_r:bin_t
+/usr/sbin/pam_console_apply	--	system_u:object_r:pam_console_exec_t
+/usr/sbin/xtables-nft-multi	--	system_u:object_r:iptables_exec_t
+/usr/share/build-1/mkdir\.sh	--	system_u:object_r:bin_t
+/usr/share/mdadm/checkarray	--	system_u:object_r:bin_t
+/usr/share/snmp/mibs/\.index	--	system_u:object_r:snmpd_var_lib_t
+/var/spool/fcron/new\.systab	--	system_u:object_r:system_cron_spool_t
+/var/spool/fcron/systab\.tmp	--	system_u:object_r:system_cron_spool_t
+/run/systemd/journal/socket	-s	system_u:object_r:devlog_t
+/run/systemd/journal/stdout	-s	system_u:object_r:devlog_t
+/run/systemd/journal/syslog	-s	system_u:object_r:devlog_t
+/etc/ppp/plugins/rp-pppoe\.so	--	system_u:object_r:lib_t
+/etc/security/namespace\.init	--	system_u:object_r:bin_t
+/etc/sysconfig/iptables\.save	--	system_u:object_r:etc_runtime_t
+/etc/sysconfig/readonly-root	--	system_u:object_r:bin_t
+/usr/bin/pam_timestamp_check	--	system_u:object_r:pam_exec_t
+/usr/bin/systemd-detect-virt	--	system_u:object_r:systemd_detect_virt_exec_t
+/usr/lib/ConsoleKit/udev-acl	--	system_u:object_r:udev_exec_t
+/usr/lib/dconf/dconf-service	--	system_u:object_r:bin_t
+/usr/lib/openssh/ssh-keysign	--	system_u:object_r:ssh_keysign_exec_t
+/usr/lib/portage/bin/sandbox	--	system_u:object_r:portage_exec_t
+/usr/lib/xfce4/panel/migrate	--	system_u:object_r:bin_t
+/usr/lib/xfce4/panel/wrapper	--	system_u:object_r:bin_t
+/usr/share/dput/execute-dput	--	system_u:object_r:bin_t
+/var/spool/fcron/systab\.orig	--	system_u:object_r:system_cron_spool_t
+/usr/lib/systemd/ntp-units\.d	-d	system_u:object_r:systemd_unit_t
+/run/systemd/journal/dev-log	-s	system_u:object_r:devlog_t
+/var/spool/plymouth/boot\.log	system_u:object_r:var_log_t
+/usr/bin/systemd-stdio-bridge	--	system_u:object_r:systemd_stdio_bridge_exec_t
+/usr/bin/xtables-compat-multi	--	system_u:object_r:iptables_exec_t
+/usr/bin/xtables-legacy-multi	--	system_u:object_r:iptables_exec_t
+/usr/kerberos/sbin/login\.krb5	--	system_u:object_r:login_exec_t
+/usr/lib/courier/bin/sendmail	--	system_u:object_r:sendmail_exec_t
+/usr/lib/portage/bin/quickpkg	--	system_u:object_r:portage_exec_t
+/usr/lib/vte/gnome-pty-helper	--	system_u:object_r:bin_t
+/usr/lib/xfce4/xfconf/xfconfd	--	system_u:object_r:bin_t
+/usr/sbin/pam_timestamp_check	--	system_u:object_r:pam_exec_t
+/usr/share/jetty/bin/jetty\.sh	--	system_u:object_r:httpd_exec_t
+/usr/lib/udev/devices/console	-c	system_u:object_r:console_device_t
+/usr/share/mythweb/mythweb\.pl	system_u:object_r:httpd_sys_script_exec_t
+/etc/hotplug/hotplug\.functions	--	system_u:object_r:bin_t
+/etc/wpa_supplicant/wpa_cli\.sh	--	system_u:object_r:bin_t
+/opt/netscape/plugins/nppdf\.so	--	system_u:object_r:textrel_shlib_t
+/sys/devices/system/cpu/online	--	system_u:object_r:cpu_online_t
+/usr/bin/insmod_ksymoops_clean	--	system_u:object_r:bin_t
+/usr/lib/modules/modprobe\.conf	--	system_u:object_r:modules_conf_t
+/usr/lib/portage/bin/ebuild\.sh	--	system_u:object_r:bin_t
+/usr/lib/security/pam_poldi\.so	--	system_u:object_r:textrel_shlib_t
+/usr/lib/systemd/systemd-udevd	--	system_u:object_r:udev_exec_t
+/usr/sbin/xtables-compat-multi	--	system_u:object_r:iptables_exec_t
+/usr/sbin/xtables-legacy-multi	--	system_u:object_r:iptables_exec_t
+/usr/share/cvs/contrib/rcs2log	--	system_u:object_r:bin_t
+/usr/share/sandbox/sandboxX\.sh	--	system_u:object_r:bin_t
+/var/spool/cron/crontabs/munin	--	system_u:object_r:system_cron_spool_t
+/usr/bin/generate-modprobe\.conf	--	system_u:object_r:kmod_exec_t
+/usr/kerberos/sbin/kadmin\.local	--	system_u:object_r:kadmind_exec_t
+/usr/lib/portage/bin/regenworld	--	system_u:object_r:portage_exec_t
+/usr/lib/rsyslog/rsyslog-rotate	--	system_u:object_r:bin_t
+/usr/lib/systemd/systemd-binfmt	--	system_u:object_r:systemd_binfmt_exec_t
+/usr/lib/systemd/systemd-logind	--	system_u:object_r:systemd_logind_exec_t
+/usr/lib/systemd/systemd-rfkill	--	system_u:object_r:systemd_rfkill_exec_t
+/usr/libexec/git-core/git-shell	--	system_u:object_r:shell_exec_t
+/usr/sbin/insmod_ksymoops_clean	--	system_u:object_r:bin_t
+/usr/share/texmf/web2c/mktexdir	--	system_u:object_r:bin_t
+/usr/lib/udev/devices/hugepages	-d	system_u:object_r:hugetlbfs_t
+/var/www/html/configuration\.php	system_u:object_r:httpd_sys_rw_content_t
+/usr/lib/dhcpcd/dhcpcd-run-hooks	--	system_u:object_r:dhcpc_script_exec_t
+/usr/lib/systemd/systemd-localed	--	system_u:object_r:systemd_locale_exec_t
+/usr/lib/xfce4/panel/wrapper-1\.0	--	system_u:object_r:bin_t
+/usr/lib/xfce4/panel/wrapper-2\.0	--	system_u:object_r:bin_t
+/usr/libexec/openssh/sftp-server	--	system_u:object_r:bin_t
+/usr/libexec/openssh/ssh-keysign	--	system_u:object_r:ssh_keysign_exec_t
+/usr/local/kerberos/sbin/kadmind	--	system_u:object_r:kadmind_exec_t
+/usr/local/kerberos/sbin/krb5kdc	--	system_u:object_r:krb5kdc_exec_t
+/usr/sbin/generate-modprobe\.conf	--	system_u:object_r:kmod_exec_t
+/usr/share/dayplanner/dayplanner	--	system_u:object_r:bin_t
+/usr/share/ifupdown2/__main__\.py	--	system_u:object_r:bin_t
+/usr/lib/python-exec/python-exec2	--	system_u:object_r:bin_t
+/usr/lib/systemd/systemd-activate	--	system_u:object_r:systemd_activate_exec_t
+/usr/lib/systemd/systemd-coredump	--	system_u:object_r:systemd_coredump_exec_t
+/usr/lib/systemd/systemd-journald	--	system_u:object_r:syslogd_exec_t
+/usr/lib/systemd/systemd-machined	--	system_u:object_r:systemd_machined_exec_t
+/usr/lib/systemd/systemd-networkd	--	system_u:object_r:systemd_networkd_exec_t
+/usr/lib/systemd/systemd-resolved	--	system_u:object_r:systemd_resolved_exec_t
+/usr/lib/systemd/systemd-shutdown	--	system_u:object_r:init_exec_t
+/usr/lib/xfce4/exo-1/exo-helper-1	--	system_u:object_r:bin_t
+/usr/lib/xfce4/exo-2/exo-helper-2	--	system_u:object_r:bin_t
+/usr/share/cluster/ocf-shellfuncs	--	system_u:object_r:bin_t
+/usr/share/cluster/svclib_nfslock	--	system_u:object_r:bin_t
+/etc/pki/tls/certs/make-dummy-cert	--	system_u:object_r:bin_t
+/usr/lib/systemd/systemd-backlight	--	system_u:object_r:systemd_backlight_exec_t
+/usr/lib/systemd/systemd-hostnamed	--	system_u:object_r:systemd_hostnamed_exec_t
+/usr/lib/udev/udisks-lvm-pv-export	--	system_u:object_r:lvm_exec_t
+/usr/lib/xfce4/xfwm4/helper-dialog	--	system_u:object_r:bin_t
+/usr/libexec/httpd-ssl-pass-dialog	--	system_u:object_r:httpd_passwd_exec_t
+/usr/share/printconf/util/print\.py	--	system_u:object_r:bin_t
+/var/kerberos/krb5kdc/kadm5\.keytab	--	system_u:object_r:krb5_keytab_t
+/etc/systemd/dont-synthesize-nobody	--	system_u:object_r:systemd_conf_t
+/usr/lib/python-exec/python-exec2-c	--	system_u:object_r:bin_t
+/usr/lib/systemd/systemd-cryptsetup	--	system_u:object_r:lvm_exec_t
+/usr/lib/vlc/codec/libdmo_plugin\.so	--	system_u:object_r:textrel_shlib_t
+/usr/lib/portage/bin/emerge-webrsync	--	system_u:object_r:portage_fetch_exec_t
+/usr/lib/systemd/systemd-update-done	--	system_u:object_r:systemd_update_done_exec_t
+/usr/lib/xfce4/notifyd/xfce4-notifyd	--	system_u:object_r:bin_t
+/usr/lib/systemd/systemd-kmsg-syslogd	--	system_u:object_r:syslogd_exec_t
+/usr/lib/systemd/systemd-modules-load	--	system_u:object_r:systemd_modules_load_exec_t
+/usr/share/reportbug/handle_bugscript	--	system_u:object_r:bin_t
+/usr/share/wordpress-mu/wp-config\.php	--	system_u:object_r:httpd_sys_script_exec_t
+/usr/lib/postfix/configure-instance\.sh	--	system_u:object_r:bin_t
+/usr/lib/rc/sh/cgroup-release-agent\.sh	--	system_u:object_r:openrc_cgroup_release_exec_t
+/usr/lib/systemd/systemd-cgroups-agent	--	system_u:object_r:systemd_cgroups_exec_t
+/usr/lib/systemd/systemd-user-sessions	--	system_u:object_r:systemd_sessions_exec_t
+/usr/share/gnucash/finance-quote-check	--	system_u:object_r:bin_t
+/usr/share/selinux/devel/policygentool	--	system_u:object_r:bin_t
+/usr/share/spamassassin/sa-update\.cron	system_u:object_r:bin_t
+/opt/netscape/plugins/libflashplayer\.so	--	system_u:object_r:textrel_shlib_t
+/usr/bin/systemd-tty-ask-password-agent	--	system_u:object_r:systemd_passwd_agent_exec_t
+/usr/lib/selinux/semanage_migrate_store	--	system_u:object_r:semanage_exec_t
+/usr/lib/xfce4/exo-1/exo-compose-mail-1	--	system_u:object_r:bin_t
+/usr/share/gitolite/hooks/common/update	--	system_u:object_r:bin_t
+/usr/share/gnucash/finance-quote-helper	--	system_u:object_r:bin_t
+/usr/lib/avahi/avahi-daemon-check-dns\.sh	--	system_u:object_r:bin_t
+/etc/sysconfig/network-scripts/ifup-ipsec	--	system_u:object_r:initrc_exec_t
+/usr/lib/vlc/codec/librealaudio_plugin\.so	--	system_u:object_r:textrel_shlib_t
+/usr/lib/vlc/codec/librealvideo_plugin\.so	--	system_u:object_r:textrel_shlib_t
+/usr/lib/xfce4/session/balou-export-theme	--	system_u:object_r:bin_t
+/usr/lib/xfce4/session/balou-install-theme	--	system_u:object_r:bin_t
+/usr/lib/xorg/modules/drivers/nvidia_drv\.o	--	system_u:object_r:textrel_shlib_t
+/usr/share/GNUstep/Makefiles/mkinstalldirs	--	system_u:object_r:bin_t
+/usr/share/PackageKit/pk-upgrade-distro\.sh	--	system_u:object_r:bin_t
+/usr/share/system-config-printer/applet\.py	--	system_u:object_r:bin_t
+/usr/share/virtualbox/VBoxCreateUSBNode\.sh	--	system_u:object_r:udev_helper_exec_t
+/usr/lib/xfce4/session/xfsm-shutdown-helper	--	system_u:object_r:bin_t
+/usr/libexec/selinux/semanage_migrate_store	--	system_u:object_r:semanage_exec_t
+/usr/lib/nspluginwrapper/i386/linux/npviewer	--	system_u:object_r:shell_exec_t
+/usr/lib/security/pam_krb5/pam_krb5_storetmp	--	system_u:object_r:bin_t
+/opt/vmware/workstation/lib/lib/wrapper-gtk24\.sh	--	system_u:object_r:bin_t
+/usr/lib/nspluginwrapper/i386/linux/npviewer\.bin	--	system_u:object_r:bin_t
+/usr/share/hal/device-manager/hal-device-manager	--	system_u:object_r:bin_t
+/usr/share/texlive/texmf-dist/scripts/yplan/yplan	--	system_u:object_r:bin_t
+/usr/lib/vlc/video_chroma/libi420_rgb_mmx_plugin\.so	--	system_u:object_r:textrel_shlib_t
+/usr/share/gitolite/hooks/gitolite-admin/post-update	--	system_u:object_r:bin_t
+/usr/share/gnome-sound-recorder/org\.gnome\.SoundRecorder	--	system_u:object_r:bin_t
+/usr/share/texlive/texmf-dist/scripts/fontools/autoinst	--	system_u:object_r:bin_t
+/usr/lib/systemd/system-generators/systemd-fstab-generator	--	system_u:object_r:systemd_fstab_generator_exec_t
+/usr/share/org\.gnome\.Weather/org\.gnome\.Weather\.Application	--	system_u:object_r:bin_t
+/usr/lib/systemd/system-generators/systemd-gpt-auto-generator	--	system_u:object_r:systemd_gpt_generator_exec_t
+/usr/share/texlive/texmf-dist/scripts/checkcites/checkcites\.lua	--	system_u:object_r:bin_t
+/usr/share/texlive/texmf-dist/scripts/match_parens/match_parens	--	system_u:object_r:bin_t
+/usr/share/org\.gnome\.Weather/org\.gnome\.Weather\.BackgroundService	--	system_u:object_r:bin_t
+/usr/share/texlive/texmf-dist/scripts/checklistings/checklistings\.sh	--	system_u:object_r:bin_t

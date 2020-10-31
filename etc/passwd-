@@ -1,0 +1,24 @@
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/bin/false
+daemon:x:2:2:daemon:/sbin:/bin/false
+adm:x:3:4:adm:/var/adm:/bin/false
+lp:x:4:7:lp:/var/spool/lpd:/bin/false
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+news:x:9:13:news:/var/spool/news:/bin/false
+uucp:x:10:14:uucp:/var/spool/uucp:/bin/false
+operator:x:11:0:operator:/root:/sbin/nologin
+portage:x:250:250:portage:/var/tmp/portage:/bin/false
+nobody:x:65534:65534:nobody:/var/empty:/bin/false
+man:x:13:15:System user; man:/dev/null:/sbin/nologin
+sshd:x:22:22:User for ssh:/var/empty:/sbin/nologin
+gentoostudent:x:1000:1000::/home/gentoostudent:/bin/bash
+cron:x:16:16:added by portage for cronbase:/var/spool/cron:/sbin/nologin
+svn:x:399:399:System user; svn:/dev/null:/sbin/nologin
+nullmail:x:88:88:added by portage for nullmailer:/var/spool/nullmailer:/sbin/nologin
+snort:x:999:247:added by portage for snort:/dev/null:/sbin/nologin
+logcheck:x:998:246:added by portage for logcheck:/dev/null:/sbin/nologin
+squid:x:301:301:A user for squid web proxy cache:/var/cache/squid:/sbin/nologin
+mail:x:8:12:Mail program user:/var/spool/mail:/sbin/nologin
+postmaster:x:14:12:added by portage for postmaster:/var/spool/mail:/sbin/nologin

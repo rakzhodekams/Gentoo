@@ -1,6 +1,0 @@
->www-client/firefox-74.0.1
->mail-client/thunderbird-68.9.0
->dev-lang/rust-1.44.0
->dev-lang/clang-10.0.0
->kernel-sources/gentoo-sources-5.4.38
-
