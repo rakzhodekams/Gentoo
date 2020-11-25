@@ -1,0 +1,6 @@
+sys-firmware/intel-microcode intel-ucode
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
+#mail-mta/protonmail-bridge-bin protonmail-bridge-EULA
+app-emulation/virtualbox-extpack-oracle PUEL
+#www-client/opera OPERA-2014
+dev-db/mongodb SSPL-1

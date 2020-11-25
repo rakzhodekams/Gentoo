@@ -1,1 +1,4 @@
 net-analyzer/snort ~amd64
+mail-client/mutt-wizard ~amd64
+#mail-mta/protonmail-bridge-bin ~amd64
+#net-vpn/protonvpn-cli ~amd64
