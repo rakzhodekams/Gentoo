@@ -1,1 +1,1 @@
-net-analyzer/nmap nping nmap-update ncat libssh2
+net-analyzer/nmap libssh2 ncat nmap-update nping

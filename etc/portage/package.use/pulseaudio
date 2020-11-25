@@ -1,0 +1,1 @@
+media-sound/pulseaudio -tcpd realtime elogind -equalizer dbus

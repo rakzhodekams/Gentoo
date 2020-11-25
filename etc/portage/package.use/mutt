@@ -1,1 +1,1 @@
-mail-client/mutt autocrypt mbox pgp-classic smime-classic gpgme
+mail-client/mutt gpgme pgp-classic smime-classic
